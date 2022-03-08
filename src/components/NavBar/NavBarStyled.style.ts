@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const NavBarStyled = styled.div`
-  background-color: #171d34;
+  background-color: ${(props) => props.theme.colors.secondary};
   height: 73px;
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@ const NavBarStyled = styled.div`
     margin: 0px;
     list-style: none;
     display: flex;
-    color: #2ef051;
+    color: ${(props) => props.theme.colors.primary};
     align-items: center;
     height: inherit;
     padding: 0px;

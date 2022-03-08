@@ -55,7 +55,9 @@
       "!./**/*.style.js",
       "!./**/reportWebVitals.ts",
       "!./**/react-app-env.d.ts",
-      "!./**/index.tsx"
+      "!./**/index.tsx",
+      "!./**/pk-theme.ts",
+      "!./**/styled.d.ts"
     ]
   }
 }
