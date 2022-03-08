@@ -1,4 +1,4 @@
-import NavBarStyled from "./NavBar.style";
+import NavBarStyled from "./NavBarStyled.style";
 
 const NavBar = (): JSX.Element => {
   return (
