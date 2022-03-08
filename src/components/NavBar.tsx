@@ -1,6 +1,8 @@
+import NavBarStyled from "./NavBar.style";
+
 const NavBar = (): JSX.Element => {
   return (
-    <div className="navigation">
+    <NavBarStyled>
       <ul>
         <li className="navigation__link">
           <p>Explore</p>
@@ -14,7 +16,7 @@ const NavBar = (): JSX.Element => {
           <p>Spot Discovered</p>
         </li>
       </ul>
-    </div>
+    </NavBarStyled>
   );
 };
 
