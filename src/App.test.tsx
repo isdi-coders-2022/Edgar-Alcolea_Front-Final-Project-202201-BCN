@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+
 import App from "./App";
 
 describe("Given an App component", () => {
@@ -7,7 +8,7 @@ describe("Given an App component", () => {
       render(<App />);
 
       const title = screen.getByRole("heading", {
-        name: /welcome to pk spots!/i,
+        name: /welcome to pk spots !/i,
       });
 
       expect(title).toBeInTheDocument();
