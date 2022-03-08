@@ -1,15 +1,18 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
 
 describe("Given an App component", () => {
   describe("When it renders", () => {
     test("Then it should display a heading with Welcome to PK Spots!", () => {
-      render(<App />);
+      render(
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      );
 
-      const title = screen.getByRole("heading", {
-        name: /welcome to pk spots !/i,
-      });
+      const title = screen.getByRole("list");
 
       expect(title).toBeInTheDocument();
     });

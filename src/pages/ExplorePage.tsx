@@ -1,7 +1,5 @@
-import NavBar from "../components/NavBar/NavBar";
-
 const ExplorePage = (): JSX.Element => {
-  return <NavBar />;
+  return <h1 className="login-title">Welcome to PK Spots !</h1>;
 };
 
 export default ExplorePage;

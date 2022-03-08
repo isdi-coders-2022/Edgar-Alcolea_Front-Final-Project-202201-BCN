@@ -1,20 +1,20 @@
+import { Link } from "react-router-dom";
 import NavBarStyled from "./NavBarStyled.style";
 
 const NavBar = (): JSX.Element => {
   return (
     <NavBarStyled>
       <ul>
-        <li className="navigation__link">
+        <Link to="/explore" className="navigation__link">
           <p>Explore</p>
-        </li>
-        <li className="navigation__link">
-          {" "}
+        </Link>
+
+        <Link to="/my-spots" className="navigation__link">
           <p>My Spots</p>
-        </li>
-        <li className="navigation__link">
-          {" "}
+        </Link>
+        <Link to="/spot-discovered" className="navigation__link">
           <p>Spot Discovered</p>
-        </li>
+        </Link>
       </ul>
     </NavBarStyled>
   );
