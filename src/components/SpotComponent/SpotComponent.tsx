@@ -4,16 +4,14 @@ interface SpotProps {
   spot: Spot;
 }
 
-const SpotComponent = ({ spot }: SpotProps): JSX.Element => {
+const SpotComponent = ({
+  spot: { name, marked, location, image },
+}: SpotProps): JSX.Element => {
   return (
     <li className="spot-container">
-      <img
-        className="spot-image"
-        src="https://images.squarespace-cdn.com/content/v1/59b30729ccc5c5736a2325c1/1517258406485-RVEAFZDOHK6LYIW42PM3/DSC08963+%281%29.jpg?format=1000w"
-        alt="test"
-      />
+      <img className="spot-image" src={image} alt="spot" />
 
-      <p className="spot-name">Test</p>
+      <p className="spot-name">{name}</p>
 
       <div className="spot-info">
         {" "}
@@ -31,9 +29,9 @@ const SpotComponent = ({ spot }: SpotProps): JSX.Element => {
               stroke-width="3"
             />
           </svg>
-          <p>x 2</p>
+          <p>{`x ${marked}`}</p>
         </div>
-        <p className="spot-location">Here</p>
+        <p className="spot-location">{location}</p>
       </div>
     </li>
   );
