@@ -23,6 +23,7 @@ const NavBarStyled = styled.div`
     height: 100%;
     color: inherit;
     text-decoration: none;
+    border: 1px solid #171d34;
     p {
       margin: 0px;
       line-height: 73px;
