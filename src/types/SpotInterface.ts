@@ -1,4 +1,4 @@
-interface Spot {
+interface SpotInterface {
   name: string;
   marked: number;
   description: string;
@@ -8,4 +8,4 @@ interface Spot {
   image: string;
 }
 
-export default Spot;
+export default SpotInterface;

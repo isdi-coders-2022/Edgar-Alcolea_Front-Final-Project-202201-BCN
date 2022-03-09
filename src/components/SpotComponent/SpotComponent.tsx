@@ -1,7 +1,7 @@
-import Spot from "../../types/Spot";
+import SpotInterface from "../../types/SpotInterface";
 
 interface SpotProps {
-  spot: Spot;
+  spot: SpotInterface;
 }
 
 const SpotComponent = ({
