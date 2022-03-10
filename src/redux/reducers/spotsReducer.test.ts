@@ -1,7 +1,7 @@
 import {
-  actionInterface,
-  loadSpotsActionInterface,
-} from "../../types/actionInterface";
+  ActionInterface,
+  LoadSpotsActionInterface,
+} from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
 import loadSpotsAction from "../actions/actionCreators";
 import spotsReducer from "./spotsReducer";
@@ -32,7 +32,7 @@ describe("Given a spotsReducer function", () => {
           image: "testImg",
         },
       ];
-      const action: loadSpotsActionInterface = loadSpotsAction(spots);
+      const action: LoadSpotsActionInterface = loadSpotsAction(spots);
 
       const newSpots: SpotInterface[] = spotsReducer([], action);
 
@@ -43,7 +43,7 @@ describe("Given a spotsReducer function", () => {
   describe("When it receives an action with invalid type", () => {
     test("Then it should return the current state", () => {
       const spots: SpotInterface[] = [];
-      const action: actionInterface = { type: "hello" };
+      const action: ActionInterface = { type: "hello" };
 
       const newSpots: SpotInterface[] = spotsReducer(undefined, action);
 

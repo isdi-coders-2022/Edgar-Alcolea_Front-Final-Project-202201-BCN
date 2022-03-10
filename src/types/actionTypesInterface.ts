@@ -1,5 +1,5 @@
-interface actionTypesInterface {
+interface ActionTypesInterface {
   loadSpots: string;
 }
 
-export default actionTypesInterface;
+export default ActionTypesInterface;

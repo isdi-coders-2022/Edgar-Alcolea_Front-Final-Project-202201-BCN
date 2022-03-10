@@ -1,4 +1,4 @@
-import { loadSpotsActionInterface } from "../../types/actionInterface";
+import { LoadSpotsActionInterface } from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
 import loadSpotsAction from "./actionCreators";
 import actionTypes from "./actionTypes";
@@ -29,12 +29,12 @@ describe("Given a loadSpotsAction", () => {
           image: "testImg",
         },
       ];
-      const expectedAction: loadSpotsActionInterface = {
+      const expectedAction: LoadSpotsActionInterface = {
         type: actionTypes.loadSpots,
         spots,
       };
 
-      const action: loadSpotsActionInterface = loadSpotsAction(spots);
+      const action: LoadSpotsActionInterface = loadSpotsAction(spots);
 
       expect(action).toEqual(expectedAction);
     });

@@ -1,8 +1,8 @@
-import { loadSpotsActionInterface } from "../../types/actionInterface";
+import { LoadSpotsActionInterface } from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
 import actionTypes from "./actionTypes";
 
-const loadSpotsAction = (spots: SpotInterface[]): loadSpotsActionInterface => ({
+const loadSpotsAction = (spots: SpotInterface[]): LoadSpotsActionInterface => ({
   type: actionTypes.loadSpots,
   spots,
 });

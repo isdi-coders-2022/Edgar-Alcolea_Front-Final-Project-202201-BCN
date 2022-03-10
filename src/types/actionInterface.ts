@@ -1,8 +1,8 @@
 import SpotInterface from "./SpotInterface";
 
-export interface actionInterface {
+export interface ActionInterface {
   type: string;
 }
-export interface loadSpotsActionInterface extends actionInterface {
+export interface LoadSpotsActionInterface extends ActionInterface {
   spots: SpotInterface[];
 }
