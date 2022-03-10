@@ -1,7 +1,16 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import SpotComponent from "../components/SpotComponent/SpotComponent";
+import loadSpotsThunk from "../redux/thunks/spotsThunks";
 import SpotInterface from "../types/SpotInterface";
 
 const ExplorePage = (): JSX.Element => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadSpotsThunk);
+  }, [dispatch]);
+
   const spot: SpotInterface = {
     name: "Tempest Freerunning Academy",
     marked: 100,
