@@ -29,12 +29,12 @@ describe("Given a loadSpotsAction", () => {
           image: "testImg",
         },
       ];
-      const expectedAction: loadSpotsActionInterface = {
+      const expectedAction: LoadSpotsActionInterface = {
         type: actionTypes.loadSpots,
         spots,
       };
 
-      const action: loadSpotsActionInterface = loadSpotsAction(spots);
+      const action: LoadSpotsActionInterface = loadSpotsAction(spots);
 
       expect(action).toEqual(expectedAction);
     });
