@@ -1,4 +1,4 @@
-import ActionTypesInterface from "../../types/actionTypesInterface";
+import ActionTypesInterface from "../../types/ActionTypesInterface";
 
 const actionTypes: ActionTypesInterface = {
   loadSpots: "load-spots",
