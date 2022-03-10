@@ -12,7 +12,6 @@ const spotsReducer = (
     case actionTypes.loadSpots:
       newSpots = action.spots;
       break;
-
     default:
       newSpots = [...currentSpots];
       break;
