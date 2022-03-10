@@ -59,6 +59,7 @@
       "!./**/reportWebVitals.ts",
       "!./**/react-app-env.d.ts",
       "!./**/index.tsx",
+      "!./**/index.ts",
       "!./**/pk-theme.ts",
       "!./**/styled.d.ts"
     ]
