@@ -5,6 +5,7 @@ describe("Given a SpotComponent", () => {
   describe("When it receives a spot object", () => {
     test("Then it should display the spot name", () => {
       const spot = {
+        id: "1",
         name: "Test Place",
         marked: 20,
         description: "A place that exists just for the purpose of testing.",

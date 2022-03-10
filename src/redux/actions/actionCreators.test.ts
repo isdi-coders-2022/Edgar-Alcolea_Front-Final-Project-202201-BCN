@@ -8,6 +8,7 @@ describe("Given a loadSpotsAction", () => {
     test('Then it should return an action with type "load-spots"', () => {
       const spots: SpotInterface[] = [
         {
+          id: "1",
           name: "Tempest Freerunning Academy",
           marked: 100,
           description:
@@ -18,6 +19,7 @@ describe("Given a loadSpotsAction", () => {
           image: "testImg",
         },
         {
+          id: "2",
           name: "Test Place",
           marked: 20,
           description: "A place that exists just for the purpose of testing.",
