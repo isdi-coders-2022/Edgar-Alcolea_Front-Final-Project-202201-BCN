@@ -60,6 +60,7 @@
       "!./**/react-app-env.d.ts",
       "!./**/index.tsx",
       "!./**/index.ts",
+      "!./**/hooks.ts",
       "!./**/pk-theme.ts",
       "!./**/styled.d.ts"
     ]

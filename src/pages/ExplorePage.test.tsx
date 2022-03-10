@@ -15,11 +15,9 @@ describe("Given a ExplorePage component", () => {
         </BrowserRouter>
       );
 
-      const title = screen.getByRole("heading", {
-        name: /welcome to pk spots !/i,
-      });
+      const spotList = screen.getByRole("list");
 
-      expect(title).toBeInTheDocument();
+      expect(spotList).toBeInTheDocument();
     });
   });
 });
