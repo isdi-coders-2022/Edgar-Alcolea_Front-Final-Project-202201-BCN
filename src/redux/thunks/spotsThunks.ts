@@ -1,10 +1,8 @@
-import { AnyAction, Dispatch } from "redux";
-import { ThunkAction } from "redux-thunk";
 import SpotInterface from "../../types/SpotInterface";
 import loadSpotsAction from "../actions/actionCreators";
-import { AppDispatch, AppThunk, RootState } from "../store";
+import { AppDispatch, AppThunk } from "../store";
 
-const loadSpotsThunk: AppThunk = () => async (dispatch: AppDispatch) => {
+const loadSpotsThunk = (): AppThunk => async (dispatch: AppDispatch) => {
   const apiURL: string | undefined = process.env.REACT_APP_API_URL;
   const response: Response = await fetch(`${apiURL}spots`);
   const spots: SpotInterface[] = await response.json();
