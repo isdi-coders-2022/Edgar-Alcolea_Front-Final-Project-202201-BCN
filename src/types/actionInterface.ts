@@ -1,5 +1,9 @@
-interface actionInterface {
+import SpotInterface from "./SpotInterface";
+
+export interface actionInterface {
   type: string;
 }
 
-export default actionInterface;
+export interface loadSpotsActionInterface extends actionInterface {
+  spots: SpotInterface[];
+}
