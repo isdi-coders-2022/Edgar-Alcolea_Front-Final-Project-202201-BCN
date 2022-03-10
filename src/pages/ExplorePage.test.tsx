@@ -8,7 +8,7 @@ import ExplorePage from "./ExplorePage";
 
 describe("Given a ExplorePage component", () => {
   describe("When it gets rendered", () => {
-    test('Then it should display a heading item with name "Welcome to PK Spots !"', () => {
+    test('Then it should display a heading item with name "Welcome to PK Spots !"', async () => {
       render(
         <Provider store={store}>
           <BrowserRouter>
@@ -19,9 +19,9 @@ describe("Given a ExplorePage component", () => {
         </Provider>
       );
 
-      const spotList = screen.getByRole("list");
+      const spotImage = await screen.findByRole("img", { name: /spot/i });
 
-      expect(spotList).toBeInTheDocument();
+      expect(spotImage).toBeInTheDocument();
     });
   });
 });

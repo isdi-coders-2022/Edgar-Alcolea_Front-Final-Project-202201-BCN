@@ -1,4 +1,5 @@
 interface SpotInterface {
+  id: string;
   name: string;
   marked: number;
   description: string;

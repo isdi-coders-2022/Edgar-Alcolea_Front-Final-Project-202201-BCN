@@ -17,7 +17,7 @@ const ExplorePage = (): JSX.Element => {
     <>
       <ul className="spot-list">
         {spots.map((spot) => (
-          <SpotComponent spot={spot} />
+          <SpotComponent key={spot.id} spot={spot} />
         ))}
       </ul>
     </>
