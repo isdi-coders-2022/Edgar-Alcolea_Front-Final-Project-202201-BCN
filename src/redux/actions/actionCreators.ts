@@ -1,4 +1,4 @@
-import { LoadSpotsActionInterface } from "../../types/actionInterface";
+import { LoadSpotsActionInterface } from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
 import actionTypes from "./actionTypes";
 
