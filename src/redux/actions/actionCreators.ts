@@ -1,4 +1,3 @@
-import ObjectID from "bson-objectid";
 import {
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
@@ -13,7 +12,7 @@ export const loadSpotsAction = (
   spots,
 });
 
-export const deleteSpotAction = (id: ObjectID): DeleteSpotActionInterface => ({
+export const deleteSpotAction = (id: string): DeleteSpotActionInterface => ({
   type: actionTypes.deleteSpot,
   id,
 });

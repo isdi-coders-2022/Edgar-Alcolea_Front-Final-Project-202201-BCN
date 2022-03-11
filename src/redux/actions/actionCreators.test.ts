@@ -1,4 +1,3 @@
-import ObjectID from "bson-objectid";
 import {
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
@@ -49,8 +48,8 @@ describe("Given a loadSpotsAction", () => {
 describe("Given a deleteSpotAction function", () => {
   describe("When it receives an id", () => {
     test('Then it should return an action with type "delete-spot" and the id', () => {
-      const id: ObjectID = ObjectID();
-      const expectedAction = {
+      const id: string = "deleteMe";
+      const expectedAction: DeleteSpotActionInterface = {
         type: actionTypes.deleteSpot,
         id,
       };

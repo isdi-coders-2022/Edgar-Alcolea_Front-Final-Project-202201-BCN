@@ -1,4 +1,3 @@
-import ObjectID from "bson-objectid";
 import SpotInterface from "./SpotInterface";
 
 export interface ActionInterface {
@@ -9,5 +8,5 @@ export interface LoadSpotsActionInterface extends ActionInterface {
 }
 
 export interface DeleteSpotActionInterface extends ActionInterface {
-  id: ObjectID;
+  id: string;
 }
