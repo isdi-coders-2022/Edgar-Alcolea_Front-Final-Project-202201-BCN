@@ -1,4 +1,5 @@
 import SpotInterface from "../../types/SpotInterface";
+import SpotStyled from "./SpotStyled.style";
 
 interface SpotProps {
   spot: SpotInterface;
@@ -8,7 +9,7 @@ const SpotComponent = ({
   spot: { name, marked, location, image },
 }: SpotProps): JSX.Element => {
   return (
-    <li className="spot-container">
+    <SpotStyled>
       <img className="spot-image" src={image} alt="spot" />
 
       <p className="spot-name">{name}</p>
@@ -33,7 +34,7 @@ const SpotComponent = ({
         </div>
         <p className="spot-location">{location}</p>
       </div>
-    </li>
+    </SpotStyled>
   );
 };
 
