@@ -12,6 +12,9 @@ const spotsReducer = (
     case actionTypes.loadSpots:
       newSpots = action.spots;
       break;
+    case actionTypes.deleteSpot:
+      newSpots = currentSpots.filter((spot) => spot.id !== action.id);
+      break;
     default:
       newSpots = [...currentSpots];
       break;
