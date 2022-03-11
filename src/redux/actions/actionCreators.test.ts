@@ -49,7 +49,7 @@ describe("Given a loadSpotsAction", () => {
 describe("Given a deleteSpotAction function", () => {
   describe("When it receives an id", () => {
     test('Then it should return an action with type "delete-spot" and the id', () => {
-      const id = ObjectID().id;
+      const id: ObjectID = ObjectID();
       const expectedAction = {
         type: actionTypes.deleteSpot,
         id,

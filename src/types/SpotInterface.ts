@@ -1,5 +1,7 @@
+import ObjectID from "bson-objectid";
+
 interface SpotInterface {
-  id: string;
+  id: ObjectID;
   name: string;
   marked: number;
   description: string;
