@@ -57,10 +57,9 @@ describe("Given a spotsReducer function", () => {
 
   describe("When it receives a deleteSpotAction", () => {
     test("Then it should return the current state without the spot with the action payload's id", () => {
-      const id: ObjectID = ObjectID();
       const spots: SpotInterface[] = [
         {
-          id: ObjectID(),
+          id: "test1",
           name: "Tempest Freerunning Academy",
           marked: 100,
           description:
@@ -71,7 +70,7 @@ describe("Given a spotsReducer function", () => {
           image: "testImg",
         },
         {
-          id: id,
+          id: "test2",
           name: "Test Place",
           marked: 20,
           description: "A place that exists just for the purpose of testing.",
@@ -83,7 +82,7 @@ describe("Given a spotsReducer function", () => {
       ];
       const expectedSpots: SpotInterface[] = [
         {
-          id: spots[0].id,
+          id: "test1",
           name: "Tempest Freerunning Academy",
           marked: 100,
           description:
@@ -94,6 +93,7 @@ describe("Given a spotsReducer function", () => {
           image: "testImg",
         },
       ];
+      const id = "test2";
       const action: DeleteSpotActionInterface = {
         type: actionTypes.deleteSpot,
         id,
