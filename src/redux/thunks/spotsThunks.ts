@@ -1,5 +1,6 @@
 import SpotInterface from "../../types/SpotInterface";
-import loadSpotsAction from "../actions/actionCreators";
+import { loadSpotsAction } from "../actions/actionCreators";
+
 import { AppThunk } from "../store";
 
 const loadSpotsThunk: AppThunk = async (dispatch): Promise<void> => {

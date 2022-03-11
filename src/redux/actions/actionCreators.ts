@@ -1,10 +1,18 @@
-import { LoadSpotsActionInterface } from "../../types/ActionInterface";
+import {
+  DeleteSpotActionInterface,
+  LoadSpotsActionInterface,
+} from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
 import actionTypes from "./actionTypes";
 
-const loadSpotsAction = (spots: SpotInterface[]): LoadSpotsActionInterface => ({
+export const loadSpotsAction = (
+  spots: SpotInterface[]
+): LoadSpotsActionInterface => ({
   type: actionTypes.loadSpots,
   spots,
 });
 
-export default loadSpotsAction;
+export const deleteSpotAction = (id: string): DeleteSpotActionInterface => ({
+  type: actionTypes.deleteSpot,
+  id,
+});
