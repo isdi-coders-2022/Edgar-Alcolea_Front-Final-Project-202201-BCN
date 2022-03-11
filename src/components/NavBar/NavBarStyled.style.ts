@@ -34,7 +34,7 @@ const NavBarStyled = styled.div`
     }
   }
 
-  @media screen and (min-width: 1200px) {
+  @media (min-width: 1200px) {
     background-color: ${(props) => props.theme.colors.secondary};
     height: 73px;
     display: flex;
