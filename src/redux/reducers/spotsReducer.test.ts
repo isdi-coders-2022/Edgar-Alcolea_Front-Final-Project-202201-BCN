@@ -15,7 +15,7 @@ describe("Given a spotsReducer function", () => {
     test("Then it should return a new state with the action payload", () => {
       const spots: SpotInterface[] = [
         {
-          id: ObjectID(),
+          id: "test1",
           name: "Tempest Freerunning Academy",
           marked: 100,
           description:
@@ -26,7 +26,7 @@ describe("Given a spotsReducer function", () => {
           image: "testImg",
         },
         {
-          id: ObjectID(),
+          id: "test2",
           name: "Test Place",
           marked: 20,
           description: "A place that exists just for the purpose of testing.",
