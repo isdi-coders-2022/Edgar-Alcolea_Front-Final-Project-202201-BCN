@@ -19,9 +19,9 @@ describe("Given a ExplorePage component", () => {
         </Provider>
       );
 
-      const spotImage = await screen.findByRole("img", { name: /spot/i });
+      const spotImage = await screen.findAllByRole("img", { name: /spot/i });
 
-      expect(spotImage).toBeInTheDocument();
+      expect(spotImage[0]).toBeInTheDocument();
     });
   });
 });
