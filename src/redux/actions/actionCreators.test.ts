@@ -1,6 +1,11 @@
-import { LoadSpotsActionInterface } from "../../types/ActionInterface";
+import ObjectID from "bson-objectid";
+import {
+  DeleteSpotActionInterface,
+  LoadSpotsActionInterface,
+} from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
-import loadSpotsAction from "./actionCreators";
+import { deleteSpotAction, loadSpotsAction } from "./actionCreators";
+
 import actionTypes from "./actionTypes";
 
 describe("Given a loadSpotsAction", () => {
@@ -35,6 +40,22 @@ describe("Given a loadSpotsAction", () => {
       };
 
       const action: LoadSpotsActionInterface = loadSpotsAction(spots);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a deleteSpotAction function", () => {
+  describe("When it receives an id", () => {
+    test('Then it should return an action with type "delete-spot" and the id', () => {
+      const id = ObjectID().id;
+      const expectedAction = {
+        type: actionTypes.deleteSpot,
+        id,
+      };
+
+      const action: DeleteSpotActionInterface = deleteSpotAction(id);
 
       expect(action).toEqual(expectedAction);
     });

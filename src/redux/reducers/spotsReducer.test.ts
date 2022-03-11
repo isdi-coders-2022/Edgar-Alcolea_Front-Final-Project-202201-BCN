@@ -3,7 +3,8 @@ import {
   LoadSpotsActionInterface,
 } from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
-import loadSpotsAction from "../actions/actionCreators";
+import { loadSpotsAction } from "../actions/actionCreators";
+
 import spotsReducer from "./spotsReducer";
 
 describe("Given a spotsReducer function", () => {

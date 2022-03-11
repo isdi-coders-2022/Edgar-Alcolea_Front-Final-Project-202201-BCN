@@ -6,7 +6,9 @@ import {
 import SpotInterface from "../../types/SpotInterface";
 import actionTypes from "./actionTypes";
 
-const loadSpotsAction = (spots: SpotInterface[]): LoadSpotsActionInterface => ({
+export const loadSpotsAction = (
+  spots: SpotInterface[]
+): LoadSpotsActionInterface => ({
   type: actionTypes.loadSpots,
   spots,
 });
