@@ -29,6 +29,20 @@ const handlers = [
       ])
     )
   ),
+  rest.delete(
+    `${process.env.REACT_APP_API_URL}spots/delete/3`,
+    (req, res, ctx) =>
+      res(
+        ctx.status(200),
+        ctx.json({
+          id: "3",
+        })
+      )
+  ),
+  rest.delete(
+    `${process.env.REACT_APP_API_URL}spots/delete/9`,
+    (req, res, ctx) => res(ctx.status(404))
+  ),
 ];
 
 export default handlers;
