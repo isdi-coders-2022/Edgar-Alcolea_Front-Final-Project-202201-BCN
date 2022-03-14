@@ -1,4 +1,3 @@
-import ObjectID from "bson-objectid";
 import {
   ActionInterface,
   DeleteSpotActionInterface,
