@@ -1,4 +1,8 @@
+import { useDispatch } from "react-redux";
+import { deleteSpotThunk } from "../../redux/thunks/spotsThunks";
 import SpotInterface from "../../types/SpotInterface";
+import DeleteButton from "../DeleteButton/DeleteButton";
+
 import SpotStyled from "./SpotStyled.style";
 
 interface SpotProps {
@@ -6,8 +10,14 @@ interface SpotProps {
 }
 
 const SpotComponent = ({
-  spot: { name, marked, location, image },
+  spot: { name, marked, location, image, id },
 }: SpotProps): JSX.Element => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(deleteSpotThunk(id));
+  };
+
   return (
     <SpotStyled>
       <img className="spot-image" src={image} alt="spot" />
@@ -34,6 +44,7 @@ const SpotComponent = ({
         </div>
         <p className="spot-location">{location}</p>
       </div>
+      <DeleteButton actionOnClick={handleClick} />
     </SpotStyled>
   );
 };
