@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import NavBar from "./components/NavBar/NavBar";
+
 import ExplorePage from "./pages/ExplorePage";
 import { pkTheme } from "./pkTheme";
 

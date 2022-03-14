@@ -1,22 +1,35 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import Burger from "../Burger/Burger";
+import SideMenu from "../SideMenu/SideMenu";
 import NavBarStyled from "./NavBarStyled.style";
 
 const NavBar = (): JSX.Element => {
-  return (
-    <NavBarStyled>
-      <ul>
-        <Link to="/explore" className="navigation__link">
-          <p>Explore</p>
-        </Link>
+  const [isActive, setIsActive] = useState<boolean>(false);
 
-        <Link to="/my-spots" className="navigation__link">
-          <p>My Spots</p>
-        </Link>
-        <Link to="/spot-discovered" className="navigation__link">
-          <p>Spot Discovered</p>
-        </Link>
-      </ul>
-    </NavBarStyled>
+  const toggleBurger = () => {
+    setIsActive(isActive ? false : true);
+  };
+
+  return (
+    <>
+      <SideMenu isActive={isActive} />
+      <NavBarStyled>
+        <Burger isActive={isActive} actionOnClick={toggleBurger} />
+        <ul title={"navbar"}>
+          <Link to="/explore" className="navigation__link">
+            <p>Explore</p>
+          </Link>
+
+          <Link to="/my-spots" className="navigation__link">
+            <p>My Spots</p>
+          </Link>
+          <Link to="/spot-discovered" className="navigation__link">
+            <p>Spot Discovered</p>
+          </Link>
+        </ul>
+      </NavBarStyled>
+    </>
   );
 };
 
