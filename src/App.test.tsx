@@ -12,9 +12,9 @@ describe("Given an App component", () => {
         </BrowserRouter>
       );
 
-      const title = screen.getByRole("list");
+      const navBar = screen.getByRole("list", { name: "navbar" });
 
-      expect(title).toBeInTheDocument();
+      expect(navBar).toBeInTheDocument();
     });
   });
 });

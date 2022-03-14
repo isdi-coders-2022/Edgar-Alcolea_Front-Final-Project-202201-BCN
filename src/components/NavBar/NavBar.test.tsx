@@ -15,9 +15,9 @@ describe("Given a NavBar component", () => {
         </BrowserRouter>
       );
 
-      const link = screen.getByRole("list");
+      const navbar = screen.getByRole("list", { name: "navbar" });
 
-      expect(link).toBeInTheDocument();
+      expect(navbar).toBeInTheDocument();
     });
   });
 });
