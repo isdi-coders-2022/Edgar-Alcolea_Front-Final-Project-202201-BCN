@@ -10,8 +10,8 @@ export const loadSpotsThunk: AppThunk = async (dispatch): Promise<void> => {
   dispatch(loadSpotsAction(spots));
 };
 
-export const deleteSpotThunk: AppThunk =
-  (id): AppThunk =>
+export const deleteSpotThunk =
+  (id: string): AppThunk =>
   async (dispatch: AppDispatch): Promise<void> => {
     const response: Response = await fetch(
       `${process.env.REACT_APP_API_URL}spots/delete/${id}`,
@@ -19,7 +19,6 @@ export const deleteSpotThunk: AppThunk =
         method: "DELETE",
       }
     );
-    const { id } = await response.json();
     if (response.ok) {
       dispatch(deleteSpotAction(id));
     }

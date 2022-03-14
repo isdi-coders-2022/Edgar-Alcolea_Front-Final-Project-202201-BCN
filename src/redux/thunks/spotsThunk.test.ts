@@ -1,5 +1,6 @@
+import { DeleteSpotActionInterface } from "../../types/ActionInterface";
 import actionTypes from "../actions/actionTypes";
-import loadSpotsThunk from "./spotsThunks";
+import { deleteSpotThunk, loadSpotsThunk } from "./spotsThunks";
 
 describe("Given a loadSpotsThunk function", () => {
   describe("When it receives a dispatch function", () => {
@@ -36,6 +37,38 @@ describe("Given a loadSpotsThunk function", () => {
       await loadSpotsThunk(dispatch, getState, undefined);
 
       expect(dispatch).toHaveBeenCalledWith(expectedAction);
+    });
+  });
+});
+
+describe("Given a deleteSpotThunk function", () => {
+  describe("When it receives an id", () => {
+    test("Then it should call dispatch with the given id", async () => {
+      const dispatch = jest.fn();
+      const getState = jest.fn();
+      const id: string = "3";
+      const expectedAction: DeleteSpotActionInterface = {
+        id,
+        type: actionTypes.deleteSpot,
+      };
+
+      const thunkFunction = deleteSpotThunk(id);
+      await thunkFunction(dispatch, getState, undefined);
+
+      expect(dispatch).toHaveBeenCalledWith(expectedAction);
+    });
+  });
+
+  describe("When it receives an non existent id", () => {
+    test("Then it shouldn't call dispatch", async () => {
+      const dispatch = jest.fn();
+      const getState = jest.fn();
+      const id: string = "9";
+
+      const thunkFunction = deleteSpotThunk(id);
+      await thunkFunction(dispatch, getState, undefined);
+
+      expect(dispatch).not.toHaveBeenCalled();
     });
   });
 });
