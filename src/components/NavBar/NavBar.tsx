@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useParams, useResolvedPath } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Burger from "../Burger/Burger";
 import SideMenu from "../SideMenu/SideMenu";
 import NavBarStyled from "./NavBarStyled.style";
