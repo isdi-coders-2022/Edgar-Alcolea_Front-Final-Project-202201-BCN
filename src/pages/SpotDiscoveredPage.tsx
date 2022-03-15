@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../redux/hooks";
 import SpotFormInterface from "../types/SpotFormInterface";
 
 const SpotDiscoveredPage = (): JSX.Element => {
@@ -37,14 +36,15 @@ const SpotDiscoveredPage = (): JSX.Element => {
     navigate("/explore");
   };
 
-  const dispatch = useAppDispatch();
-
   return (
     <>
       <h1 className="page-title">Spot Discovered</h1>
       <div className="form-container">
         <form noValidate autoComplete="off" onSubmit={submitData}>
           <div className="form">
+            <div className="file-container">
+              <input type="file" id="name" onChange={changeData} />
+            </div>
             <label htmlFor="name">Name:</label>{" "}
             <input
               type="text"
