@@ -14,6 +14,7 @@ const ExplorePage = (): JSX.Element => {
 
   return (
     <>
+      <h1 className="page-title">Explore</h1>
       <ul className="spot-list">
         {spots.map((spot) => (
           <SpotComponent key={spot.id} spot={spot} />

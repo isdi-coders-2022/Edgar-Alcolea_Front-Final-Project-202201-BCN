@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import NavBar from "./components/NavBar/NavBar";
 
 import ExplorePage from "./pages/ExplorePage";
+import SpotDiscoveredPage from "./pages/SpotDiscoveredPage";
 import { pkTheme } from "./pkTheme";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/explore" element={<ExplorePage />} />
           <Route path="/my-spots" />
-          <Route path="/spot-discovered" />
+          <Route path="/spot-discovered" element={<SpotDiscoveredPage />} />
         </Routes>
       </div>
     </ThemeProvider>
