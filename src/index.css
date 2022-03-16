@@ -39,6 +39,7 @@ body {
     top: -70px;
     font-weight: 200;
     font-size: 20px;
+    user-select: none;
   }
 }
 @media (min-width: 600px) {
@@ -48,5 +49,6 @@ body {
     position: relative;
     width: fit-content;
     margin: 20px auto;
+    user-select: none;
   }
 }

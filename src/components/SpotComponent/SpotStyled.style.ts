@@ -48,7 +48,7 @@ const SpotStyled = styled.li`
 
   @media (min-width: 600px) {
     margin-bottom: 20px;
-    width: 700px;
+    width: 70vw;
     padding: 15px;
     background-color: #171d34;
     border-radius: 15px;
