@@ -1,10 +1,11 @@
 import {
   ActionInterface,
+  CreateSpotActionInterface,
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
 } from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
-import { loadSpotsAction } from "../actions/actionCreators";
+import { createSpotAction, loadSpotsAction } from "../actions/actionCreators";
 import actionTypes from "../actions/actionTypes";
 
 import spotsReducer from "./spotsReducer";
@@ -21,7 +22,8 @@ describe("Given a spotsReducer function", () => {
             "Indoor facility with crazy props and themed spots, training programs and gym.",
           createdBy: "testID",
           location: "Next to L.A.X airport",
-          coordinates: [33.920548123347544, -118.33193817357487],
+          xCoordinate: 24.215,
+          yCoordinate: 45.751,
           image: "testImg",
         },
         {
@@ -31,7 +33,8 @@ describe("Given a spotsReducer function", () => {
           description: "A place that exists just for the purpose of testing.",
           createdBy: "testID",
           location: "The mind",
-          coordinates: [0, 0],
+          xCoordinate: 24.215,
+          yCoordinate: 45.751,
           image: "testImg",
         },
       ];
@@ -65,7 +68,8 @@ describe("Given a spotsReducer function", () => {
             "Indoor facility with crazy props and themed spots, training programs and gym.",
           createdBy: "testID",
           location: "Next to L.A.X airport",
-          coordinates: [33.920548123347544, -118.33193817357487],
+          xCoordinate: 24.215,
+          yCoordinate: 45.751,
           image: "testImg",
         },
         {
@@ -75,7 +79,8 @@ describe("Given a spotsReducer function", () => {
           description: "A place that exists just for the purpose of testing.",
           createdBy: "testID",
           location: "The mind",
-          coordinates: [0, 0],
+          xCoordinate: 24.215,
+          yCoordinate: 45.751,
           image: "testImg",
         },
       ];
@@ -88,7 +93,8 @@ describe("Given a spotsReducer function", () => {
             "Indoor facility with crazy props and themed spots, training programs and gym.",
           createdBy: "testID",
           location: "Next to L.A.X airport",
-          coordinates: [33.920548123347544, -118.33193817357487],
+          xCoordinate: 24.215,
+          yCoordinate: 45.751,
           image: "testImg",
         },
       ];
@@ -99,6 +105,66 @@ describe("Given a spotsReducer function", () => {
       };
 
       const newSpots: SpotInterface[] = spotsReducer(spots, action);
+
+      expect(newSpots).toEqual(expectedSpots);
+    });
+  });
+
+  describe("When it receives a createSpotAction", () => {
+    test("Then it should return a new state with the action payload's spot added", () => {
+      const currentSpots: SpotInterface[] = [
+        {
+          id: "test1",
+          name: "Tempest Freerunning Academy",
+          marked: 100,
+          description:
+            "Indoor facility with crazy props and themed spots, training programs and gym.",
+          createdBy: "testID",
+          location: "Next to L.A.X airport",
+          xCoordinate: 24.215,
+          yCoordinate: 45.751,
+          image: "testImg",
+        },
+      ];
+      const spot = {
+        id: "test2",
+        name: "Test Place",
+        marked: 20,
+        description: "A place that exists just for the purpose of testing.",
+        createdBy: "testID",
+        location: "The mind",
+        xCoordinate: 24.215,
+        yCoordinate: 45.751,
+        image: "testImg",
+      };
+      const expectedSpots = [
+        {
+          id: "test1",
+          name: "Tempest Freerunning Academy",
+          marked: 100,
+          description:
+            "Indoor facility with crazy props and themed spots, training programs and gym.",
+          createdBy: "testID",
+          location: "Next to L.A.X airport",
+          xCoordinate: 24.215,
+          yCoordinate: 45.751,
+          image: "testImg",
+        },
+        {
+          id: "test2",
+          name: "Test Place",
+          marked: 20,
+          description: "A place that exists just for the purpose of testing.",
+          createdBy: "testID",
+          location: "The mind",
+          xCoordinate: 24.215,
+          yCoordinate: 45.751,
+          image: "testImg",
+        },
+      ];
+      const action: CreateSpotActionInterface = createSpotAction(spot);
+
+      const newSpots: SpotInterface[] = spotsReducer(currentSpots, action);
 
       expect(newSpots).toEqual(expectedSpots);
     });
