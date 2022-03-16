@@ -1,4 +1,5 @@
 import {
+  CreateSpotActionInterface,
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
 } from "../../types/ActionInterface";
@@ -15,4 +16,11 @@ export const loadSpotsAction = (
 export const deleteSpotAction = (id: string): DeleteSpotActionInterface => ({
   type: actionTypes.deleteSpot,
   id,
+});
+
+export const createSpotAction = (
+  spot: SpotInterface
+): CreateSpotActionInterface => ({
+  type: actionTypes.createSpot,
+  spot,
 });

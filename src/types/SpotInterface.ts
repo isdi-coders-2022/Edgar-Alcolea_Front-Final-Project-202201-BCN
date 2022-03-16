@@ -1,11 +1,12 @@
 interface SpotInterface {
   id: string;
   name: string;
-  marked: number;
+  marked?: number;
   description: string;
-  createdBy: string;
+  createdBy?: string;
   location: string;
-  coordinates: number[];
+  xCoordinate: number;
+  yCoordinate: number;
   image: string;
 }
 

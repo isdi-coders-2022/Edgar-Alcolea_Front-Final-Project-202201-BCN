@@ -1,9 +1,14 @@
 import {
+  CreateSpotActionInterface,
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
 } from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
-import { deleteSpotAction, loadSpotsAction } from "./actionCreators";
+import {
+  createSpotAction,
+  deleteSpotAction,
+  loadSpotsAction,
+} from "./actionCreators";
 
 import actionTypes from "./actionTypes";
 
@@ -19,7 +24,8 @@ describe("Given a loadSpotsAction", () => {
             "Indoor facility with crazy props and themed spots, training programs and gym.",
           createdBy: "testID",
           location: "Next to L.A.X airport",
-          coordinates: [33.920548123347544, -118.33193817357487],
+          xCoordinate: 24.215,
+          yCoordinate: 45.751,
           image: "testImg",
         },
         {
@@ -29,7 +35,8 @@ describe("Given a loadSpotsAction", () => {
           description: "A place that exists just for the purpose of testing.",
           createdBy: "testID",
           location: "The mind",
-          coordinates: [0, 0],
+          xCoordinate: 24.215,
+          yCoordinate: 45.751,
           image: "testImg",
         },
       ];
@@ -55,6 +62,30 @@ describe("Given a deleteSpotAction function", () => {
       };
 
       const action: DeleteSpotActionInterface = deleteSpotAction(id);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a createSpotAction function", () => {
+  describe("When it receives a spot", () => {
+    test('Then it should return an action with type "create-spot" and the spot', () => {
+      const spot: SpotInterface = {
+        id: "2",
+        name: "Test Place",
+        description: "A place that exists just for the purpose of testing.",
+        location: "The mind",
+        xCoordinate: 24.215,
+        yCoordinate: 45.751,
+        image: "testImg",
+      };
+      const expectedAction: CreateSpotActionInterface = {
+        type: actionTypes.createSpot,
+        spot,
+      };
+
+      const action: CreateSpotActionInterface = createSpotAction(spot);
 
       expect(action).toEqual(expectedAction);
     });

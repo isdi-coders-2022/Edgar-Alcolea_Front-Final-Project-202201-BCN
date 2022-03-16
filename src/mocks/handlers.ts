@@ -43,6 +43,22 @@ const handlers = [
     `${process.env.REACT_APP_API_URL}spots/delete/9`,
     (req, res, ctx) => res(ctx.status(404))
   ),
+  rest.post(`${process.env.REACT_APP_API_URL}spots/new`, (req, res, ctx) =>
+    res(
+      ctx.status(201),
+      ctx.json({
+        id: "test2",
+        name: "Test Place",
+        marked: 20,
+        description: "A place that exists just for the purpose of testing.",
+        createdBy: "testID",
+        location: "The mind",
+        xCoordinate: 24.215,
+        yCoordinate: 45.751,
+        image: "hello",
+      })
+    )
+  ),
 ];
 
 export default handlers;

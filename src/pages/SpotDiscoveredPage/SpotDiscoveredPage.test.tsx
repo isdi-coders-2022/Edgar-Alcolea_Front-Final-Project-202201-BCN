@@ -1,5 +1,7 @@
 import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import store from "../../redux/store";
 import SpotDiscoveredPage from "./SpotDiscoveredPage";
 
 describe("Given a SpotDiscoveredPage component", () => {
@@ -7,7 +9,9 @@ describe("Given a SpotDiscoveredPage component", () => {
     test("Then it should display a heading with Spot Discovered", () => {
       render(
         <BrowserRouter>
-          <SpotDiscoveredPage />
+          <Provider store={store}>
+            <SpotDiscoveredPage />
+          </Provider>
         </BrowserRouter>
       );
 

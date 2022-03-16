@@ -1,5 +1,6 @@
 import {
   ActionInterface,
+  CreateSpotActionInterface,
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
 } from "../../types/ActionInterface";
@@ -20,6 +21,9 @@ const spotsReducer = (
       newSpots = currentSpots.filter(
         (spot) => spot.id !== (action as DeleteSpotActionInterface).id
       );
+      break;
+    case actionTypes.createSpot:
+      newSpots = [...currentSpots, (action as CreateSpotActionInterface).spot];
       break;
     default:
       newSpots = [...currentSpots];

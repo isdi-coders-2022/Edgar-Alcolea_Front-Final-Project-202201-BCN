@@ -14,7 +14,8 @@ describe("Given a SpotComponent", () => {
         description: "A place that exists just for the purpose of testing.",
         createdBy: "62274dd6fb4746a872d98b8d",
         location: "The mind inside its creator",
-        coordinates: [0, 0],
+        xCoordinate: 24.215,
+        yCoordinate: 45.751,
         image: "testImg",
       };
 
@@ -38,7 +39,8 @@ describe("Given a SpotComponent", () => {
         description: "A place that exists just for the purpose of testing.",
         createdBy: "62274dd6fb4746a872d98b8d",
         location: "The mind inside its creator",
-        coordinates: [0, 0],
+        xCoordinate: 24.215,
+        yCoordinate: 45.751,
         image: "testImg",
       };
 
