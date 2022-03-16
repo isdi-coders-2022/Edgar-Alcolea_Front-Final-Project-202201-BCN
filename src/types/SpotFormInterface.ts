@@ -2,8 +2,8 @@ interface SpotFormInterface {
   name: string;
   description: string;
   location: string;
-  xCoordinate: number | undefined;
-  yCoordinate: number | undefined;
+  xCoordinate: number | null;
+  yCoordinate: number | null;
   image: File | null;
 }
 

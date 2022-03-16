@@ -25,9 +25,7 @@ const SpotComponent = ({
   return (
     <SpotStyled>
       <img className="spot-image" src={image} alt="spot" />
-
       <p className="spot-name">{name}</p>
-
       <div className="spot-info">
         {" "}
         <div className="times-marked">
@@ -41,7 +39,7 @@ const SpotComponent = ({
             <path
               d="M14.2249 2.60012C15.0128 1.38058 16.7967 1.38058 17.5847 2.60011L23.6578 12L29.4174 20.9147C30.2772 22.2454 29.3219 24 27.7375 24H15.9048H4.07206C2.48767 24 1.53237 22.2454 2.39217 20.9147L8.15177 12L14.2249 2.60012Z"
               stroke="#BA1A97"
-              stroke-width="3"
+              strokeWidth="3"
             />
           </svg>
           <p>{`x ${marked}`}</p>

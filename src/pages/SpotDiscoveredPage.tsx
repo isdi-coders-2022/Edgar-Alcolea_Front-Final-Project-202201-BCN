@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import SpotForm from "../components/SpotForm/SpotForm";
 import SpotFormInterface from "../types/SpotFormInterface";
 
 const SpotDiscoveredPage = (): JSX.Element => {
   const blankForm: SpotFormInterface = {
     name: "",
     description: "",
-    xCoordinate: undefined,
-    yCoordinate: undefined,
+    xCoordinate: 0,
+    yCoordinate: 0,
     location: "",
     image: null,
   };
@@ -22,8 +23,8 @@ const SpotDiscoveredPage = (): JSX.Element => {
   const isFormInvalid: boolean =
     formData.name === "" ||
     formData.description === "" ||
-    formData.xCoordinate === null ||
-    formData.yCoordinate === null ||
+    formData.xCoordinate === 0 ||
+    formData.yCoordinate === 0 ||
     formData.location === "";
 
   const changeData = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -56,65 +57,14 @@ const SpotDiscoveredPage = (): JSX.Element => {
   return (
     <>
       <h1 className="page-title">Spot Discovered</h1>
-      <div className="form-container">
-        <form noValidate autoComplete="off" onSubmit={submitData}>
-          <div className="form">
-            <div className="file-container">
-              <input type="file" id="file" onChange={changeFile} />
-              <img
-                className={!imgData.imageDefault ? "hidden" : "image-preview"}
-                src={imgData.imageDefault}
-                alt="preview"
-              />
-              <img
-                className={imgData.imageDefault ? "hidden" : "upload-icon"}
-                src="upload.png"
-                alt="upload"
-              />
-            </div>
-            <label htmlFor="name">Name:</label>{" "}
-            <input
-              type="text"
-              id="name"
-              value={formData.name}
-              onChange={changeData}
-            />
-            <label htmlFor="description">Description:</label>{" "}
-            <input
-              type="text"
-              id="description"
-              value={formData.description}
-              onChange={changeData}
-            />
-            <label htmlFor="location">Location:</label>{" "}
-            <input
-              type="text"
-              id="location"
-              value={formData.location}
-              onChange={changeData}
-            />
-            <label htmlFor="xCoordinate">X Coordinate:</label>{" "}
-            <input
-              type="text"
-              id="xCoordinate"
-              value={formData.xCoordinate}
-              onChange={changeData}
-            />
-            <label htmlFor="yCoordinate">Y Coordinate:</label>{" "}
-            <input
-              type="text"
-              id="yCoordinate"
-              value={formData.yCoordinate}
-              onChange={changeData}
-            />
-          </div>
-          <div className="button-container">
-            <button type="submit" disabled={isFormInvalid}>
-              Create!
-            </button>
-          </div>
-        </form>
-      </div>
+      <SpotForm
+        submitData={submitData}
+        changeData={changeData}
+        changeFile={changeFile}
+        imgData={imgData}
+        formData={formData}
+        isFormInvalid={isFormInvalid}
+      />
     </>
   );
 };

@@ -10,6 +10,7 @@ const SideMenuStyled = styled.div`
     left: -200px;
     transition: all 0.25s;
     transition-timing-function: ease-in-out;
+    z-index: 20;
     &.active {
       left: 0px;
       position: absolute;
