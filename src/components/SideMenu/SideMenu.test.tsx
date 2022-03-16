@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import { link } from "fs";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { pkTheme } from "../../pkTheme";
