@@ -12,7 +12,12 @@ const SpotDiscoveredPage = (): JSX.Element => {
     image: null,
   };
 
+  const imageUrl: any = {
+    imageDefault: "",
+  };
+
   const [formData, setFormData] = useState(blankForm);
+  const [imgData, setImgData] = useState(imageUrl);
 
   const isFormInvalid: boolean =
     formData.name === "" ||
@@ -21,21 +26,33 @@ const SpotDiscoveredPage = (): JSX.Element => {
     formData.yCoordinate === null ||
     formData.location === "";
 
-  const changeData = (event: any): void => {
+  const changeData = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setFormData({
       ...formData,
       [event.target.id]: event.target.value,
     });
   };
 
+  const changeFile = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const imageFileData: any = event.target.files;
+    setFormData({ ...formData, image: imageFileData[0] });
+    const reader = new FileReader();
+    reader.onload = async () => {
+      if (reader.readyState === 2) {
+        await setImgData({ ...imgData, imageDefault: reader.result });
+      }
+    };
+
+    if (imageFileData[0]) {
+      await reader.readAsDataURL(imageFileData[0]);
+    }
+  };
   const navigate = useNavigate();
 
   const submitData = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-
     navigate("/explore");
   };
-
   return (
     <>
       <h1 className="page-title">Spot Discovered</h1>
@@ -43,7 +60,17 @@ const SpotDiscoveredPage = (): JSX.Element => {
         <form noValidate autoComplete="off" onSubmit={submitData}>
           <div className="form">
             <div className="file-container">
-              <input type="file" id="name" onChange={changeData} />
+              <input type="file" id="file" onChange={changeFile} />
+              <img
+                className={!imgData.imageDefault ? "hidden" : "image-preview"}
+                src={imgData.imageDefault}
+                alt="preview"
+              />
+              <img
+                className={imgData.imageDefault ? "hidden" : "upload-icon"}
+                src="upload.png"
+                alt="upload"
+              />
             </div>
             <label htmlFor="name">Name:</label>{" "}
             <input

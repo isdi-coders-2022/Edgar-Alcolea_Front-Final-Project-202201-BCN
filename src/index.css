@@ -35,7 +35,6 @@ body {
   text-align: center;
   color: #2ef051;
   position: relative;
-  top: -77px;
   width: fit-content;
   margin: 20px auto;
 }
@@ -69,11 +68,33 @@ body {
   width: 100%;
   border-radius: 15px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
+
 .file-container input {
-  cursor: pointer;
-  height: 100px;
   width: 100%;
-  z-index: 1;
+  cursor: pointer;
+  height: inherit;
+  z-index: 10;
   opacity: 0;
+  margin: 0px;
+  padding: 0px;
+}
+.upload-icon {
+  margin: 20px auto;
+  height: 60%;
+  color: #111927;
+  position: absolute;
+}
+.hidden {
+  display: none;
+}
+.image-preview {
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
 }

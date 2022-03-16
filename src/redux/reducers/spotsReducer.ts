@@ -1,19 +1,25 @@
-import { AnyAction } from "redux";
+import {
+  ActionInterface,
+  DeleteSpotActionInterface,
+  LoadSpotsActionInterface,
+} from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
 import actionTypes from "../actions/actionTypes";
 
 const spotsReducer = (
   currentSpots: SpotInterface[] = [],
-  action: AnyAction
+  action: ActionInterface
 ): Array<SpotInterface> => {
   let newSpots: SpotInterface[];
 
   switch (action.type) {
     case actionTypes.loadSpots:
-      newSpots = action.spots;
+      newSpots = (action as LoadSpotsActionInterface).spots;
       break;
     case actionTypes.deleteSpot:
-      newSpots = currentSpots.filter((spot) => spot.id !== action.id);
+      newSpots = currentSpots.filter(
+        (spot) => spot.id !== (action as DeleteSpotActionInterface).id
+      );
       break;
     default:
       newSpots = [...currentSpots];

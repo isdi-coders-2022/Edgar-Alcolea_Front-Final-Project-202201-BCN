@@ -100,7 +100,7 @@ const BurgerStyled = styled.div`
     left: calc(50% - 5px);
     top: 29px;
   }
-  @media (min-width: 1200px) {
+  @media (min-width: 600px) {
     display: none;
   } ;
 `;

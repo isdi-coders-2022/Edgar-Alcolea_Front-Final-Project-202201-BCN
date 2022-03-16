@@ -1,8 +1,9 @@
 import { useDispatch } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
 import { deleteSpotThunk } from "../../redux/thunks/spotsThunks";
 import SpotInterface from "../../types/SpotInterface";
 import DeleteButton from "../DeleteButton/DeleteButton";
-
+import "react-toastify/dist/ReactToastify.css";
 import SpotStyled from "./SpotStyled.style";
 
 interface SpotProps {
@@ -16,7 +17,10 @@ const SpotComponent = ({
 
   const handleClick = () => {
     dispatch(deleteSpotThunk(id));
+    notify();
   };
+
+  const notify = () => toast("Spot deleted!", { theme: "dark" });
 
   return (
     <SpotStyled>
@@ -45,6 +49,7 @@ const SpotComponent = ({
         <p className="spot-location">{location}</p>
       </div>
       <DeleteButton actionOnClick={handleClick} />
+      <ToastContainer />
     </SpotStyled>
   );
 };

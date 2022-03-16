@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const SideMenuStyled = styled.div`
-  @media (max-width: 1200px) {
+  @media (max-width: 600px) {
     background-color: ${(props) => props.theme.colors.secondary};
     height: fit-content;
     position: fixed;
@@ -43,7 +43,7 @@ const SideMenuStyled = styled.div`
       }
     }
   }
-  @media (min-width: 1200px) {
+  @media (min-width: 600px) {
     display: none;
   }
 `;
