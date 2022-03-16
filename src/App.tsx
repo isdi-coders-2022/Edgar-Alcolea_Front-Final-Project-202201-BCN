@@ -12,7 +12,7 @@ function App() {
       <div className="container">
         <NavBar />
         <Routes>
-          <Route path="/explore" element={<ExplorePage />} />
+          <Route path="/" element={<ExplorePage />} />
           <Route path="/my-spots" />
           <Route path="/spot-discovered" element={<SpotDiscoveredPage />} />
         </Routes>

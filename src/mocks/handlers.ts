@@ -47,15 +47,15 @@ const handlers = [
     res(
       ctx.status(201),
       ctx.json({
-        id: "6231a686f9c684f92cb619ae",
+        id: "test2",
         name: "Test Place",
-        marked: 0,
+        marked: 20,
         description: "A place that exists just for the purpose of testing.",
-        createdBy: "creatorID",
+        createdBy: "testID",
         location: "The mind",
         xCoordinate: 24.215,
         yCoordinate: 45.751,
-        image: "testImg",
+        image: "hello",
       })
     )
   ),

@@ -1,3 +1,4 @@
+import SpotFormInterface from "../../types/SpotFormInterface";
 import SpotInterface from "../../types/SpotInterface";
 import {
   createSpotAction,
@@ -29,11 +30,26 @@ export const deleteSpotThunk =
   };
 
 export const createSpotThunk =
-  (spot: SpotInterface): AppThunk =>
+  (spot: SpotFormInterface): AppThunk =>
   async (dispatch: AppDispatch): Promise<void> => {
+    const data = new FormData();
+    data.append("name", spot.name);
+    data.append("description", spot.description);
+    data.append("location", spot.location);
+    data.append("xCoordinate", (spot.xCoordinate as number).toString());
+    data.append("yCoordinate", (spot.yCoordinate as number).toString());
+    data.append("image", spot.image as Blob);
+
     const response: Response = await fetch(
       `${process.env.REACT_APP_API_URL}spots/new`,
-      { method: "POST", headers: { "content-type": "multipart/form-data" } }
+      {
+        method: "POST",
+        body: data,
+      }
     );
-    dispatch(createSpotAction(spot));
+
+    if (response.ok) {
+      const newSpot = await response.json();
+      dispatch(createSpotAction(newSpot));
+    }
   };

@@ -2,6 +2,7 @@ import {
   CreateSpotActionInterface,
   DeleteSpotActionInterface,
 } from "../../types/ActionInterface";
+import SpotFormInterface from "../../types/SpotFormInterface";
 import SpotInterface from "../../types/SpotInterface";
 import actionTypes from "../actions/actionTypes";
 import {
@@ -86,6 +87,15 @@ describe("Given a createSpotThunk function", () => {
     test("Then it should call dispatch with the given spot", async () => {
       const dispatch = jest.fn();
       const getState = jest.fn();
+      const file: any = new File(["hello"], "hello.png", { type: "image/png" });
+      const createdSpot: SpotFormInterface = {
+        name: "Test Place",
+        description: "A place that exists just for the purpose of testing.",
+        location: "The mind",
+        xCoordinate: 24.215,
+        yCoordinate: 45.751,
+        image: file,
+      };
       const spot: SpotInterface = {
         id: "test2",
         name: "Test Place",
@@ -95,14 +105,14 @@ describe("Given a createSpotThunk function", () => {
         location: "The mind",
         xCoordinate: 24.215,
         yCoordinate: 45.751,
-        image: "testImg",
+        image: "hello",
       };
       const expectedAction: CreateSpotActionInterface = {
-        spot,
         type: actionTypes.createSpot,
+        spot,
       };
 
-      const thunkFunction = createSpotThunk(spot);
+      const thunkFunction = createSpotThunk(createdSpot);
       await thunkFunction(dispatch, getState, undefined);
 
       expect(dispatch).toHaveBeenCalledWith(expectedAction);

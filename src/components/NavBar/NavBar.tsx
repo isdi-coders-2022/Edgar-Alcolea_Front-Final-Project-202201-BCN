@@ -17,7 +17,7 @@ const NavBar = (): JSX.Element => {
       <NavBarStyled>
         <Burger isActive={isActive} actionOnClick={toggleBurger} />
         <ul title="navbar">
-          <Link to="/explore" className="navigation__link">
+          <Link to="/" className="navigation__link">
             <p>Explore</p>
           </Link>
           <Link to="/my-spots" className="navigation__link">
