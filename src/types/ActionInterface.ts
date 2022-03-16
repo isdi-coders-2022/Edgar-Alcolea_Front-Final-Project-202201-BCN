@@ -10,3 +10,7 @@ export interface LoadSpotsActionInterface extends ActionInterface {
 export interface DeleteSpotActionInterface extends ActionInterface {
   id: string;
 }
+
+export interface CreateSpotActionInterface extends ActionInterface {
+  spot: SpotInterface;
+}
