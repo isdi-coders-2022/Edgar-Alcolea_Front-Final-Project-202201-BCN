@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SpotForm from "../components/SpotForm/SpotForm";
-import SpotFormInterface from "../types/SpotFormInterface";
+import SpotForm from "../../components/SpotForm/SpotForm";
+import SpotFormInterface from "../../types/SpotFormInterface";
 
 const SpotDiscoveredPage = (): JSX.Element => {
   const blankForm: SpotFormInterface = {
@@ -48,6 +48,7 @@ const SpotDiscoveredPage = (): JSX.Element => {
       await reader.readAsDataURL(imageFileData[0]);
     }
   };
+
   const navigate = useNavigate();
 
   const submitData = (event: React.FormEvent<HTMLFormElement>): void => {
