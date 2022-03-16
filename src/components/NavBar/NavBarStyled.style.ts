@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const NavBarStyled = styled.div`
-  @media (max-width: 1200px) {
+  @media (max-width: 600px) {
     background-color: ${(props) => props.theme.colors.secondary};
     height: 73px;
     display: flex;
@@ -35,7 +35,7 @@ const NavBarStyled = styled.div`
       }
     }
   }
-  @media (min-width: 1200px) {
+  @media (min-width: 600px) {
     background-color: ${(props) => props.theme.colors.secondary};
     height: 73px;
     display: flex;

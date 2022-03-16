@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const SpotStyled = styled.li`
   width: 335px;
-  margin-top: 20px;
+  margin-bottom: 20px;
   padding: 15px;
   background-color: #171d34;
   border-radius: 15px;
@@ -22,7 +22,6 @@ const SpotStyled = styled.li`
     object-fit: cover;
     border-radius: 15px;
   }
-
   .times-marked {
     display: flex;
     align-items: center;
@@ -47,9 +46,9 @@ const SpotStyled = styled.li`
     justify-content: space-around;
   }
 
-  @media (min-width: 1200px) {
-    margin-top: 20px;
-    width: 700px;
+  @media (min-width: 600px) {
+    margin-bottom: 20px;
+    width: 70vw;
     padding: 15px;
     background-color: #171d34;
     border-radius: 15px;
@@ -87,7 +86,6 @@ const SpotStyled = styled.li`
       font-size: 20px;
       color: #2ef051;
     }
-
     .spot-info {
       width: inherit;
       display: flex;
