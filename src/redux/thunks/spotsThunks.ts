@@ -1,5 +1,9 @@
 import SpotInterface from "../../types/SpotInterface";
-import { deleteSpotAction, loadSpotsAction } from "../actions/actionCreators";
+import {
+  createSpotAction,
+  deleteSpotAction,
+  loadSpotsAction,
+} from "../actions/actionCreators";
 
 import { AppDispatch, AppThunk } from "../store";
 
@@ -22,4 +26,14 @@ export const deleteSpotThunk =
     if (response.ok) {
       dispatch(deleteSpotAction(id));
     }
+  };
+
+export const createSpotThunk =
+  (spot: SpotInterface): AppThunk =>
+  async (dispatch: AppDispatch): Promise<void> => {
+    const response: Response = await fetch(
+      `${process.env.REACT_APP_API_URL}spots/new`,
+      { method: "POST", headers: { "content-type": "multipart/form-data" } }
+    );
+    dispatch(createSpotAction(spot));
   };

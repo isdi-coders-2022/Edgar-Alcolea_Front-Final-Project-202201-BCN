@@ -1,6 +1,14 @@
-import { DeleteSpotActionInterface } from "../../types/ActionInterface";
+import {
+  CreateSpotActionInterface,
+  DeleteSpotActionInterface,
+} from "../../types/ActionInterface";
+import SpotInterface from "../../types/SpotInterface";
 import actionTypes from "../actions/actionTypes";
-import { deleteSpotThunk, loadSpotsThunk } from "./spotsThunks";
+import {
+  createSpotThunk,
+  deleteSpotThunk,
+  loadSpotsThunk,
+} from "./spotsThunks";
 
 describe("Given a loadSpotsThunk function", () => {
   describe("When it receives a dispatch function", () => {
@@ -69,6 +77,35 @@ describe("Given a deleteSpotThunk function", () => {
       await thunkFunction(dispatch, getState, undefined);
 
       expect(dispatch).not.toHaveBeenCalled();
+    });
+  });
+});
+
+describe("Given a createSpotThunk function", () => {
+  describe("When it receives a spot", () => {
+    test("Then it should call dispatch with the given spot", async () => {
+      const dispatch = jest.fn();
+      const getState = jest.fn();
+      const spot: SpotInterface = {
+        id: "test2",
+        name: "Test Place",
+        marked: 20,
+        description: "A place that exists just for the purpose of testing.",
+        createdBy: "testID",
+        location: "The mind",
+        xCoordinate: 24.215,
+        yCoordinate: 45.751,
+        image: "testImg",
+      };
+      const expectedAction: CreateSpotActionInterface = {
+        spot,
+        type: actionTypes.createSpot,
+      };
+
+      const thunkFunction = createSpotThunk(spot);
+      await thunkFunction(dispatch, getState, undefined);
+
+      expect(dispatch).toHaveBeenCalledWith(expectedAction);
     });
   });
 });
