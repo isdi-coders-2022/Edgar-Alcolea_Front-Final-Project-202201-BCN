@@ -55,6 +55,7 @@ const SpotDiscoveredPage = (): JSX.Element => {
     event.preventDefault();
     navigate("/explore");
   };
+
   return (
     <>
       <h1 className="page-title">Spot Discovered</h1>
