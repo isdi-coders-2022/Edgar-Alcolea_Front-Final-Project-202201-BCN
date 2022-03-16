@@ -47,7 +47,6 @@ export const createSpotThunk =
         body: data,
       }
     );
-
     if (response.ok) {
       const newSpot = await response.json();
       dispatch(createSpotAction(newSpot));

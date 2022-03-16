@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import SpotForm from "../components/SpotForm/SpotForm";
-import { createSpotThunk } from "../redux/thunks/spotsThunks";
-import SpotFormInterface from "../types/SpotFormInterface";
+import SpotForm from "../../components/SpotForm/SpotForm";
+import { createSpotThunk } from "../../redux/thunks/spotsThunks";
+import SpotFormInterface from "../../types/SpotFormInterface";
 
 const SpotDiscoveredPage = (): JSX.Element => {
   const blankForm: SpotFormInterface = {
@@ -51,15 +51,16 @@ const SpotDiscoveredPage = (): JSX.Element => {
       await reader.readAsDataURL(imageFileData[0]);
     }
   };
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const submitData = (event: React.FormEvent<HTMLFormElement>): void => {
-    debugger;
     event.preventDefault();
     dispatch(createSpotThunk(formData));
     toast.success("Spot created!");
     navigate("/");
   };
+
   return (
     <>
       <h1 className="page-title">Spot Discovered</h1>
