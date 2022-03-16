@@ -2,8 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import NavBar from "./components/NavBar/NavBar";
 
-import ExplorePage from "./pages/ExplorePage";
-import SpotDiscoveredPage from "./pages/SpotDiscoveredPage";
+import ExplorePage from "./pages/ExplorePage/ExplorePage";
+import SpotDiscoveredPage from "./pages/SpotDiscoveredPage/SpotDiscoveredPage";
 import { pkTheme } from "./pkTheme";
 
 function App() {
