@@ -9,6 +9,7 @@ import {
   createSpotThunk,
   deleteSpotThunk,
   loadSpotsThunk,
+  updateSpotThunk,
 } from "./spotsThunks";
 
 describe("Given a loadSpotsThunk function", () => {
@@ -112,6 +113,44 @@ describe("Given a createSpotThunk function", () => {
       };
 
       const thunkFunction = createSpotThunk(createdSpot);
+      await thunkFunction(dispatch, getState, undefined);
+
+      expect(dispatch).toHaveBeenCalledWith(expectedAction);
+    });
+  });
+});
+
+describe("Given an updateSpotThunk function", () => {
+  describe("When it receives a spot", () => {
+    test("Then it should call dispatch with the given spot", async () => {
+      const dispatch = jest.fn();
+      const getState = jest.fn();
+      const file: any = new File(["hello"], "hello.png", { type: "image/png" });
+      const updatedSpot: SpotFormInterface = {
+        id: "123456",
+        name: "Updated Spot",
+        description: "A place that exists just for the purpose of testing.",
+        location: "The mind",
+        coordinates: "24.215,45.751",
+        image: file,
+      };
+      const spot: SpotInterface = {
+        id: "123456",
+        name: "Updated Spot",
+        marked: 0,
+        description: "A place that exists just for the purpose of testing.",
+        createdBy: "testID",
+        location: "The mind",
+        xCoordinate: 24.215,
+        yCoordinate: 45.751,
+        image: "hello",
+      };
+      const expectedAction: CreateSpotActionInterface = {
+        type: actionTypes.updateSpot,
+        spot,
+      };
+
+      const thunkFunction = updateSpotThunk(updatedSpot);
       await thunkFunction(dispatch, getState, undefined);
 
       expect(dispatch).toHaveBeenCalledWith(expectedAction);

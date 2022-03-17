@@ -59,6 +59,22 @@ const handlers = [
       })
     )
   ),
+  rest.put(`${process.env.REACT_APP_API_URL}spots/123456`, (req, res, ctx) =>
+    res(
+      ctx.status(201),
+      ctx.json({
+        id: "123456",
+        name: "Updated Spot",
+        marked: 0,
+        description: "A place that exists just for the purpose of testing.",
+        createdBy: "testID",
+        location: "The mind",
+        xCoordinate: 24.215,
+        yCoordinate: 45.751,
+        image: "hello",
+      })
+    )
+  ),
 ];
 
 export default handlers;
