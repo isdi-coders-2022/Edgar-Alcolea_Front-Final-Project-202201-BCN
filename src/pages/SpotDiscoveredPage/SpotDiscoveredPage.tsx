@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import SpotForm from "../../components/SpotForm/SpotForm";
 import { createSpotThunk } from "../../redux/thunks/spotsThunks";
 import SpotFormInterface from "../../types/SpotFormInterface";
@@ -10,8 +9,7 @@ const SpotDiscoveredPage = (): JSX.Element => {
   const blankForm: SpotFormInterface = {
     name: "",
     description: "",
-    xCoordinate: 0,
-    yCoordinate: 0,
+    coordinates: "",
     location: "",
     image: null,
   };
@@ -26,8 +24,7 @@ const SpotDiscoveredPage = (): JSX.Element => {
   const isFormInvalid: boolean =
     formData.name === "" ||
     formData.description === "" ||
-    formData.xCoordinate === 0 ||
-    formData.yCoordinate === 0 ||
+    formData.coordinates === "" ||
     formData.location === "";
 
   const changeData = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -54,10 +51,10 @@ const SpotDiscoveredPage = (): JSX.Element => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const submitData = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     dispatch(createSpotThunk(formData));
-    toast.success("Spot created!");
     navigate("/");
   };
 

@@ -65,20 +65,13 @@ const SpotForm = ({
             />
           </div>
           <div className="input-group">
-            <label htmlFor="xCoordinate">X Coordinate:</label>{" "}
+            <label htmlFor="coordinates">
+              {"Paste the spot coordinates here (x , y):"}
+            </label>{" "}
             <input
               type="text"
-              id="xCoordinate"
+              id="coordinates"
               value={formData.xCoordinate}
-              onChange={changeData}
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="yCoordinate">Y Coordinate:</label>{" "}
-            <input
-              type="text"
-              id="yCoordinate"
-              value={formData.yCoordinate}
               onChange={changeData}
             />
           </div>

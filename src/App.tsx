@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import { ThemeProvider } from "styled-components";
 import NavBar from "./components/NavBar/NavBar";
-
 import ExplorePage from "./pages/ExplorePage/ExplorePage";
 import SpotDiscoveredPage from "./pages/SpotDiscoveredPage/SpotDiscoveredPage";
 import { pkTheme } from "./pkTheme";
@@ -17,6 +17,11 @@ function App() {
           <Route path="/spot-discovered" element={<SpotDiscoveredPage />} />
         </Routes>
       </div>
+      <ToastContainer
+        theme="dark"
+        pauseOnFocusLoss={false}
+        pauseOnHover={false}
+      />
     </ThemeProvider>
   );
 }

@@ -92,8 +92,7 @@ describe("Given a createSpotThunk function", () => {
         name: "Test Place",
         description: "A place that exists just for the purpose of testing.",
         location: "The mind",
-        xCoordinate: 24.215,
-        yCoordinate: 45.751,
+        coordinates: "24.215,45.751",
         image: file,
       };
       const spot: SpotInterface = {

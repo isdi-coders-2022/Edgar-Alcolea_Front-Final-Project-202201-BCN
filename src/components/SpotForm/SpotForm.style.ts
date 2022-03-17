@@ -3,6 +3,8 @@ import styled from "styled-components";
 const StyledForm = styled.div`
   @media (max-width: 600px) {
     margin: 0 auto;
+    position: relative;
+    top: -50px;
     background-color: #171d34;
     width: 95%;
     border-radius: 15px;
@@ -20,15 +22,20 @@ const StyledForm = styled.div`
         flex-direction: column;
         min-width: 80%;
         input {
+          width: 100%;
+          height: 40px;
+          padding: 14px 16px 0 10px;
           background-color: #111927;
           border-radius: 15px;
           border: 0px solid red;
           margin: 10px 0px;
-          padding: 5px;
           color: #70757d;
         }
         label {
           color: #70757d;
+          font-size: 16px;
+          padding: 0 12px;
+          pointer-events: none;
         }
       }
     }
