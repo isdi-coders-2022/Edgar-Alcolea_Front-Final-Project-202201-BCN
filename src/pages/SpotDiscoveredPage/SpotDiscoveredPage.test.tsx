@@ -49,24 +49,4 @@ describe("Given a SpotDiscoveredPage component", () => {
       expect(button).not.toBeDisabled();
     });
   });
-
-  describe("When the user uploads a picture", () => {
-    test("Then the picture preview should be visible", () => {
-      const file: any = new File(["hello"], "hello.png", { type: "image/png" });
-
-      render(
-        <BrowserRouter>
-          <Provider store={store}>
-            <SpotDiscoveredPage />
-          </Provider>
-        </BrowserRouter>
-      );
-
-      const field = screen.getByLabelText(/image/i);
-      userEvent.upload(field, file);
-      const button = screen.getByRole("button");
-
-      expect(button).toBeDisabled();
-    });
-  });
 });
