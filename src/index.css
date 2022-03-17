@@ -13,10 +13,25 @@ body {
   box-sizing: border-box;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .login-title {
   text-align: center;
   color: #fff;
-  position: absolute;
+
   width: 548px;
   height: 60px;
   left: calc(50% - 548px / 2 - 1px);
@@ -25,6 +40,23 @@ body {
   font-weight: normal;
   font-size: 48px;
   line-height: 60px;
+}
+.login-image {
+  position: relative;
+  top: 31px;
+  width: 122px;
+  height: 122px;
+  transform: rotate(17.46deg);
+  z-index: -1;
+}
+
+.register-image {
+  position: relative;
+  top: 31px;
+  width: 122px;
+  height: 122px;
+
+  z-index: -1;
 }
 .spot-list {
   display: flex;

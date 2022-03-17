@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import Loading from "../../components/Loading/Loading";
 import SpotComponent from "../../components/SpotComponent/SpotComponent";
 import { useAppSelector } from "../../redux/hooks";
 import { loadSpotsThunk } from "../../redux/thunks/spotsThunks";
@@ -15,6 +16,7 @@ const ExplorePage = (): JSX.Element => {
   return (
     <>
       <h1 className="page-title">Explore</h1>
+      {spots.length === 0 && <Loading />}
       <ul className="spot-list">
         {spots.map((spot) => (
           <SpotComponent key={spot.id} spot={spot} />

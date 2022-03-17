@@ -31,6 +31,7 @@ const StyledForm = styled.div`
           border: 0px solid red;
           margin: 10px 0px;
           color: #70757d;
+
           ::placeholder {
             color: #70757d;
             font-size: 18px;
@@ -125,6 +126,7 @@ const StyledForm = styled.div`
       padding: 20px;
       font-size: 16px;
       margin-bottom: 20px;
+
       .input-group {
         display: flex;
         flex-direction: column;
@@ -139,6 +141,7 @@ const StyledForm = styled.div`
           border: 0px solid red;
           margin: 10px 0px;
           color: #70757d;
+
           ::placeholder {
             color: #70757d;
             font-size: 18px;
