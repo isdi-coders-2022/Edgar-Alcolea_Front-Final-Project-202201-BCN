@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+
 import { Link, useNavigate } from "react-router-dom";
 import StyledForm from "../../components/SpotForm/SpotForm.style";
 import { LoginFormInterface } from "../../types/LoginFormInterface";
 
 const LoginPage = (): JSX.Element => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const blankForm: LoginFormInterface = {
     userName: "",
