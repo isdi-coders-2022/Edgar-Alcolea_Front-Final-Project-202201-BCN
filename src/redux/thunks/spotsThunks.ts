@@ -5,6 +5,7 @@ import {
   createSpotAction,
   deleteSpotAction,
   loadSpotsAction,
+  updateSpotAction,
 } from "../actions/actionCreators";
 
 import { AppDispatch, AppThunk } from "../store";
@@ -56,6 +57,39 @@ export const createSpotThunk =
       dispatch(createSpotAction(newSpot));
       toast.update(createToast, {
         render: "Spot created!",
+        isLoading: false,
+        type: "success",
+        theme: "dark",
+        autoClose: 1500,
+      });
+    }
+  };
+
+export const updateSpotThunk =
+  (spot: SpotFormInterface): AppThunk =>
+  async (dispatch: AppDispatch): Promise<void> => {
+    const createToast = toast.loading("Updating...🔨");
+    const coordinates = spot.coordinates.split(", ");
+    const data = new FormData();
+    data.append("name", spot.name);
+    data.append("description", spot.description);
+    data.append("location", spot.location);
+    data.append("xCoordinate", coordinates[0]);
+    data.append("yCoordinate", coordinates[1]);
+    data.append("image", spot.image as Blob);
+
+    const response: Response = await fetch(
+      `${process.env.REACT_APP_API_URL}spots/${spot.id}`,
+      {
+        method: "PUT",
+        body: data,
+      }
+    );
+    if (response.ok) {
+      const updatedSpot = await response.json();
+      dispatch(updateSpotAction(updatedSpot));
+      toast.update(createToast, {
+        render: "Spot updated!",
         isLoading: false,
         type: "success",
         theme: "dark",

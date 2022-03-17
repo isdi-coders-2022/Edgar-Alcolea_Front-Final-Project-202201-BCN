@@ -3,6 +3,7 @@ import {
   CreateSpotActionInterface,
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
+  UpdateSpotActionInterface,
 } from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
 import actionTypes from "../actions/actionTypes";
@@ -24,6 +25,13 @@ const spotsReducer = (
       break;
     case actionTypes.createSpot:
       newSpots = [...currentSpots, (action as CreateSpotActionInterface).spot];
+      break;
+    case actionTypes.updateSpot:
+      newSpots = currentSpots.map((spot) =>
+        spot.id === (action as UpdateSpotActionInterface).spot.id
+          ? (action as UpdateSpotActionInterface).spot
+          : spot
+      );
       break;
     default:
       newSpots = [...currentSpots];

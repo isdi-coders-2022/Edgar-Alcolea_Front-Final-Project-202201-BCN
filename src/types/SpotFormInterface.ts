@@ -1,4 +1,5 @@
 interface SpotFormInterface {
+  id?: string;
   name: string;
   description: string;
   location: string;

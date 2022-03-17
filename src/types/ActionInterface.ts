@@ -14,3 +14,7 @@ export interface DeleteSpotActionInterface extends ActionInterface {
 export interface CreateSpotActionInterface extends ActionInterface {
   spot: SpotInterface;
 }
+
+export interface UpdateSpotActionInterface extends ActionInterface {
+  spot: SpotInterface;
+}
