@@ -25,7 +25,6 @@ describe("Given a SpotDiscoveredPage component", () => {
 
   describe("When all input fields are filled", () => {
     test("Then the submit button shouldn't be disabled", () => {
-      const onSubmit = jest.fn();
       const inputFields = [
         /name/i,
         /description/i,

@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { createSpotThunk } from "../../redux/thunks/spotsThunks";
 import SpotFormInterface from "../../types/SpotFormInterface";
 import StyledForm from "./SpotForm.style";
 
-interface SpotFormProps {
-  submitData: (formData: SpotFormInterface) => void;
-}
+const SpotForm = (): JSX.Element => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-const SpotForm = ({ submitData }: SpotFormProps): JSX.Element => {
   const blankForm: SpotFormInterface = {
     name: "",
     description: "",
@@ -52,7 +54,8 @@ const SpotForm = ({ submitData }: SpotFormProps): JSX.Element => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    submitData(formData);
+    dispatch(createSpotThunk(formData));
+    navigate("/");
   };
 
   return (
