@@ -124,7 +124,7 @@ const StyledForm = styled.div`
       color: #fff;
       padding: 20px;
       font-size: 16px;
-
+      margin-bottom: 20px;
       .input-group {
         display: flex;
         flex-direction: column;

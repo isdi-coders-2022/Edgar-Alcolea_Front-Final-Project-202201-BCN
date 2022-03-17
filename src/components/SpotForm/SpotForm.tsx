@@ -1,25 +1,63 @@
+import { useState } from "react";
+import SpotFormInterface from "../../types/SpotFormInterface";
 import StyledForm from "./SpotForm.style";
 
 interface SpotFormProps {
-  submitData: (event: React.FormEvent<HTMLFormElement>) => void;
-  changeFile: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  changeData: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  imgData: any;
-  formData: any;
-  isFormInvalid: boolean;
+  submitData: (formData: SpotFormInterface) => void;
 }
 
-const SpotForm = ({
-  submitData,
-  changeFile,
-  changeData,
-  imgData,
-  formData,
-  isFormInvalid,
-}: SpotFormProps): JSX.Element => {
+const SpotForm = ({ submitData }: SpotFormProps): JSX.Element => {
+  const blankForm: SpotFormInterface = {
+    name: "",
+    description: "",
+    coordinates: "",
+    location: "",
+    image: null,
+  };
+
+  const imageUrl: any = {
+    imageDefault: "",
+  };
+
+  const [formData, setFormData] = useState(blankForm);
+  const [imgData, setImgData] = useState(imageUrl);
+
+  const isFormInvalid: boolean =
+    formData.name === "" ||
+    formData.description === "" ||
+    formData.coordinates === "" ||
+    formData.location === "";
+
+  const changeData = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setFormData({
+      ...formData,
+      [event.target.id]: event.target.value,
+    });
+  };
+
+  const changeFile = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const imageFileData: any = event.target.files;
+    setFormData({ ...formData, image: imageFileData[0] });
+    const reader = new FileReader();
+    reader.onload = async () => {
+      if (reader.readyState === 2) {
+        await setImgData({ ...imgData, imageDefault: reader.result });
+      }
+    };
+
+    if (imageFileData[0]) {
+      await reader.readAsDataURL(imageFileData[0]);
+    }
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    submitData(formData);
+  };
+
   return (
     <StyledForm>
-      <form noValidate autoComplete="off" onSubmit={submitData}>
+      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <div className="form">
           <div className="file-container">
             <label htmlFor="file" className="image-label">
@@ -81,7 +119,7 @@ const SpotForm = ({
             <input
               type="text"
               id="coordinates"
-              value={formData.xCoordinate}
+              value={formData.coordinates}
               onChange={changeData}
               placeholder={"Paste the spot coordinates here (x , y):"}
             />
