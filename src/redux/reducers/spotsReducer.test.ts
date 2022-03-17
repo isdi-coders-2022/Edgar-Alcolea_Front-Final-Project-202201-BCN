@@ -3,9 +3,14 @@ import {
   CreateSpotActionInterface,
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
+  UpdateSpotActionInterface,
 } from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
-import { createSpotAction, loadSpotsAction } from "../actions/actionCreators";
+import {
+  createSpotAction,
+  loadSpotsAction,
+  updateSpotAction,
+} from "../actions/actionCreators";
 import actionTypes from "../actions/actionTypes";
 
 import spotsReducer from "./spotsReducer";
@@ -163,6 +168,55 @@ describe("Given a spotsReducer function", () => {
         },
       ];
       const action: CreateSpotActionInterface = createSpotAction(spot);
+
+      const newSpots: SpotInterface[] = spotsReducer(currentSpots, action);
+
+      expect(newSpots).toEqual(expectedSpots);
+    });
+  });
+
+  describe("When it receives an updateSpotAction", () => {
+    test("Then it should return the spots with the updated one", () => {
+      const currentSpots: SpotInterface[] = [
+        {
+          id: "test1",
+          name: "Tempest Freerunning Academy",
+          marked: 100,
+          description:
+            "Indoor facility with crazy props and themed spots, training programs and gym.",
+          createdBy: "testID",
+          location: "Next to L.A.X airport",
+          xCoordinate: 24.215,
+          yCoordinate: 45.751,
+          image: "testImg",
+        },
+      ];
+      const spot = {
+        id: "test1",
+        name: "Updated Spot",
+        marked: 20,
+        description: "A place that exists just for the purpose of testing.",
+        createdBy: "testID",
+        location: "The mind",
+        xCoordinate: 24.215,
+        yCoordinate: 45.751,
+        image: "testImg",
+      };
+      const expectedSpots = [
+        {
+          id: "test1",
+          name: "Updated Spot",
+          marked: 20,
+          description: "A place that exists just for the purpose of testing.",
+          createdBy: "testID",
+          location: "The mind",
+          xCoordinate: 24.215,
+          yCoordinate: 45.751,
+          image: "testImg",
+        },
+      ];
+
+      const action: UpdateSpotActionInterface = updateSpotAction(spot);
 
       const newSpots: SpotInterface[] = spotsReducer(currentSpots, action);
 
