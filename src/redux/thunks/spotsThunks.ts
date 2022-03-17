@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import SpotFormInterface from "../../types/SpotFormInterface";
 import SpotInterface from "../../types/SpotInterface";
 import {
@@ -26,18 +27,21 @@ export const deleteSpotThunk =
     );
     if (response.ok) {
       dispatch(deleteSpotAction(id));
+      toast("Spot deleted!", { theme: "dark" });
     }
   };
 
 export const createSpotThunk =
   (spot: SpotFormInterface): AppThunk =>
   async (dispatch: AppDispatch): Promise<void> => {
+    const createToast = toast.loading("Discovering...🔎");
+    const coordinates = spot.coordinates.split(", ");
     const data = new FormData();
     data.append("name", spot.name);
     data.append("description", spot.description);
     data.append("location", spot.location);
-    data.append("xCoordinate", (spot.xCoordinate as number).toString());
-    data.append("yCoordinate", (spot.yCoordinate as number).toString());
+    data.append("xCoordinate", coordinates[0]);
+    data.append("yCoordinate", coordinates[1]);
     data.append("image", spot.image as Blob);
 
     const response: Response = await fetch(
@@ -50,5 +54,12 @@ export const createSpotThunk =
     if (response.ok) {
       const newSpot = await response.json();
       dispatch(createSpotAction(newSpot));
+      toast.update(createToast, {
+        render: "Spot created!",
+        isLoading: false,
+        type: "success",
+        theme: "dark",
+        autoClose: 1500,
+      });
     }
   };

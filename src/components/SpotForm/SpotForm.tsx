@@ -38,48 +38,52 @@ const SpotForm = ({
             />
           </div>
           <div className="input-group">
-            <label htmlFor="name">Name:</label>{" "}
+            <label hidden={true} htmlFor="name">
+              Name:
+            </label>{" "}
             <input
               type="text"
               id="name"
               value={formData.name}
               onChange={changeData}
+              placeholder={"Name:"}
             />
           </div>
           <div className="input-group">
-            <label htmlFor="description">Description:</label>{" "}
+            <label hidden={true} htmlFor="description">
+              Description:
+            </label>{" "}
             <input
               type="text"
               id="description"
               value={formData.description}
               onChange={changeData}
+              placeholder={"Description:"}
             />
           </div>
           <div className="input-group">
-            <label htmlFor="location">Location:</label>{" "}
+            <label htmlFor="description" hidden={true}>
+              {" "}
+              Location:
+            </label>
             <input
               type="text"
               id="location"
               value={formData.location}
               onChange={changeData}
+              placeholder={"Location:"}
             />
           </div>
           <div className="input-group">
-            <label htmlFor="xCoordinate">X Coordinate:</label>{" "}
+            <label hidden={true} htmlFor="coordinates">
+              {"Paste the spot coordinates here (x , y):"}
+            </label>{" "}
             <input
               type="text"
-              id="xCoordinate"
+              id="coordinates"
               value={formData.xCoordinate}
               onChange={changeData}
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="yCoordinate">Y Coordinate:</label>{" "}
-            <input
-              type="text"
-              id="yCoordinate"
-              value={formData.yCoordinate}
-              onChange={changeData}
+              placeholder={"Paste the spot coordinates here (x , y):"}
             />
           </div>
           <div className="button-container">
