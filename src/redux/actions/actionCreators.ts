@@ -2,6 +2,7 @@ import {
   CreateSpotActionInterface,
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
+  UpdateSpotActionInterface,
 } from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
 import actionTypes from "./actionTypes";
@@ -22,5 +23,12 @@ export const createSpotAction = (
   spot: SpotInterface
 ): CreateSpotActionInterface => ({
   type: actionTypes.createSpot,
+  spot,
+});
+
+export const updateSpotAction = (
+  spot: SpotInterface
+): UpdateSpotActionInterface => ({
+  type: actionTypes.updateSpot,
   spot,
 });
