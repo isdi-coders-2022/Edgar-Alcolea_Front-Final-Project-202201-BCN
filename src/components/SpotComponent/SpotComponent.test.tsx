@@ -24,9 +24,9 @@ describe("Given a SpotComponent", () => {
           <SpotComponent spot={spot} />
         </Provider>
       );
-      const spotName = screen.getByText(spot.name);
+      const spotNames = screen.getAllByText(spot.name);
 
-      expect(spotName).toBeInTheDocument();
+      expect(spotNames[0]).toBeInTheDocument();
     });
   });
 
@@ -50,10 +50,10 @@ describe("Given a SpotComponent", () => {
         </Provider>
       );
 
-      const button = screen.getByTitle(/delete-button/i);
-      userEvent.click(button);
+      const buttons = screen.getAllByTitle(/delete-button/i);
+      userEvent.click(buttons[0]);
 
-      expect(button).toBeInTheDocument();
+      expect(buttons[0]).toBeInTheDocument();
     });
   });
 });
