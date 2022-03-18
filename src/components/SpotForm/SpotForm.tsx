@@ -55,7 +55,7 @@ const SpotForm = (): JSX.Element => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     dispatch(createSpotThunk(formData));
-    navigate("/");
+    navigate("/explore");
   };
 
   return (

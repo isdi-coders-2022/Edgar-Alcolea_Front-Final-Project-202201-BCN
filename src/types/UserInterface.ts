@@ -1,4 +1,4 @@
-interface UserInterface {
+export interface UserInterface {
   name: string;
   username: string;
   password: string;
@@ -8,4 +8,8 @@ interface UserInterface {
   image: string;
 }
 
-export default UserInterface;
+export interface LoggedUserInterface {
+  id: string;
+  username: string;
+  image: string;
+}

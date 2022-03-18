@@ -10,4 +10,5 @@ export interface RegisterFormInterface extends LoginFormInterface {
   bio: string;
   age: number | string;
   city: string;
+  image: File | null;
 }

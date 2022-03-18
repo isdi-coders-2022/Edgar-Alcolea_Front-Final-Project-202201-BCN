@@ -1,19 +1,18 @@
 import {
+  ActionInterface,
   CreateSpotActionInterface,
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
   LoginUserActionInterface,
-  RegisterUserActionInterface,
 } from "../../types/ActionInterface";
-import { LoginFormInterface } from "../../types/LoginFormInterface";
 import SpotInterface from "../../types/SpotInterface";
-import UserInterface from "../../types/UserInterface";
+import { LoggedUserInterface } from "../../types/UserInterface";
 import {
   createSpotAction,
   deleteSpotAction,
   loadSpotsAction,
   loginUserAction,
-  registerUserAction,
+  logoutUserAction,
 } from "./actionCreators";
 
 import actionTypes from "./actionTypes";
@@ -98,43 +97,34 @@ describe("Given a createSpotAction function", () => {
   });
 });
 
-describe("Given a registerUserAction function", () => {
-  describe("When it receives a user", () => {
-    test("Then it should return an action with type register-user and the user", () => {
-      const user: UserInterface = {
-        name: "Test Place",
+describe("Given a loginUserAction function", () => {
+  describe("When it receives a userCredentials object", () => {
+    test("Then it should return an action with type login-user and the user credentials", () => {
+      const user: LoggedUserInterface = {
         username: "TestMan",
-        password: "testpass",
-        bio: "A place that exists just for the purpose of testing.",
-        age: 20,
-        city: "The mind",
-        image: "testImg",
+        id: "testId",
+        image: "testImage",
       };
-      const expectedAction: RegisterUserActionInterface = {
-        type: actionTypes.registerUser,
+      const expectedAction: LoginUserActionInterface = {
+        type: actionTypes.loginUser,
         user,
       };
 
-      const action: RegisterUserActionInterface = registerUserAction(user);
+      const action: LoginUserActionInterface = loginUserAction(user);
 
       expect(action).toEqual(expectedAction);
     });
   });
 });
 
-describe("Given a loginUserAction function", () => {
-  describe("When it receives a userCredentials object", () => {
-    test("Then it should return an action with type login-user and the user credentials", () => {
-      const userCredentials: LoginFormInterface = {
-        username: "TestMan",
-        password: "testpass",
-      };
-      const expectedAction: LoginUserActionInterface = {
-        type: actionTypes.loginUser,
-        userCredentials,
+describe("Given a logoutUserAction function", () => {
+  describe("When it's called", () => {
+    test("Then it should return an action with type logout-user", () => {
+      const expectedAction: ActionInterface = {
+        type: actionTypes.logoutUser,
       };
 
-      const action: LoginUserActionInterface = loginUserAction(userCredentials);
+      const action: ActionInterface = logoutUserAction();
 
       expect(action).toEqual(expectedAction);
     });

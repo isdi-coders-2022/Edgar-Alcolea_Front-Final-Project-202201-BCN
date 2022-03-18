@@ -8,7 +8,10 @@ const StyledForm = styled.div`
     background-color: #171d34;
     width: 95%;
     border-radius: 15px;
-
+    .link {
+      text-decoration: none;
+      color: #2ef051;
+    }
     .form {
       display: flex;
       flex-direction: column;
@@ -117,7 +120,10 @@ const StyledForm = styled.div`
     background-color: #171d34;
     width: 60%;
     border-radius: 15px;
-
+    .link {
+      text-decoration: none;
+      color: #2ef051;
+    }
     .form {
       display: flex;
       flex-direction: column;
@@ -133,6 +139,7 @@ const StyledForm = styled.div`
         align-items: center;
         min-width: 80%;
         input {
+          font-size: 18px;
           width: 100%;
           height: 40px;
           padding: 14px 16px;

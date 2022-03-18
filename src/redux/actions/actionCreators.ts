@@ -1,14 +1,14 @@
 import {
+  ActionInterface,
   CreateSpotActionInterface,
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
   LoginUserActionInterface,
-  RegisterUserActionInterface,
   UpdateSpotActionInterface,
 } from "../../types/ActionInterface";
-import { LoginFormInterface } from "../../types/LoginFormInterface";
+
 import SpotInterface from "../../types/SpotInterface";
-import UserInterface from "../../types/UserInterface";
+import { LoggedUserInterface } from "../../types/UserInterface";
 
 import actionTypes from "./actionTypes";
 
@@ -38,16 +38,13 @@ export const updateSpotAction = (
   spot,
 });
 
-export const registerUserAction = (
-  user: UserInterface
-): RegisterUserActionInterface => ({
-  type: actionTypes.registerUser,
+export const loginUserAction = (
+  user: LoggedUserInterface
+): LoginUserActionInterface => ({
+  type: actionTypes.loginUser,
   user,
 });
 
-export const loginUserAction = (
-  userCredentials: LoginFormInterface
-): LoginUserActionInterface => ({
-  type: actionTypes.loginUser,
-  userCredentials,
+export const logoutUserAction = (): ActionInterface => ({
+  type: actionTypes.logoutUser,
 });

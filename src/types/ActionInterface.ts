@@ -1,5 +1,5 @@
 import SpotInterface from "./SpotInterface";
-import { UserCredentialsInterface, UserInterface } from "./UserInterface";
+import { LoggedUserInterface, UserInterface } from "./UserInterface";
 
 export interface ActionInterface {
   type: string;
@@ -25,5 +25,5 @@ export interface RegisterUserActionInterface extends ActionInterface {
 }
 
 export interface LoginUserActionInterface extends ActionInterface {
-  userCredentials: UserCredentialsInterface;
+  user: LoggedUserInterface;
 }
