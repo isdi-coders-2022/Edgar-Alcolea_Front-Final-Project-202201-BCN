@@ -18,3 +18,7 @@ export interface CreateSpotActionInterface extends ActionInterface {
 export interface UpdateSpotActionInterface extends ActionInterface {
   spot: SpotInterface;
 }
+
+export interface RegisterUserActionInterface extends ActionInterface {
+  user: UserInterface;
+}
