@@ -1,13 +1,18 @@
 import {
+  ActionInterface,
   CreateSpotActionInterface,
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
+  LoginUserActionInterface,
 } from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
+import { LoggedUserInterface } from "../../types/UserInterface";
 import {
   createSpotAction,
   deleteSpotAction,
   loadSpotsAction,
+  loginUserAction,
+  logoutUserAction,
 } from "./actionCreators";
 
 import actionTypes from "./actionTypes";
@@ -86,6 +91,40 @@ describe("Given a createSpotAction function", () => {
       };
 
       const action: CreateSpotActionInterface = createSpotAction(spot);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a loginUserAction function", () => {
+  describe("When it receives a userCredentials object", () => {
+    test("Then it should return an action with type login-user and the user credentials", () => {
+      const user: LoggedUserInterface = {
+        username: "TestMan",
+        id: "testId",
+        image: "testImage",
+      };
+      const expectedAction: LoginUserActionInterface = {
+        type: actionTypes.loginUser,
+        user,
+      };
+
+      const action: LoginUserActionInterface = loginUserAction(user);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a logoutUserAction function", () => {
+  describe("When it's called", () => {
+    test("Then it should return an action with type logout-user", () => {
+      const expectedAction: ActionInterface = {
+        type: actionTypes.logoutUser,
+      };
+
+      const action: ActionInterface = logoutUserAction();
 
       expect(action).toEqual(expectedAction);
     });

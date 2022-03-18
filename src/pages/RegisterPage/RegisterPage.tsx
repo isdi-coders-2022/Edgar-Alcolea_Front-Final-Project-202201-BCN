@@ -1,27 +1,41 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { Link, useNavigate } from "react-router-dom";
 import StyledForm from "../../components/SpotForm/SpotForm.style";
+import registerUserThunk from "../../redux/thunks/usersThunk";
 import { RegisterFormInterface } from "../../types/LoginFormInterface";
 
 const RegisterPage = (): JSX.Element => {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const blankForm: RegisterFormInterface = {
-    userName: "",
+    username: "",
     password: "",
     name: "",
     bio: "",
     age: "",
     city: "",
+    image: null,
   };
 
   const [formData, setFormData] = useState(blankForm);
 
   const isFormInvalid: boolean =
-    formData.userName === "" || formData.password === "";
+    formData.username === "" ||
+    formData.password === "" ||
+    formData.name === "" ||
+    formData.age === null ||
+    formData.bio === "" ||
+    formData.city === "";
 
   const changeData = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    if (
+      (event.target.id === "age" && +event.target.value > 99) ||
+      +event.target.value < 0
+    )
+      return;
+
     setFormData({
       ...formData,
       [event.target.id]: event.target.value,
@@ -29,7 +43,7 @@ const RegisterPage = (): JSX.Element => {
   };
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-
+    dispatch(registerUserThunk(formData));
     navigate("/");
   };
   return (
@@ -46,13 +60,13 @@ const RegisterPage = (): JSX.Element => {
         <form noValidate autoComplete="off" onSubmit={handleSubmit}>
           <div className="form">
             <div className="input-group">
-              <label hidden={true} htmlFor="userName">
+              <label hidden={true} htmlFor="username">
                 Username:
               </label>{" "}
               <input
                 type="text"
-                id="userName"
-                value={formData.userName}
+                id="username"
+                value={formData.username}
                 onChange={changeData}
                 placeholder={"Username:"}
               />
@@ -62,7 +76,7 @@ const RegisterPage = (): JSX.Element => {
                 Password:
               </label>{" "}
               <input
-                type="text"
+                type="password"
                 id="password"
                 value={formData.password}
                 onChange={changeData}
@@ -103,6 +117,8 @@ const RegisterPage = (): JSX.Element => {
                 value={formData.age}
                 onChange={changeData}
                 placeholder={"Age:"}
+                min={16}
+                max={99}
               />
             </div>
             <div className="input-group">
@@ -119,7 +135,7 @@ const RegisterPage = (): JSX.Element => {
             </div>
             <div className="button-container">
               <button type="submit" disabled={isFormInvalid}>
-                Login
+                Register
               </button>
             </div>
             <p>Already have an account?</p>

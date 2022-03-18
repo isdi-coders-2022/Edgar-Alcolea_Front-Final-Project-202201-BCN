@@ -3,6 +3,8 @@ interface ActionTypesInterface {
   deleteSpot: string;
   createSpot: string;
   updateSpot: string;
+  loginUser: string;
+  logoutUser: string;
 }
 
 export default ActionTypesInterface;

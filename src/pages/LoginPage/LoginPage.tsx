@@ -8,14 +8,14 @@ const LoginPage = (): JSX.Element => {
   const navigate = useNavigate();
 
   const blankForm: LoginFormInterface = {
-    userName: "",
+    username: "",
     password: "",
   };
 
   const [formData, setFormData] = useState(blankForm);
 
   const isFormInvalid: boolean =
-    formData.userName === "" || formData.password === "";
+    formData.username === "" || formData.password === "";
 
   const changeData = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setFormData({
@@ -49,7 +49,7 @@ const LoginPage = (): JSX.Element => {
               <input
                 type="text"
                 id="userName"
-                value={formData.userName}
+                value={formData.username}
                 onChange={changeData}
                 placeholder={"Username:"}
               />
@@ -59,7 +59,7 @@ const LoginPage = (): JSX.Element => {
                 Password:
               </label>{" "}
               <input
-                type="text"
+                type="password"
                 id="password"
                 value={formData.password}
                 onChange={changeData}

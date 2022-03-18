@@ -1,10 +1,15 @@
 import {
+  ActionInterface,
   CreateSpotActionInterface,
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
+  LoginUserActionInterface,
   UpdateSpotActionInterface,
 } from "../../types/ActionInterface";
+
 import SpotInterface from "../../types/SpotInterface";
+import { LoggedUserInterface } from "../../types/UserInterface";
+
 import actionTypes from "./actionTypes";
 
 export const loadSpotsAction = (
@@ -31,4 +36,15 @@ export const updateSpotAction = (
 ): UpdateSpotActionInterface => ({
   type: actionTypes.updateSpot,
   spot,
+});
+
+export const loginUserAction = (
+  user: LoggedUserInterface
+): LoginUserActionInterface => ({
+  type: actionTypes.loginUser,
+  user,
+});
+
+export const logoutUserAction = (): ActionInterface => ({
+  type: actionTypes.logoutUser,
 });

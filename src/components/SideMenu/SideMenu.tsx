@@ -57,7 +57,7 @@ const SideMenu = ({ isActive }: SideMenuProps): JSX.Element => {
   return (
     <SideMenuStyled className={`${isActive ? " active" : ""}`} title="sideMenu">
       <ul>
-        <Link to="/" className="navigation__link">
+        <Link to="/explore" className="navigation__link">
           <p>Explore</p>
         </Link>
 

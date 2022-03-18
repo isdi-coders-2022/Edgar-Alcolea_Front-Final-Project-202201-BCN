@@ -1,13 +1,14 @@
 export interface LoginFormInterface {
-  userName: string;
+  username: string;
   password: string;
 }
 
 export interface RegisterFormInterface extends LoginFormInterface {
-  userName: string;
+  username: string;
   password: string;
   name: string;
   bio: string;
   age: number | string;
   city: string;
+  image: File | null;
 }
