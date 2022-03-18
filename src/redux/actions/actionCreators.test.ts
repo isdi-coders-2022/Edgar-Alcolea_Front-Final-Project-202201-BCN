@@ -2,12 +2,15 @@ import {
   CreateSpotActionInterface,
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
+  RegisterUserActionInterface,
 } from "../../types/ActionInterface";
 import SpotInterface from "../../types/SpotInterface";
+import UserInterface from "../../types/UserInterface";
 import {
   createSpotAction,
   deleteSpotAction,
   loadSpotsAction,
+  registerUserAction,
 } from "./actionCreators";
 
 import actionTypes from "./actionTypes";
@@ -86,6 +89,30 @@ describe("Given a createSpotAction function", () => {
       };
 
       const action: CreateSpotActionInterface = createSpotAction(spot);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a registerUserAction function", () => {
+  describe("When it receives a user", () => {
+    test("Then it should return an action with type register-user and the user", () => {
+      const user: UserInterface = {
+        name: "Test Place",
+        username: "TestMan",
+        password: "testpass",
+        bio: "A place that exists just for the purpose of testing.",
+        age: 20,
+        city: "The mind",
+        image: "testImg",
+      };
+      const expectedAction: RegisterUserActionInterface = {
+        type: actionTypes.registerUser,
+        user,
+      };
+
+      const action: RegisterUserActionInterface = registerUserAction(user);
 
       expect(action).toEqual(expectedAction);
     });
