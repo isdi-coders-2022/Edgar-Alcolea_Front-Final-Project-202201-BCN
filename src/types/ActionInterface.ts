@@ -1,4 +1,5 @@
 import SpotInterface from "./SpotInterface";
+import UserInterface from "./UserInterface";
 
 export interface ActionInterface {
   type: string;

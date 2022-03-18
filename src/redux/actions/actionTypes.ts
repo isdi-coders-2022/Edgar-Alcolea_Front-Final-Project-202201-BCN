@@ -5,6 +5,7 @@ const actionTypes: ActionTypesInterface = {
   deleteSpot: "delete-spot",
   createSpot: "create-spot",
   updateSpot: "update-spot",
+  registerUser: "register-user",
 };
 
 export default actionTypes;
