@@ -58,7 +58,7 @@ const SpotStyled = styled.li`
   @media (min-width: 600px) {
     width: 70vw;
     margin-bottom: 20px;
-    padding: 15px;
+    padding: 15px 15px 0px 15px;
     background-color: #171d34;
     border-radius: 15px;
     display: flex;
@@ -66,6 +66,7 @@ const SpotStyled = styled.li`
     align-items: flex-start;
     border: 1px solid #171d34;
     cursor: pointer;
+
     .delete-button {
       display: none;
     }
@@ -77,6 +78,8 @@ const SpotStyled = styled.li`
     }
     .spot-container {
       width: 50%;
+      margin: 0px;
+      height: 100%;
     }
     p {
       color: #fff;
@@ -104,6 +107,7 @@ const SpotStyled = styled.li`
       color: #fff;
       font-size: 24px;
       display: none;
+      margin-bottom: 16px;
     }
     .spot-name--desktop {
       color: #fff;
@@ -125,6 +129,7 @@ const SpotStyled = styled.li`
     .spot-info {
       width: 100%;
       display: flex;
+      margin-top: 10px;
       justify-content: space-around;
       align-items: center;
       span {
