@@ -2,14 +2,17 @@ import {
   CreateSpotActionInterface,
   DeleteSpotActionInterface,
   LoadSpotsActionInterface,
+  LoginUserActionInterface,
   RegisterUserActionInterface,
 } from "../../types/ActionInterface";
+import { LoginFormInterface } from "../../types/LoginFormInterface";
 import SpotInterface from "../../types/SpotInterface";
 import UserInterface from "../../types/UserInterface";
 import {
   createSpotAction,
   deleteSpotAction,
   loadSpotsAction,
+  loginUserAction,
   registerUserAction,
 } from "./actionCreators";
 
@@ -113,6 +116,25 @@ describe("Given a registerUserAction function", () => {
       };
 
       const action: RegisterUserActionInterface = registerUserAction(user);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a loginUserAction function", () => {
+  describe("When it receives a userCredentials object", () => {
+    test("Then it should return an action with type login-user and the user credentials", () => {
+      const userCredentials: LoginFormInterface = {
+        username: "TestMan",
+        password: "testpass",
+      };
+      const expectedAction: LoginUserActionInterface = {
+        type: actionTypes.loginUser,
+        userCredentials,
+      };
+
+      const action: LoginUserActionInterface = loginUserAction(userCredentials);
 
       expect(action).toEqual(expectedAction);
     });

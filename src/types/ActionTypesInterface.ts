@@ -4,6 +4,7 @@ interface ActionTypesInterface {
   createSpot: string;
   updateSpot: string;
   registerUser: string;
+  loginUser: string;
 }
 
 export default ActionTypesInterface;
