@@ -1,8 +1,6 @@
 import jwtDecode from "jwt-decode";
-import { toast } from "react-toastify";
 import { Dispatch } from "redux";
 import { LoginUserActionInterface } from "../../types/ActionInterface";
-
 import {
   RegisterFormInterface,
   LoginFormInterface,
