@@ -57,7 +57,9 @@ input[type="number"] {
     top: calc(50% - 60px / 2 - 347px);
     font-style: normal;
     font-weight: normal;
-    font-size: 35px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 30px;
     line-height: 60px;
   }
   .login-image {
