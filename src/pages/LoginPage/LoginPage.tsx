@@ -30,11 +30,13 @@ const LoginPage = (): JSX.Element => {
     });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
     event.preventDefault();
     resetForm();
-    dispatch(userLoginThunk(formData));
-    setTimeout(() => navigate("/explore"), 1000);
+    await dispatch(userLoginThunk(formData));
+    navigate("/explore");
   };
 
   return (

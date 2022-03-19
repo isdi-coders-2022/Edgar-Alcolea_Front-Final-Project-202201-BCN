@@ -54,9 +54,10 @@ export const userLoginThunk =
     );
     if (response.ok) {
       const { token } = await response.json();
-      const { id, username, image } = jwtDecode<LoggedUserInterface>(token);
+      const { id, username, image, admin } =
+        jwtDecode<LoggedUserInterface>(token);
       localStorage.setItem("token", token);
-      dispatch(loginUserAction({ id, username, image, loggedIn: true }));
+      dispatch(loginUserAction({ id, username, image, loggedIn: true, admin }));
     } else {
       const { message } = await response.json();
       toastNotification(message, "error");

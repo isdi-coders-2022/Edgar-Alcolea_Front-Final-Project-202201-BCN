@@ -5,7 +5,13 @@ import {
 import { LoggedUserInterface } from "../../types/UserInterface";
 import actionTypes from "../actions/actionTypes";
 
-const defaultUser = { username: "", id: "", image: "", loggedIn: false };
+const defaultUser = {
+  username: "",
+  id: "",
+  image: "",
+  loggedIn: false,
+  admin: false,
+};
 
 const usersReducer = (
   currentUser: LoggedUserInterface = defaultUser,

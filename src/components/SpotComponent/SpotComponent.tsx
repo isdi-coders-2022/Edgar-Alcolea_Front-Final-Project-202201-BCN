@@ -26,8 +26,8 @@ const SpotComponent = ({
           {" "}
           <div className="times-marked">
             <svg
-              width="32"
-              height="26"
+              width="30"
+              height="24"
               viewBox="0 0 32 26"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

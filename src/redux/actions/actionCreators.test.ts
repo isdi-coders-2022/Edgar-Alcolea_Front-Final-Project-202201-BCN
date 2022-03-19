@@ -105,6 +105,7 @@ describe("Given a loginUserAction function", () => {
         id: "testId",
         image: "testImage",
         loggedIn: true,
+        admin: false,
       };
       const expectedAction: LoginUserActionInterface = {
         type: actionTypes.loginUser,
