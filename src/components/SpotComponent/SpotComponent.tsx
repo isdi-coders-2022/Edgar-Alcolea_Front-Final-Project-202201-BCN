@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { deleteSpotThunk } from "../../redux/thunks/spotsThunks";
-import SpotInterface from "../../types/SpotInterface";
+import { SpotInterface } from "../../types/SpotInterface";
 import DeleteButton from "../DeleteButton/DeleteButton";
 import SpotStyled from "./SpotStyled.style";
 
@@ -9,7 +9,15 @@ interface SpotProps {
 }
 
 const SpotComponent = ({
-  spot: { name, marked, location, image, id, description, createdBy },
+  spot: {
+    name,
+    marked,
+    location,
+    image,
+    id,
+    description,
+    createdBy: { username },
+  },
 }: SpotProps): JSX.Element => {
   const dispatch = useDispatch();
 
@@ -42,7 +50,7 @@ const SpotComponent = ({
           </div>
           <p className="spot-created">
             <span>Created by: </span>
-            Laulhus
+            {username}
           </p>
           <p className="spot-location">{location}</p>
         </div>

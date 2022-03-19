@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks";
 import { createSpotThunk } from "../../redux/thunks/spotsThunks";
 import SpotFormInterface from "../../types/SpotFormInterface";
 import StyledForm from "./SpotForm.style";
 
 const SpotForm = (): JSX.Element => {
+  const { id } = useAppSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -15,6 +17,7 @@ const SpotForm = (): JSX.Element => {
     coordinates: "",
     location: "",
     image: null,
+    createdBy: id,
   };
 
   const imageUrl: any = {

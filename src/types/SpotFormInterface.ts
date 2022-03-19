@@ -5,6 +5,7 @@ interface SpotFormInterface {
   location: string;
   coordinates: string;
   image: File | null;
+  createdBy?: string;
 }
 
 export default SpotFormInterface;

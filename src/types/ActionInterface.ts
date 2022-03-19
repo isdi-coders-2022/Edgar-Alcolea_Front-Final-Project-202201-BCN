@@ -1,4 +1,4 @@
-import SpotInterface from "./SpotInterface";
+import { SpotInterface } from "./SpotInterface";
 import { LoggedUserInterface, UserInterface } from "./UserInterface";
 
 export interface ActionInterface {

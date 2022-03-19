@@ -1,4 +1,5 @@
 import jwtDecode from "jwt-decode";
+import { toast } from "react-toastify";
 import { Dispatch } from "redux";
 import { LoginUserActionInterface } from "../../types/ActionInterface";
 import {
@@ -42,6 +43,7 @@ export const registerUserThunk =
 export const userLoginThunk =
   (userData: LoginFormInterface) =>
   async (dispatch: Dispatch<LoginUserActionInterface>) => {
+    const createToast = toast.loading("Logging in...");
     const response: Response = await fetch(
       `${process.env.REACT_APP_API_URL}users/login`,
       {
@@ -58,6 +60,13 @@ export const userLoginThunk =
         jwtDecode<LoggedUserInterface>(token);
       localStorage.setItem("token", token);
       dispatch(loginUserAction({ id, username, image, loggedIn: true, admin }));
+      toast.update(createToast, {
+        render: `Welcome ${username}!`,
+        isLoading: false,
+        type: "success",
+        theme: "dark",
+        autoClose: 2000,
+      });
     } else {
       const { message } = await response.json();
       toastNotification(message, "error");
