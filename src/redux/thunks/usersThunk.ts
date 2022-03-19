@@ -16,7 +16,6 @@ import { AppThunk } from "../store";
 export const registerUserThunk =
   (user: RegisterFormInterface): AppThunk =>
   async (): Promise<void> => {
-    const createToast = toast.loading("Registering...🏃");
     const age = user.age.toString();
     const data = new FormData();
     data.append("name", user.name);
@@ -35,14 +34,10 @@ export const registerUserThunk =
     );
     if (response.ok) {
       const newUser = await response.json();
-
-      toast.update(createToast, {
-        render: `${newUser.username} registered!`,
-        isLoading: false,
-        type: "success",
-        theme: "dark",
-        autoClose: 1500,
-      });
+      toastNotification(`${newUser.username} registered!`, "success");
+    } else {
+      const { message } = await response.json();
+      toastNotification(message, "error");
     }
   };
 

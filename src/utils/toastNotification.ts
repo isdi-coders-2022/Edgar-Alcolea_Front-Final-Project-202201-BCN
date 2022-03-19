@@ -21,6 +21,9 @@ const toastNotification = (message: string, status: string): void => {
     case "normal":
       toast(`${message}`, configToast);
       break;
+    case "success":
+      toast.success(`${message}`, configToast);
+      break;
     default:
       toast(`${message}`, configToast);
   }
