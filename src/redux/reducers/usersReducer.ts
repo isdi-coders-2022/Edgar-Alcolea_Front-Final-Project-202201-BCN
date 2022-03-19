@@ -5,7 +5,7 @@ import {
 import { LoggedUserInterface } from "../../types/UserInterface";
 import actionTypes from "../actions/actionTypes";
 
-const defaultUser = { username: "", id: "", image: "" };
+const defaultUser = { username: "", id: "", image: "", loggedIn: false };
 
 const usersReducer = (
   currentUser: LoggedUserInterface = defaultUser,
@@ -15,7 +15,7 @@ const usersReducer = (
 
   switch (action.type) {
     case actionTypes.loginUser:
-      newUser = (action as LoginUserActionInterface).user;
+      newUser = (action as LoginUserActionInterface).userData;
       break;
     case actionTypes.logoutUser:
       newUser = defaultUser;

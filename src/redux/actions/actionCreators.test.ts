@@ -100,17 +100,18 @@ describe("Given a createSpotAction function", () => {
 describe("Given a loginUserAction function", () => {
   describe("When it receives a userCredentials object", () => {
     test("Then it should return an action with type login-user and the user credentials", () => {
-      const user: LoggedUserInterface = {
+      const userData: LoggedUserInterface = {
         username: "TestMan",
         id: "testId",
         image: "testImage",
+        loggedIn: true,
       };
       const expectedAction: LoginUserActionInterface = {
         type: actionTypes.loginUser,
-        user,
+        userData,
       };
 
-      const action: LoginUserActionInterface = loginUserAction(user);
+      const action: LoginUserActionInterface = loginUserAction(userData);
 
       expect(action).toEqual(expectedAction);
     });

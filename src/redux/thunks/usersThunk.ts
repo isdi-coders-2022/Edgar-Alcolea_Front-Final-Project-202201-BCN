@@ -8,6 +8,7 @@ import {
   LoginFormInterface,
 } from "../../types/LoginFormInterface";
 import { LoggedUserInterface } from "../../types/UserInterface";
+import toastNotification from "../../utils/toastNotification";
 import { loginUserAction } from "../actions/actionCreators";
 
 import { AppThunk } from "../store";
@@ -48,7 +49,7 @@ export const registerUserThunk =
 export const userLoginThunk =
   (userData: LoginFormInterface) =>
   async (dispatch: Dispatch<LoginUserActionInterface>) => {
-    const response = await fetch(
+    const response: Response = await fetch(
       `${process.env.REACT_APP_API_URL}users/login`,
       {
         headers: {
@@ -63,6 +64,8 @@ export const userLoginThunk =
       const { id, username, image } = jwtDecode<LoggedUserInterface>(token);
       localStorage.setItem("token", token);
       dispatch(loginUserAction({ id, username, image, loggedIn: true }));
-      return true;
+    } else {
+      const { message } = await response.json();
+      toastNotification(message, "error");
     }
   };

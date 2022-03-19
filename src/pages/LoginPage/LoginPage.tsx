@@ -34,7 +34,6 @@ const LoginPage = (): JSX.Element => {
     event.preventDefault();
     resetForm();
     dispatch(userLoginThunk(formData));
-    navigate("/explore");
   };
 
   return (
@@ -52,12 +51,12 @@ const LoginPage = (): JSX.Element => {
           <div className="form">
             <p>You can sign in</p>
             <div className="input-group">
-              <label hidden={true} htmlFor="userName">
+              <label hidden={true} htmlFor="username">
                 Username:
               </label>{" "}
               <input
                 type="text"
-                id="userName"
+                id="username"
                 value={formData.username}
                 onChange={changeData}
                 placeholder={"Username:"}
