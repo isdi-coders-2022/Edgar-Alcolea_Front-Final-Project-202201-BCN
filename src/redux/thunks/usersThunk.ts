@@ -1,6 +1,13 @@
 import { toast } from "react-toastify";
-import { RegisterFormInterface } from "../../types/LoginFormInterface";
-import { AppThunk } from "../store";
+import { Dispatch } from "redux";
+import { LoginUserActionInterface } from "../../types/ActionInterface";
+
+import {
+  RegisterFormInterface,
+  LoginFormInterface,
+} from "../../types/LoginFormInterface";
+
+import { AppDispatch, AppThunk } from "../store";
 
 export const registerUserThunk =
   (user: RegisterFormInterface): AppThunk =>
@@ -32,6 +39,24 @@ export const registerUserThunk =
         theme: "dark",
         autoClose: 1500,
       });
+    }
+  };
+
+const userLoginThunk =
+  (userData: LoginFormInterface) =>
+  async (dispatch: Dispatch<LoginUserActionInterface>) => {
+    const response = await fetch(
+      `${process.env.REACT_APP_API_URL}users/login`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(userData),
+      }
+    );
+    if (response.ok) {
+      const { token } = await response.json();
     }
   };
 
