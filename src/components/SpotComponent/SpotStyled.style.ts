@@ -12,12 +12,12 @@ const SpotStyled = styled.li`
     align-items: center;
     border: 1px solid #171d34;
     cursor: pointer;
+    &:hover {
+      border: 1px solid #2ef051;
+    }
   }
   .delete-button--desktop {
     display: none;
-  }
-  :hover {
-    border: 1px solid #2ef051;
   }
 
   .spot-image {
@@ -56,7 +56,7 @@ const SpotStyled = styled.li`
     display: none;
   }
   @media (min-width: 600px) {
-    width: 70vw;
+    width: 80vw;
     margin-bottom: 20px;
     padding: 15px 15px 0px 15px;
     background-color: #171d34;
@@ -80,6 +80,10 @@ const SpotStyled = styled.li`
       width: 50%;
       margin: 0px;
       height: 100%;
+      border: 0px solid #2ef051;
+      :hover {
+        border: 0px solid #2ef051;
+      }
     }
     p {
       color: #fff;
@@ -100,7 +104,7 @@ const SpotStyled = styled.li`
       color: #fff;
     }
     .times-marked p {
-      font-size: 20px;
+      font-size: 18px;
       margin-left: 5px;
     }
     .spot-name {

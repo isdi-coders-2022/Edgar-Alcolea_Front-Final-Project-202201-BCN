@@ -16,9 +16,11 @@ describe("Given an App component", () => {
         </BrowserRouter>
       );
 
-      const navBar = screen.getByRole("list", { name: "navbar" });
+      const title = screen.getByRole("heading", {
+        name: /Welcome to PK Spots !/i,
+      });
 
-      expect(navBar).toBeInTheDocument();
+      expect(title).toBeInTheDocument();
     });
   });
 });

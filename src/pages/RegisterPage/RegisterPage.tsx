@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-
 import { Link, useNavigate } from "react-router-dom";
 import StyledForm from "../../components/SpotForm/SpotForm.style";
-import registerUserThunk from "../../redux/thunks/usersThunk";
+import { registerUserThunk } from "../../redux/thunks/usersThunk";
 import { RegisterFormInterface } from "../../types/LoginFormInterface";
 
 const RegisterPage = (): JSX.Element => {

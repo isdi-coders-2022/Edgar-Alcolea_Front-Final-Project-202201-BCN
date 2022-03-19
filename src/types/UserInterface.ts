@@ -12,4 +12,6 @@ export interface LoggedUserInterface {
   id: string;
   username: string;
   image: string;
+  loggedIn: boolean;
+  admin: boolean;
 }

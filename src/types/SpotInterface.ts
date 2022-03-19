@@ -1,13 +1,16 @@
-interface SpotInterface {
+export interface SpotInterface {
   id: string;
   name: string;
   marked?: number;
   description: string;
-  createdBy?: string;
+  createdBy: CreatedByInterface;
   location: string;
   xCoordinate: number;
   yCoordinate: number;
   image: string;
 }
 
-export default SpotInterface;
+export interface CreatedByInterface {
+  id: string;
+  username: string;
+}

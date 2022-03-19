@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
+import { useAppSelector } from "../../redux/hooks";
 import { deleteSpotThunk } from "../../redux/thunks/spotsThunks";
-import SpotInterface from "../../types/SpotInterface";
+import { SpotInterface } from "../../types/SpotInterface";
 import DeleteButton from "../DeleteButton/DeleteButton";
 import SpotStyled from "./SpotStyled.style";
 
@@ -9,9 +10,19 @@ interface SpotProps {
 }
 
 const SpotComponent = ({
-  spot: { name, marked, location, image, id, description, createdBy },
+  spot: {
+    name,
+    marked,
+    location,
+    image,
+    id,
+    description,
+    createdBy: { username },
+  },
 }: SpotProps): JSX.Element => {
   const dispatch = useDispatch();
+
+  const { admin } = useAppSelector((state) => state.user);
 
   const handleClick = () => {
     dispatch(deleteSpotThunk(id));
@@ -26,8 +37,8 @@ const SpotComponent = ({
           {" "}
           <div className="times-marked">
             <svg
-              width="32"
-              height="26"
+              width="30"
+              height="24"
               viewBox="0 0 32 26"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -42,12 +53,12 @@ const SpotComponent = ({
           </div>
           <p className="spot-created">
             <span>Created by: </span>
-            Laulhus
+            {username}
           </p>
           <p className="spot-location">{location}</p>
         </div>
         <div className="delete-button">
-          <DeleteButton actionOnClick={handleClick} />
+          {admin && <DeleteButton actionOnClick={handleClick} />}
         </div>
       </div>
 
@@ -60,7 +71,7 @@ const SpotComponent = ({
         </p>
       </div>
       <div className="delete-button--desktop">
-        <DeleteButton actionOnClick={handleClick} />
+        {admin && <DeleteButton actionOnClick={handleClick} />}
       </div>
     </SpotStyled>
   );

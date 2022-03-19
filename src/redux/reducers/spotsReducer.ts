@@ -5,7 +5,7 @@ import {
   LoadSpotsActionInterface,
   UpdateSpotActionInterface,
 } from "../../types/ActionInterface";
-import SpotInterface from "../../types/SpotInterface";
+import { SpotInterface } from "../../types/SpotInterface";
 import actionTypes from "../actions/actionTypes";
 
 const spotsReducer = (

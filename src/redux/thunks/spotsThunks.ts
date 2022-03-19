@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import SpotFormInterface from "../../types/SpotFormInterface";
-import SpotInterface from "../../types/SpotInterface";
+import { SpotInterface } from "../../types/SpotInterface";
 import {
   createSpotAction,
   deleteSpotAction,
@@ -44,7 +44,7 @@ export const createSpotThunk =
     data.append("xCoordinate", coordinates[0]);
     data.append("yCoordinate", coordinates[1]);
     data.append("image", spot.image as Blob);
-
+    data.append("createdBy", spot.createdBy as string);
     const response: Response = await fetch(
       `${process.env.REACT_APP_API_URL}spots/new`,
       {

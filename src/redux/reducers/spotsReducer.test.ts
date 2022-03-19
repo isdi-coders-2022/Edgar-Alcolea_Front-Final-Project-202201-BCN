@@ -5,7 +5,7 @@ import {
   LoadSpotsActionInterface,
   UpdateSpotActionInterface,
 } from "../../types/ActionInterface";
-import SpotInterface from "../../types/SpotInterface";
+import { SpotInterface } from "../../types/SpotInterface";
 import {
   createSpotAction,
   loadSpotsAction,
@@ -25,7 +25,7 @@ describe("Given a spotsReducer function", () => {
           marked: 100,
           description:
             "Indoor facility with crazy props and themed spots, training programs and gym.",
-          createdBy: "testID",
+          createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
           location: "Next to L.A.X airport",
           xCoordinate: 24.215,
           yCoordinate: 45.751,
@@ -36,7 +36,7 @@ describe("Given a spotsReducer function", () => {
           name: "Test Place",
           marked: 20,
           description: "A place that exists just for the purpose of testing.",
-          createdBy: "testID",
+          createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
           location: "The mind",
           xCoordinate: 24.215,
           yCoordinate: 45.751,
@@ -71,7 +71,7 @@ describe("Given a spotsReducer function", () => {
           marked: 100,
           description:
             "Indoor facility with crazy props and themed spots, training programs and gym.",
-          createdBy: "testID",
+          createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
           location: "Next to L.A.X airport",
           xCoordinate: 24.215,
           yCoordinate: 45.751,
@@ -82,7 +82,7 @@ describe("Given a spotsReducer function", () => {
           name: "Test Place",
           marked: 20,
           description: "A place that exists just for the purpose of testing.",
-          createdBy: "testID",
+          createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
           location: "The mind",
           xCoordinate: 24.215,
           yCoordinate: 45.751,
@@ -96,7 +96,7 @@ describe("Given a spotsReducer function", () => {
           marked: 100,
           description:
             "Indoor facility with crazy props and themed spots, training programs and gym.",
-          createdBy: "testID",
+          createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
           location: "Next to L.A.X airport",
           xCoordinate: 24.215,
           yCoordinate: 45.751,
@@ -124,7 +124,7 @@ describe("Given a spotsReducer function", () => {
           marked: 100,
           description:
             "Indoor facility with crazy props and themed spots, training programs and gym.",
-          createdBy: "testID",
+          createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
           location: "Next to L.A.X airport",
           xCoordinate: 24.215,
           yCoordinate: 45.751,
@@ -136,7 +136,7 @@ describe("Given a spotsReducer function", () => {
         name: "Test Place",
         marked: 20,
         description: "A place that exists just for the purpose of testing.",
-        createdBy: "testID",
+        createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
         location: "The mind",
         xCoordinate: 24.215,
         yCoordinate: 45.751,
@@ -149,7 +149,7 @@ describe("Given a spotsReducer function", () => {
           marked: 100,
           description:
             "Indoor facility with crazy props and themed spots, training programs and gym.",
-          createdBy: "testID",
+          createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
           location: "Next to L.A.X airport",
           xCoordinate: 24.215,
           yCoordinate: 45.751,
@@ -160,7 +160,7 @@ describe("Given a spotsReducer function", () => {
           name: "Test Place",
           marked: 20,
           description: "A place that exists just for the purpose of testing.",
-          createdBy: "testID",
+          createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
           location: "The mind",
           xCoordinate: 24.215,
           yCoordinate: 45.751,
@@ -184,7 +184,7 @@ describe("Given a spotsReducer function", () => {
           marked: 100,
           description:
             "Indoor facility with crazy props and themed spots, training programs and gym.",
-          createdBy: "testID",
+          createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
           location: "Next to L.A.X airport",
           xCoordinate: 24.215,
           yCoordinate: 45.751,
@@ -196,7 +196,7 @@ describe("Given a spotsReducer function", () => {
         name: "Updated Spot",
         marked: 20,
         description: "A place that exists just for the purpose of testing.",
-        createdBy: "testID",
+        createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
         location: "The mind",
         xCoordinate: 24.215,
         yCoordinate: 45.751,
@@ -208,7 +208,7 @@ describe("Given a spotsReducer function", () => {
           name: "Updated Spot",
           marked: 20,
           description: "A place that exists just for the purpose of testing.",
-          createdBy: "testID",
+          createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
           location: "The mind",
           xCoordinate: 24.215,
           yCoordinate: 45.751,

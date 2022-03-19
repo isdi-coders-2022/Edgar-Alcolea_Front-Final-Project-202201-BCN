@@ -1,15 +1,21 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavigateFunction, useNavigate } from "react-router-dom";
 import StyledForm from "../../components/SpotForm/SpotForm.style";
+import { userLoginThunk } from "../../redux/thunks/usersThunk";
 import { LoginFormInterface } from "../../types/LoginFormInterface";
 
 const LoginPage = (): JSX.Element => {
-  const navigate = useNavigate();
-
+  const navigate: NavigateFunction = useNavigate();
+  const dispatch = useDispatch();
   const blankForm: LoginFormInterface = {
     username: "",
     password: "",
+  };
+
+  const resetForm = () => {
+    setFormData(blankForm);
   };
 
   const [formData, setFormData] = useState(blankForm);
@@ -23,11 +29,16 @@ const LoginPage = (): JSX.Element => {
       [event.target.id]: event.target.value,
     });
   };
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
 
-    navigate("/");
+  const handleSubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    event.preventDefault();
+    resetForm();
+    await dispatch(userLoginThunk(formData));
+    navigate("/explore");
   };
+
   return (
     <>
       <div className="title-container">
@@ -43,12 +54,12 @@ const LoginPage = (): JSX.Element => {
           <div className="form">
             <p>You can sign in</p>
             <div className="input-group">
-              <label hidden={true} htmlFor="userName">
+              <label hidden={true} htmlFor="username">
                 Username:
               </label>{" "}
               <input
                 type="text"
-                id="userName"
+                id="username"
                 value={formData.username}
                 onChange={changeData}
                 placeholder={"Username:"}

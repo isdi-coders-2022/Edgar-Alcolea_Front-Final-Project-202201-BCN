@@ -3,7 +3,7 @@ import {
   DeleteSpotActionInterface,
 } from "../../types/ActionInterface";
 import SpotFormInterface from "../../types/SpotFormInterface";
-import SpotInterface from "../../types/SpotInterface";
+import { SpotInterface } from "../../types/SpotInterface";
 import actionTypes from "../actions/actionTypes";
 import {
   createSpotThunk,
@@ -95,13 +95,14 @@ describe("Given a createSpotThunk function", () => {
         location: "The mind",
         coordinates: "24.215,45.751",
         image: file,
+        createdBy: "62274dd6fb4746a872d98b8d",
       };
       const spot: SpotInterface = {
         id: "test2",
         name: "Test Place",
         marked: 20,
         description: "A place that exists just for the purpose of testing.",
-        createdBy: "testID",
+        createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
         location: "The mind",
         xCoordinate: 24.215,
         yCoordinate: 45.751,
@@ -139,7 +140,7 @@ describe("Given an updateSpotThunk function", () => {
         name: "Updated Spot",
         marked: 0,
         description: "A place that exists just for the purpose of testing.",
-        createdBy: "testID",
+        createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
         location: "The mind",
         xCoordinate: 24.215,
         yCoordinate: 45.751,

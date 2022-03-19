@@ -6,8 +6,7 @@ import {
   LoginUserActionInterface,
   UpdateSpotActionInterface,
 } from "../../types/ActionInterface";
-
-import SpotInterface from "../../types/SpotInterface";
+import { SpotInterface } from "../../types/SpotInterface";
 import { LoggedUserInterface } from "../../types/UserInterface";
 
 import actionTypes from "./actionTypes";
@@ -39,10 +38,10 @@ export const updateSpotAction = (
 });
 
 export const loginUserAction = (
-  user: LoggedUserInterface
+  userData: LoggedUserInterface
 ): LoginUserActionInterface => ({
   type: actionTypes.loginUser,
-  user,
+  userData,
 });
 
 export const logoutUserAction = (): ActionInterface => ({
