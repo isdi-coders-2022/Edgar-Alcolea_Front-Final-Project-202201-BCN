@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { Link, useNavigate } from "react-router-dom";
 import StyledForm from "../../components/SpotForm/SpotForm.style";
+import { userLoginThunk } from "../../redux/thunks/usersThunk";
 import { LoginFormInterface } from "../../types/LoginFormInterface";
 
 const LoginPage = (): JSX.Element => {
@@ -32,7 +33,7 @@ const LoginPage = (): JSX.Element => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     resetForm();
-    dispatch(loginUserThunk(formData));
+    dispatch(userLoginThunk(formData));
     navigate("/explore");
   };
 

@@ -25,5 +25,5 @@ export interface RegisterUserActionInterface extends ActionInterface {
 }
 
 export interface LoginUserActionInterface extends ActionInterface {
-  user: LoggedUserInterface;
+  userData: LoggedUserInterface;
 }

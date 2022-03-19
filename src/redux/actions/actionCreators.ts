@@ -39,10 +39,10 @@ export const updateSpotAction = (
 });
 
 export const loginUserAction = (
-  user: LoggedUserInterface
+  userData: LoggedUserInterface
 ): LoginUserActionInterface => ({
   type: actionTypes.loginUser,
-  user,
+  userData,
 });
 
 export const logoutUserAction = (): ActionInterface => ({

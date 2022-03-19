@@ -1,3 +1,4 @@
+import jwtDecode from "jwt-decode";
 import { toast } from "react-toastify";
 import { Dispatch } from "redux";
 import { LoginUserActionInterface } from "../../types/ActionInterface";
@@ -6,8 +7,10 @@ import {
   RegisterFormInterface,
   LoginFormInterface,
 } from "../../types/LoginFormInterface";
+import { LoggedUserInterface } from "../../types/UserInterface";
+import { loginUserAction } from "../actions/actionCreators";
 
-import { AppDispatch, AppThunk } from "../store";
+import { AppThunk } from "../store";
 
 export const registerUserThunk =
   (user: RegisterFormInterface): AppThunk =>
@@ -42,7 +45,7 @@ export const registerUserThunk =
     }
   };
 
-const userLoginThunk =
+export const userLoginThunk =
   (userData: LoginFormInterface) =>
   async (dispatch: Dispatch<LoginUserActionInterface>) => {
     const response = await fetch(
@@ -57,7 +60,9 @@ const userLoginThunk =
     );
     if (response.ok) {
       const { token } = await response.json();
+      const { id, username, image } = jwtDecode<LoggedUserInterface>(token);
+      localStorage.setItem("token", token);
+      dispatch(loginUserAction({ id, username, image, loggedIn: true }));
+      return true;
     }
   };
-
-export default registerUserThunk;
