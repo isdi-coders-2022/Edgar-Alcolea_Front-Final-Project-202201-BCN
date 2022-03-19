@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { useAppSelector } from "../../redux/hooks";
 import { deleteSpotThunk } from "../../redux/thunks/spotsThunks";
 import { SpotInterface } from "../../types/SpotInterface";
 import DeleteButton from "../DeleteButton/DeleteButton";
@@ -20,6 +21,8 @@ const SpotComponent = ({
   },
 }: SpotProps): JSX.Element => {
   const dispatch = useDispatch();
+
+  const { admin } = useAppSelector((state) => state.user);
 
   const handleClick = () => {
     dispatch(deleteSpotThunk(id));
@@ -55,7 +58,7 @@ const SpotComponent = ({
           <p className="spot-location">{location}</p>
         </div>
         <div className="delete-button">
-          <DeleteButton actionOnClick={handleClick} />
+          {admin && <DeleteButton actionOnClick={handleClick} />}
         </div>
       </div>
 
@@ -68,7 +71,7 @@ const SpotComponent = ({
         </p>
       </div>
       <div className="delete-button--desktop">
-        <DeleteButton actionOnClick={handleClick} />
+        {admin && <DeleteButton actionOnClick={handleClick} />}
       </div>
     </SpotStyled>
   );
