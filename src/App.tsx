@@ -17,7 +17,9 @@ function App() {
   const navigate: NavigateFunction = useNavigate();
 
   useEffect(() => {
-    loggedUser.loggedIn ? navigate("/explore") : navigate("/");
+    // eslint-disable-next-line no-restricted-globals
+    if (!loggedUser.loggedIn && location.pathname !== "/register")
+      navigate("/");
   }, [loggedUser.loggedIn, navigate]);
 
   return (

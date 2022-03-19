@@ -12,12 +12,12 @@ const SpotStyled = styled.li`
     align-items: center;
     border: 1px solid #171d34;
     cursor: pointer;
+    &:hover {
+      border: 1px solid #2ef051;
+    }
   }
   .delete-button--desktop {
     display: none;
-  }
-  :hover {
-    border: 1px solid #2ef051;
   }
 
   .spot-image {
@@ -80,6 +80,9 @@ const SpotStyled = styled.li`
       width: 50%;
       margin: 0px;
       height: 100%;
+      :hover {
+        border: 0px solid #2ef051;
+      }
     }
     p {
       color: #fff;

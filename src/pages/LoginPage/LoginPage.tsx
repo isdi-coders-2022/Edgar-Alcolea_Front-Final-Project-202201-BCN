@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { Link } from "react-router-dom";
+import { Link, NavigateFunction, useNavigate } from "react-router-dom";
 import StyledForm from "../../components/SpotForm/SpotForm.style";
 import { userLoginThunk } from "../../redux/thunks/usersThunk";
 import { LoginFormInterface } from "../../types/LoginFormInterface";
 
 const LoginPage = (): JSX.Element => {
+  const navigate: NavigateFunction = useNavigate();
   const dispatch = useDispatch();
   const blankForm: LoginFormInterface = {
     username: "",
@@ -33,6 +34,7 @@ const LoginPage = (): JSX.Element => {
     event.preventDefault();
     resetForm();
     dispatch(userLoginThunk(formData));
+    setTimeout(() => navigate("/explore"), 1000);
   };
 
   return (
