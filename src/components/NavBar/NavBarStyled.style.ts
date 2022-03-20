@@ -14,6 +14,7 @@ const NavBarStyled = styled.div`
       align-items: center;
       height: inherit;
       padding: 0px;
+      margin-left: auto;
     }
 
     .navigation__link {
@@ -34,6 +35,16 @@ const NavBarStyled = styled.div`
         border: 1px solid #2ef051;
       }
     }
+    .navigation__link--profile {
+      cursor: pointer;
+      box-sizing: border-box;
+      font-size: 18px;
+
+      color: inherit;
+      text-decoration: none;
+      border: 1px solid #171d34;
+      margin-left: auto;
+    }
   }
   @media (min-width: 600px) {
     background-color: ${(props) => props.theme.colors.secondary};
@@ -50,14 +61,6 @@ const NavBarStyled = styled.div`
       align-items: center;
       height: inherit;
       padding: 0px;
-      .navigation__profile {
-        margin-right: 30px;
-        height: inherit;
-        width: 220px;
-        display: flex;
-        justify-content: space-between;
-        margin-left: auto;
-      }
     }
 
     .navigation__link {
@@ -76,6 +79,17 @@ const NavBarStyled = styled.div`
       &:hover {
         border: 1px solid #2ef051;
       }
+    }
+
+    .navigation__link--profile {
+      cursor: pointer;
+      box-sizing: border-box;
+      font-size: 18px;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+      border: 1px solid #171d34;
+      margin-left: auto;
     }
   }
 `;

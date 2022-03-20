@@ -65,7 +65,7 @@ export const userLoginThunk =
         isLoading: false,
         type: "success",
         theme: "dark",
-        autoClose: 3000,
+        autoClose: 2000,
       });
     } else {
       const { message } = await response.json();
@@ -74,7 +74,7 @@ export const userLoginThunk =
         isLoading: false,
         type: "error",
         theme: "dark",
-        autoClose: 3000,
+        autoClose: 2000,
       });
     }
   };

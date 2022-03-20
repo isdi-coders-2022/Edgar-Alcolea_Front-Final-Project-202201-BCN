@@ -27,7 +27,9 @@ const NavBar = (): JSX.Element => {
           <Link to="/spot-discovered" className="navigation__link">
             <p>Spot Discovered</p>
           </Link>
-          <Profile />
+          <Link to="/profile" className="navigation__link--profile">
+            <Profile />
+          </Link>
         </ul>
       </NavBarStyled>
     </>
