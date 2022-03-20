@@ -10,6 +10,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import MySpotsPage from "./pages/MySpotsPage/MySpotsPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import SpotDetailsPage from "./pages/SpotDetailsPage/SpotDetailsPage";
 import SpotDiscoveredPage from "./pages/SpotDiscoveredPage/SpotDiscoveredPage";
 import { pkTheme } from "./pkTheme";
 import { loginUserAction } from "./redux/actions/actionCreators";
@@ -48,6 +49,7 @@ function App() {
           <Route path="/spot-discovered" element={<SpotDiscoveredPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/profile/:id" element={<ProfilePage />} />
+          <Route path="/spot/:id" element={<SpotDetailsPage />} />
         </Routes>
       </div>
       <ToastContainer

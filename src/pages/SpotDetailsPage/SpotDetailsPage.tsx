@@ -3,9 +3,11 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { logoutUserAction } from "../../redux/actions/actionCreators";
+import SpotFormInterface from "../../types/SpotFormInterface";
+import { SpotInterface } from "../../types/SpotInterface";
 import { UserInterface } from "../../types/UserInterface";
 
-const StyledContainer = styled.div`
+const StyledDetailsContainer = styled.div`
   background-color: ${(props) => props.theme.colors.secondary};
   border-radius: ${(props) => props.theme.borderRadius};
   margin: 0 auto;
@@ -63,20 +65,25 @@ const StyledContainer = styled.div`
   }
 `;
 
-const ProfilePage = (): JSX.Element => {
+const SpotDetailsPage = (): JSX.Element => {
   const { id } = useParams();
 
-  const blankUser: UserInterface = {
+  const blankSpot: SpotInterface = {
+    id: "",
     name: "",
-    username: "",
-    password: "",
-    age: 0,
-    bio: "",
-    city: "",
+    description: "",
+    xCoordinate: 0,
+    yCoordinate: 0,
+    location: "",
     image: "",
+    createdBy: {
+      id: "",
+      username: "",
+    },
   };
 
-  const [userDetails, setUserDetails] = useState<UserInterface>(blankUser);
+  const [spotDetails, setSpotDetails] = useState<SpotInterface>(blankSpot);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleClick = () => {
@@ -88,49 +95,49 @@ const ProfilePage = (): JSX.Element => {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}users/${id}`
+        `${process.env.REACT_APP_API_URL}spots/${id}`
       );
-      const userData = await response.json();
-      setUserDetails(userData);
+      const spotData = await response.json();
+      setSpotDetails(spotData);
     }
     fetchData();
   }, [id]);
 
   return (
     <>
-      <h1 className="page-title">Your Profile</h1>
-      <StyledContainer>
+      <h1 className="page-title">{spotDetails.name}</h1>
+      <StyledDetailsContainer>
         <div className="image-container">
           <img
-            src={userDetails.image}
-            alt={userDetails.username}
+            src={spotDetails.image}
+            alt={spotDetails.name}
             className="profile-image"
           />
-          <p className="profile-details">{userDetails.username}</p>
+          <p className="profile-details">{spotDetails.name}</p>
           <button type="button" onClick={handleClick}>
-            Logout
+            Edit
           </button>
         </div>
         <div className="profile-info">
           <p className="profile-details">
             <span>Name: </span>
-            {userDetails.name}
+            {spotDetails.name}
           </p>
           <p className="profile-details">
-            <span>Age: </span>
-            {userDetails.age}
+            <span>Marked: </span>
+            {`${spotDetails.marked} times`}
           </p>
           <p className="profile-details">
             <span>City: </span>
-            {userDetails.city}
+            {spotDetails.location}
           </p>
           <p className="profile-details">
             <span>Bio: </span>
-            {userDetails.bio}
+            {spotDetails.description}
           </p>
         </div>
-      </StyledContainer>
+      </StyledDetailsContainer>
     </>
   );
 };
-export default ProfilePage;
+export default SpotDetailsPage;
