@@ -36,7 +36,7 @@ const LoginPage = (): JSX.Element => {
     event.preventDefault();
     resetForm();
     await dispatch(userLoginThunk(formData));
-    navigate("/explore");
+    navigate("/");
   };
 
   return (
