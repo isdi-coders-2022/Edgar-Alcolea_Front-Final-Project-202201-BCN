@@ -15,6 +15,14 @@ const SpotStyled = styled.li`
     &:hover {
       border: 1px solid #2ef051;
     }
+    a {
+      transition: all 0.2s;
+      text-decoration: none;
+      color: ${(props0) => props0.theme.colors.white};
+      &:hover {
+        color: ${(props0) => props0.theme.colors.highlight};
+      }
+    }
   }
   .delete-button--desktop {
     display: none;
@@ -66,7 +74,14 @@ const SpotStyled = styled.li`
     align-items: flex-start;
     border: 1px solid #171d34;
     cursor: pointer;
-
+    a {
+      transition: all 0.2s;
+      text-decoration: none;
+      color: ${(props0) => props0.theme.colors.white};
+      &:hover {
+        color: ${(props0) => props0.theme.colors.highlight};
+      }
+    }
     .delete-button {
       display: none;
     }

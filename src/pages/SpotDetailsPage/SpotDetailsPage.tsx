@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { logoutUserAction } from "../../redux/actions/actionCreators";
-import { useAppSelector } from "../../redux/hooks";
 import { UserInterface } from "../../types/UserInterface";
 
 const StyledContainer = styled.div`
@@ -66,7 +65,7 @@ const StyledContainer = styled.div`
 
 const ProfilePage = (): JSX.Element => {
   const { id } = useParams();
-  const loggedUser = useAppSelector((state) => state.user);
+
   const blankUser: UserInterface = {
     name: "",
     username: "",
@@ -99,11 +98,7 @@ const ProfilePage = (): JSX.Element => {
 
   return (
     <>
-      <h1 className="page-title">
-        {loggedUser.id === id
-          ? `Your profile`
-          : `${userDetails.username}'s profile`}
-      </h1>
+      <h1 className="page-title">Your Profile</h1>
       <StyledContainer>
         <div className="image-container">
           <img
@@ -112,11 +107,9 @@ const ProfilePage = (): JSX.Element => {
             className="profile-image"
           />
           <p className="profile-details">{userDetails.username}</p>
-          {loggedUser.id === id && (
-            <button type="button" onClick={handleClick}>
-              Logout
-            </button>
-          )}
+          <button type="button" onClick={handleClick}>
+            Logout
+          </button>
         </div>
         <div className="profile-info">
           <p className="profile-details">

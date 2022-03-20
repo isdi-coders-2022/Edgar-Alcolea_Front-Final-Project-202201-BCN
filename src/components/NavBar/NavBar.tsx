@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks";
 import Burger from "../Burger/Burger";
 import Profile from "../Profile/ProfileComponent";
 import SideMenu from "../SideMenu/SideMenu";
 import NavBarStyled from "./NavBarStyled.style";
 
 const NavBar = (): JSX.Element => {
+  const loggedUser = useAppSelector((state) => state.user);
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const toggleBurger = () => {
@@ -27,7 +29,10 @@ const NavBar = (): JSX.Element => {
           <Link to="/spot-discovered" className="navigation__link">
             <p>Spot Discovered</p>
           </Link>
-          <Link to="/profile" className="navigation__link--profile">
+          <Link
+            to={`/profile/${loggedUser.id}`}
+            className="navigation__link--profile"
+          >
             <Profile />
           </Link>
         </ul>
