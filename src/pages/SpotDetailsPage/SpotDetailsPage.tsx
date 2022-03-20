@@ -3,65 +3,69 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { logoutUserAction } from "../../redux/actions/actionCreators";
-import SpotFormInterface from "../../types/SpotFormInterface";
 import { SpotInterface } from "../../types/SpotInterface";
-import { UserInterface } from "../../types/UserInterface";
 
 const StyledDetailsContainer = styled.div`
   background-color: ${(props) => props.theme.colors.secondary};
   border-radius: ${(props) => props.theme.borderRadius};
   margin: 0 auto;
   color: ${(props) => props.theme.colors.white};
-  width: 80%;
-  height: 50vh;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  .image-container {
-    display: flex;
-    height: fit-content;
-    align-items: center;
+  button {
+    margin-left: auto;
+    margin-right: 20px;
+    transition: all 0.5s;
+    font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+    background: ${(props) => props.theme.colors.secondary};
+    border: 0px solid #2ef051;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    padding: 15px;
 
-    p {
-      color: ${(props) => props.theme.colors.primary};
-      font-size: 24px;
-      margin-left: 20px;
+    &:hover {
+      background: ${(props) => props.theme.colors.highlight};
     }
-    button {
-      margin-left: auto;
-      margin-right: 20px;
-      transition: all 0.5s;
-      font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      color: #fff;
-      font-weight: 400;
-      font-size: 20px;
-      background: ${(props) => props.theme.colors.secondary};
-      border: 0px solid #2ef051;
-      box-sizing: border-box;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      cursor: pointer;
-      padding: 15px;
-
-      &:hover {
-        background: red;
+    .image-container {
+      display: flex;
+      align-items: center;
+      p {
+        color: ${(props) => props.theme.colors.primary};
+        font-size: 24px;
+        margin-left: 20px;
       }
     }
   }
   .profile-info {
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
   }
   img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 60vw;
+    height: 300px;
+    border-radius: ${(props) => props.theme.borderRadius};
+    object-fit: cover;
   }
   span {
     color: ${(props) => props.theme.colors.primary};
     margin-right: 5px;
+  }
+  .map-container iframe {
+    border-radius: ${(props) => props.theme.borderRadius};
+    height: 300px;
+    width: 600px;
   }
 `;
 
@@ -107,16 +111,15 @@ const SpotDetailsPage = (): JSX.Element => {
     <>
       <h1 className="page-title">{spotDetails.name}</h1>
       <StyledDetailsContainer>
+        <button type="button" onClick={handleClick}>
+          Edit
+        </button>
         <div className="image-container">
           <img
             src={spotDetails.image}
             alt={spotDetails.name}
             className="profile-image"
           />
-          <p className="profile-details">{spotDetails.name}</p>
-          <button type="button" onClick={handleClick}>
-            Edit
-          </button>
         </div>
         <div className="profile-info">
           <p className="profile-details">
@@ -128,13 +131,21 @@ const SpotDetailsPage = (): JSX.Element => {
             {`${spotDetails.marked} times`}
           </p>
           <p className="profile-details">
-            <span>City: </span>
+            <span>Location: </span>
             {spotDetails.location}
           </p>
           <p className="profile-details">
-            <span>Bio: </span>
+            <span>Description: </span>
             {spotDetails.description}
           </p>
+          <div className="map-container">
+            <iframe
+              title="spot-map"
+              className="iframe"
+              src={`https://maps.google.com/?ll=${spotDetails.xCoordinate},${spotDetails.yCoordinate}&z=16&output=embed`}
+              frameBorder="0"
+            ></iframe>
+          </div>
         </div>
       </StyledDetailsContainer>
     </>
