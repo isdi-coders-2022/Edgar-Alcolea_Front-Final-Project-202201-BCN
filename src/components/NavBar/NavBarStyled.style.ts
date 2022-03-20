@@ -42,6 +42,7 @@ const NavBarStyled = styled.div`
     align-items: center;
 
     ul {
+      width: 100%;
       margin: 0px;
       list-style: none;
       display: flex;
@@ -49,6 +50,14 @@ const NavBarStyled = styled.div`
       align-items: center;
       height: inherit;
       padding: 0px;
+      .navigation__profile {
+        margin-right: 30px;
+        height: inherit;
+        width: 220px;
+        display: flex;
+        justify-content: space-between;
+        margin-left: auto;
+      }
     }
 
     .navigation__link {

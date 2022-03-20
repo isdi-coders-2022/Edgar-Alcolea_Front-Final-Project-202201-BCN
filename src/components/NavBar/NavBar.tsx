@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Burger from "../Burger/Burger";
+import Profile from "../Profile/ProfileComponent";
 import SideMenu from "../SideMenu/SideMenu";
 import NavBarStyled from "./NavBarStyled.style";
 
@@ -26,6 +27,7 @@ const NavBar = (): JSX.Element => {
           <Link to="/spot-discovered" className="navigation__link">
             <p>Spot Discovered</p>
           </Link>
+          <Profile />
         </ul>
       </NavBarStyled>
     </>
