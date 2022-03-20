@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import { deleteSpotThunk } from "../../redux/thunks/spotsThunks";
 import { SpotInterface } from "../../types/SpotInterface";
@@ -10,17 +11,10 @@ interface SpotProps {
 }
 
 const SpotComponent = ({
-  spot: {
-    name,
-    marked,
-    location,
-    image,
-    id,
-    description,
-    createdBy: { username },
-  },
+  spot: { name, marked, location, image, id, description, createdBy },
 }: SpotProps): JSX.Element => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { admin } = useAppSelector((state) => state.user);
 
@@ -28,8 +22,17 @@ const SpotComponent = ({
     dispatch(deleteSpotThunk(id));
   };
 
+  const goToDetails = () => {
+    navigate(`/spots/${id}`);
+  };
+
+  const goToCreator = (event: React.FormEvent<HTMLButtonElement>): void => {
+    event.stopPropagation();
+    navigate(`/profile/${createdBy.id}`);
+  };
+
   return (
-    <SpotStyled>
+    <SpotStyled onClick={goToDetails}>
       <div className="spot-container">
         <img className="spot-image" src={image} alt="spot" />
         <p className="spot-name">{name}</p>
@@ -53,7 +56,9 @@ const SpotComponent = ({
           </div>
           <p className="spot-created">
             <span>Created by: </span>
-            {username}
+            <button className="spot-created--link" onClick={goToCreator}>
+              {createdBy.username}
+            </button>
           </p>
           <p className="spot-location">{location}</p>
         </div>

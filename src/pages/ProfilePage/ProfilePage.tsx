@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { logoutUserAction } from "../../redux/actions/actionCreators";
+import { useAppSelector } from "../../redux/hooks";
 import { UserInterface } from "../../types/UserInterface";
 
 const StyledContainer = styled.div`
@@ -63,11 +64,9 @@ const StyledContainer = styled.div`
   }
 `;
 
-interface ProfilePagesProps {
-  id: string;
-}
-
-const ProfilePage = ({ id }: ProfilePagesProps): JSX.Element => {
+const ProfilePage = (): JSX.Element => {
+  const { id } = useParams();
+  const loggedUser = useAppSelector((state) => state.user);
   const blankUser: UserInterface = {
     name: "",
     username: "",
@@ -77,6 +76,8 @@ const ProfilePage = ({ id }: ProfilePagesProps): JSX.Element => {
     city: "",
     image: "",
   };
+  const defaultImage =
+    "https://plataformacine.com/images/user-icon-placeholder-clear.png";
 
   const [userDetails, setUserDetails] = useState<UserInterface>(blankUser);
   const dispatch = useDispatch();
@@ -100,18 +101,26 @@ const ProfilePage = ({ id }: ProfilePagesProps): JSX.Element => {
 
   return (
     <>
-      <h1 className="page-title">Your Profile</h1>
+      <h1 className="page-title">
+        {loggedUser.id === id
+          ? `Your profile`
+          : `${userDetails.username}'s profile`}
+      </h1>
       <StyledContainer>
         <div className="image-container">
           <img
-            src={userDetails.image}
+            src={
+              userDetails.image === "null" ? defaultImage : userDetails.image
+            }
             alt={userDetails.username}
             className="profile-image"
           />
           <p className="profile-details">{userDetails.username}</p>
-          <button type="button" onClick={handleClick}>
-            Logout
-          </button>
+          {loggedUser.id === id && (
+            <button type="button" onClick={handleClick}>
+              Logout
+            </button>
+          )}
         </div>
         <div className="profile-info">
           <p className="profile-details">

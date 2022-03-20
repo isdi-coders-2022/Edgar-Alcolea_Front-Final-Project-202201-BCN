@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { pkTheme } from "../../pkTheme";
 import store from "../../redux/store";
 import SpotComponent from "./SpotComponent";
 
@@ -20,9 +22,13 @@ describe("Given a SpotComponent", () => {
       };
 
       render(
-        <Provider store={store}>
-          <SpotComponent spot={spot} />
-        </Provider>
+        <ThemeProvider theme={pkTheme}>
+          <BrowserRouter>
+            <Provider store={store}>
+              <SpotComponent spot={spot} />
+            </Provider>
+          </BrowserRouter>
+        </ThemeProvider>
       );
       const spotNames = screen.getAllByText(spot.name);
 
