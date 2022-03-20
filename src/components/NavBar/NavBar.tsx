@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Burger from "../Burger/Burger";
+import Profile from "../Profile/ProfileComponent";
 import SideMenu from "../SideMenu/SideMenu";
 import NavBarStyled from "./NavBarStyled.style";
 
@@ -17,7 +18,7 @@ const NavBar = (): JSX.Element => {
       <NavBarStyled>
         <Burger isActive={isActive} actionOnClick={toggleBurger} />
         <ul title="navbar">
-          <Link to="/explore" className="navigation__link">
+          <Link to="/" className="navigation__link">
             <p>Explore</p>
           </Link>
           <Link to="/my-spots" className="navigation__link">
@@ -25,6 +26,9 @@ const NavBar = (): JSX.Element => {
           </Link>
           <Link to="/spot-discovered" className="navigation__link">
             <p>Spot Discovered</p>
+          </Link>
+          <Link to="/profile" className="navigation__link--profile">
+            <Profile />
           </Link>
         </ul>
       </NavBarStyled>

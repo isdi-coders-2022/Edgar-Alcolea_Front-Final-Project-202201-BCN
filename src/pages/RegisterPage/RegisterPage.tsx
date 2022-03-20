@@ -18,7 +18,12 @@ const RegisterPage = (): JSX.Element => {
     image: null,
   };
 
+  const imageUrl: any = {
+    imageDefault: "",
+  };
+
   const [formData, setFormData] = useState(blankForm);
+  const [imgData, setImgData] = useState(imageUrl);
 
   const isFormInvalid: boolean =
     formData.username === "" ||
@@ -40,6 +45,22 @@ const RegisterPage = (): JSX.Element => {
       [event.target.id]: event.target.value,
     });
   };
+
+  const changeFile = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const imageFileData: any = event.target.files;
+    setFormData({ ...formData, image: imageFileData[0] });
+    const reader = new FileReader();
+    reader.onload = async () => {
+      if (reader.readyState === 2) {
+        await setImgData({ ...imgData, imageDefault: reader.result });
+      }
+    };
+
+    if (imageFileData[0]) {
+      await reader.readAsDataURL(imageFileData[0]);
+    }
+  };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     dispatch(registerUserThunk(formData));
@@ -58,6 +79,22 @@ const RegisterPage = (): JSX.Element => {
       <StyledForm>
         <form noValidate autoComplete="off" onSubmit={handleSubmit}>
           <div className="form">
+            <div className="file-container file-container--profile">
+              <label htmlFor="file" className="image-label">
+                Image
+              </label>{" "}
+              <input type="file" id="file" onChange={changeFile} />
+              <img
+                className={!imgData.imageDefault ? "hidden" : "image-preview"}
+                src={imgData.imageDefault}
+                alt="preview"
+              />
+              <img
+                className={imgData.imageDefault ? "hidden" : "upload-icon"}
+                src="upload.png"
+                alt="upload"
+              />
+            </div>
             <div className="input-group">
               <label hidden={true} htmlFor="username">
                 Username:

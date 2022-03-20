@@ -14,6 +14,7 @@ const NavBarStyled = styled.div`
       align-items: center;
       height: inherit;
       padding: 0px;
+      margin-left: auto;
     }
 
     .navigation__link {
@@ -34,6 +35,16 @@ const NavBarStyled = styled.div`
         border: 1px solid #2ef051;
       }
     }
+    .navigation__link--profile {
+      cursor: pointer;
+      box-sizing: border-box;
+      font-size: 18px;
+
+      color: inherit;
+      text-decoration: none;
+      border: 1px solid #171d34;
+      margin-left: auto;
+    }
   }
   @media (min-width: 600px) {
     background-color: ${(props) => props.theme.colors.secondary};
@@ -42,6 +53,7 @@ const NavBarStyled = styled.div`
     align-items: center;
 
     ul {
+      width: 100%;
       margin: 0px;
       list-style: none;
       display: flex;
@@ -67,6 +79,17 @@ const NavBarStyled = styled.div`
       &:hover {
         border: 1px solid #2ef051;
       }
+    }
+
+    .navigation__link--profile {
+      cursor: pointer;
+      box-sizing: border-box;
+      font-size: 18px;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+      border: 1px solid #171d34;
+      margin-left: auto;
     }
   }
 `;
