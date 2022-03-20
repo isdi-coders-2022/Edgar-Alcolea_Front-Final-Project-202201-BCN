@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar/NavBar";
 import ExplorePage from "./pages/ExplorePage/ExplorePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import MySpotsPage from "./pages/MySpotsPage/MySpotsPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import SpotDiscoveredPage from "./pages/SpotDiscoveredPage/SpotDiscoveredPage";
 import { pkTheme } from "./pkTheme";
@@ -34,7 +35,7 @@ function App() {
       const userData: LoggedUserInterface = jwtDecode(token);
       dispatch(loginUserAction(userData));
     }
-  }, [dispatch, navigate]);
+  }, [dispatch, navigate, token]);
 
   return (
     <ThemeProvider theme={pkTheme}>
@@ -46,6 +47,7 @@ function App() {
           <Route path="/my-spots" element={<MySpotsPage />} />
           <Route path="/spot-discovered" element={<SpotDiscoveredPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/profile" element={<ProfilePage id={loggedUser.id} />} />
         </Routes>
       </div>
       <ToastContainer

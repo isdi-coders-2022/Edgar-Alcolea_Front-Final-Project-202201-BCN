@@ -7,6 +7,7 @@ const pkTheme: DefaultTheme = {
     primary: "#2ef051",
     secondary: "#171d34",
     background: "#111927",
+    white: "#fff",
   },
 };
 
