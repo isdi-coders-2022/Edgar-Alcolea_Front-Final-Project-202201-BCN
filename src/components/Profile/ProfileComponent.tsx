@@ -1,22 +1,19 @@
+import styled from "styled-components";
 import { useAppSelector } from "../../redux/hooks";
 
-const StyledProfile = styled.div``;
+const StyledProfile = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 const Profile = (): JSX.Element => {
   const user = useAppSelector((state) => state.user);
 
   return (
     <StyledProfile>
-      <img
-        src={userDetails.image}
-        alt={userDetails.username}
-        className="profile-image"
-      />
-      <p className="profile-details">{userDetails.username}</p>
-      <p className="profile-details">{userDetails.name}</p>
-      <p className="profile-details">{userDetails.age}</p>
-      <p className="profile-details">{userDetails.city}</p>
-      <p className="profile-details">{userDetails.bio}</p>
+      <p className="profile-details">Signed in as</p>
+      <img src={user.image} alt={user.username} className="profile-image" />
+      <p className="profile-details">{user.username}</p>
     </StyledProfile>
   );
 };
