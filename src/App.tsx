@@ -14,11 +14,9 @@ import SpotDetailsPage from "./pages/SpotDetailsPage/SpotDetailsPage";
 import SpotDiscoveredPage from "./pages/SpotDiscoveredPage/SpotDiscoveredPage";
 import { pkTheme } from "./pkTheme";
 import { loginUserAction } from "./redux/actions/actionCreators";
-import { useAppSelector } from "./redux/hooks";
 import { LoggedUserInterface } from "./types/UserInterface";
 
 function App() {
-  const loggedUser: LoggedUserInterface = useAppSelector((state) => state.user);
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useDispatch();
 
