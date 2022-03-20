@@ -65,10 +65,16 @@ export const userLoginThunk =
         isLoading: false,
         type: "success",
         theme: "dark",
-        autoClose: 2000,
+        autoClose: 3000,
       });
     } else {
       const { message } = await response.json();
-      toastNotification(message, "error");
+      toast.update(createToast, {
+        render: `Oops! ${message}`,
+        isLoading: false,
+        type: "error",
+        theme: "dark",
+        autoClose: 3000,
+      });
     }
   };

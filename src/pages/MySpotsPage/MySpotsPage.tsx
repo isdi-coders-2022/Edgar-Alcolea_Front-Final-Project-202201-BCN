@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import Button from "../../components/Button/Button";
 import Loading from "../../components/Loading/Loading";
 import SpotComponent from "../../components/SpotComponent/SpotComponent";
 import { useAppSelector } from "../../redux/hooks";
@@ -9,20 +10,28 @@ const MySpotsPage = (): JSX.Element => {
   const dispatch = useDispatch();
   const spots = useAppSelector((state) => state.spots);
   const user = useAppSelector((state) => state.user);
-  const mySpots = spots.filter((spot) => spot.createdBy.id === user.id);
+  const spotsPerPage = 2;
+  const [visibleSpots, setVisibleSpots] = useState(spotsPerPage);
 
   useEffect(() => {
     dispatch(loadSpotsThunk);
   }, [dispatch]);
 
+  const mySpots = spots.filter((spot) => spot.createdBy.id === user.id);
+
+  const loadMore = (): void => {
+    setVisibleSpots((prevValue) => prevValue + spotsPerPage);
+  };
+
   return (
     <>
       <h1 className="page-title">My Spots</h1>
-      {spots.length === 0 && <Loading />}
+      {mySpots.length === 0 && <Loading />}
       <ul className="spot-list">
-        {mySpots.map((spot) => (
+        {mySpots.slice(0, visibleSpots).map((spot) => (
           <SpotComponent key={spot.id} spot={spot} />
         ))}
+        {mySpots.length > visibleSpots && <Button actionOnClick={loadMore} />}
       </ul>
     </>
   );

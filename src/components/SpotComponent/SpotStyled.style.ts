@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const SpotStyled = styled.li`
   .spot-container {
+    transition: all 0.2s;
     width: 335px;
     margin-bottom: 20px;
     padding: 15px;
@@ -66,7 +67,7 @@ const SpotStyled = styled.li`
     align-items: flex-start;
     border: 1px solid #171d34;
     cursor: pointer;
-
+    transition: all 0.2s;
     .delete-button {
       display: none;
     }
