@@ -49,7 +49,7 @@ function App() {
           <Route path="/spot-discovered" element={<SpotDiscoveredPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/profile/:id" element={<ProfilePage />} />
-          <Route path="/spot/:id" element={<SpotDetailsPage />} />
+          <Route path="/spots/:id" element={<SpotDetailsPage />} />
         </Routes>
       </div>
       <ToastContainer

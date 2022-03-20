@@ -76,6 +76,8 @@ const ProfilePage = (): JSX.Element => {
     city: "",
     image: "",
   };
+  const defaultImage =
+    "https://plataformacine.com/images/user-icon-placeholder-clear.png";
 
   const [userDetails, setUserDetails] = useState<UserInterface>(blankUser);
   const dispatch = useDispatch();
@@ -107,7 +109,9 @@ const ProfilePage = (): JSX.Element => {
       <StyledContainer>
         <div className="image-container">
           <img
-            src={userDetails.image}
+            src={
+              userDetails.image === "null" ? defaultImage : userDetails.image
+            }
             alt={userDetails.username}
             className="profile-image"
           />
