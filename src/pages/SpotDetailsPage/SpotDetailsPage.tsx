@@ -150,7 +150,7 @@ const SpotDetailsPage = (): JSX.Element => {
           </div>
         </StyledDetailsContainer>
       ) : (
-        <SpotForm />
+        <SpotForm isEdit={true} spotDetails={spotDetails} />
       )}
     </>
   );
