@@ -8,10 +8,12 @@ import SpotStyled from "./SpotStyled.style";
 
 interface SpotProps {
   spot: SpotInterface;
+  mySpots: boolean;
 }
 
 const SpotComponent = ({
   spot: { name, marked, location, image, id, description, createdBy },
+  mySpots,
 }: SpotProps): JSX.Element => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -55,14 +57,15 @@ const SpotComponent = ({
             </svg>
             <p>{`x ${marked}`}</p>
           </div>
-          <p className="spot-created">
-            <span>Created by: </span>
-            <button className="spot-created--link" onClick={goToCreator}>
-              {window.location.pathname === "/explore"
-                ? createdBy.username
-                : user.username}
-            </button>
-          </p>
+          {!mySpots && (
+            <p className="spot-created">
+              <span>Created by: </span>
+              <button className="spot-created--link" onClick={goToCreator}>
+                {" "}
+                {createdBy?.username}
+              </button>
+            </p>
+          )}
           <p className="spot-location">{location}</p>
         </div>
         <div className="delete-button">
