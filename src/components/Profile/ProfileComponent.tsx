@@ -9,9 +9,7 @@ const StyledProfile = styled.div`
     padding: 0px 30px 0px 20px;
     transition: all 0.2s;
     img {
-      width: 30px;
-      padding: 5px;
-      border: 1px solid ${(props) => props.theme.colors.primary};
+      width: 40px;
       border-radius: 50%;
     }
     .navigation__profile__signed,

@@ -1,3 +1,5 @@
+import { SpotInterface } from "./SpotInterface";
+
 export interface UserInterface {
   name: string;
   username: string;
@@ -6,6 +8,7 @@ export interface UserInterface {
   bio: string;
   city: string;
   image: string;
+  createdSpots?: SpotInterface[];
 }
 
 export interface LoggedUserInterface {

@@ -1,19 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { MouseEventHandler } from "react";
 
 interface DeleteButtonProps {
-  actionOnClick: React.MouseEventHandler<SVGSVGElement>;
+  actionOnClick: MouseEventHandler<HTMLButtonElement>;
 }
 
 const DeleteButton = ({ actionOnClick }: DeleteButtonProps) => {
   return (
-    <FontAwesomeIcon
-      icon={faXmark}
-      size="2x"
-      color="red"
-      onClick={actionOnClick}
-      title="delete-button"
-    />
+    <button onClick={actionOnClick}>
+      <FontAwesomeIcon
+        icon={faXmark}
+        size="2x"
+        color="red"
+        title="delete-button"
+      />
+    </button>
   );
 };
 

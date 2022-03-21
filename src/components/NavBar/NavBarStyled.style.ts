@@ -42,7 +42,7 @@ const NavBarStyled = styled.div`
 
       color: inherit;
       text-decoration: none;
-      border: 1px solid #171d34;
+
       margin-left: auto;
     }
   }

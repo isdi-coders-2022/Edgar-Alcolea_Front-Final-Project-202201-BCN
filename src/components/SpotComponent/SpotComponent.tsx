@@ -16,9 +16,10 @@ const SpotComponent = ({
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { admin } = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.user);
 
-  const handleClick = () => {
+  const handleClick = (event: React.FormEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
     dispatch(deleteSpotThunk(id));
   };
 
@@ -57,13 +58,15 @@ const SpotComponent = ({
           <p className="spot-created">
             <span>Created by: </span>
             <button className="spot-created--link" onClick={goToCreator}>
-              {createdBy.username}
+              {window.location.pathname === "/explore"
+                ? createdBy.username
+                : user.username}
             </button>
           </p>
           <p className="spot-location">{location}</p>
         </div>
         <div className="delete-button">
-          {admin && <DeleteButton actionOnClick={handleClick} />}
+          {user.admin && <DeleteButton actionOnClick={handleClick} />}
         </div>
       </div>
 
@@ -76,7 +79,7 @@ const SpotComponent = ({
         </p>
       </div>
       <div className="delete-button--desktop">
-        {admin && <DeleteButton actionOnClick={handleClick} />}
+        {user.admin && <DeleteButton actionOnClick={handleClick} />}
       </div>
     </SpotStyled>
   );
