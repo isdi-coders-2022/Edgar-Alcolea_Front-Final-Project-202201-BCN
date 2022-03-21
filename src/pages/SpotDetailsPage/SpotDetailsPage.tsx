@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
+import SpotForm from "../../components/SpotForm/SpotForm";
 import { logoutUserAction } from "../../redux/actions/actionCreators";
 import { SpotInterface } from "../../types/SpotInterface";
 
@@ -85,15 +86,14 @@ const SpotDetailsPage = (): JSX.Element => {
       username: "",
     },
   };
-
+  const [isEdit, setIsEdit] = useState(false);
   const [spotDetails, setSpotDetails] = useState<SpotInterface>(blankSpot);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleClick = () => {
-    localStorage.removeItem("token");
-    dispatch(logoutUserAction());
-    navigate("/login");
+    setIsEdit(true);
   };
 
   useEffect(() => {
@@ -110,44 +110,48 @@ const SpotDetailsPage = (): JSX.Element => {
   return (
     <>
       <h1 className="page-title">{spotDetails.name}</h1>
-      <StyledDetailsContainer>
-        <button type="button" onClick={handleClick}>
-          Edit
-        </button>
-        <div className="image-container">
-          <img
-            src={spotDetails.image}
-            alt={spotDetails.name}
-            className="profile-image"
-          />
-        </div>
-        <div className="profile-info">
-          <p className="profile-details">
-            <span>Name: </span>
-            {spotDetails.name}
-          </p>
-          <p className="profile-details">
-            <span>Marked: </span>
-            {`${spotDetails.marked} times`}
-          </p>
-          <p className="profile-details">
-            <span>Location: </span>
-            {spotDetails.location}
-          </p>
-          <p className="profile-details">
-            <span>Description: </span>
-            {spotDetails.description}
-          </p>
-          <div className="map-container">
-            <iframe
-              title="spot-map"
-              className="iframe"
-              src={`https://maps.google.com/?ll=${spotDetails.xCoordinate},${spotDetails.yCoordinate}&z=16&output=embed`}
-              frameBorder="0"
-            ></iframe>
+      {isEdit === false ? (
+        <StyledDetailsContainer>
+          <button type="button" onClick={handleClick}>
+            Edit
+          </button>
+          <div className="image-container">
+            <img
+              src={spotDetails.image}
+              alt={spotDetails.name}
+              className="profile-image"
+            />
           </div>
-        </div>
-      </StyledDetailsContainer>
+          <div className="profile-info">
+            <p className="profile-details">
+              <span>Name: </span>
+              {spotDetails.name}
+            </p>
+            <p className="profile-details">
+              <span>Marked: </span>
+              {`${spotDetails.marked} times`}
+            </p>
+            <p className="profile-details">
+              <span>Location: </span>
+              {spotDetails.location}
+            </p>
+            <p className="profile-details">
+              <span>Description: </span>
+              {spotDetails.description}
+            </p>
+            <div className="map-container">
+              <iframe
+                title="spot-map"
+                className="iframe"
+                src={`https://maps.google.com/?ll=${spotDetails.xCoordinate},${spotDetails.yCoordinate}&z=16&output=embed`}
+                frameBorder="0"
+              ></iframe>
+            </div>
+          </div>
+        </StyledDetailsContainer>
+      ) : (
+        <SpotForm />
+      )}
     </>
   );
 };
