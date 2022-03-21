@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import SpotForm from "../../components/SpotForm/SpotForm";
-import { logoutUserAction } from "../../redux/actions/actionCreators";
 import { SpotInterface } from "../../types/SpotInterface";
 
 const StyledDetailsContainer = styled.div`
@@ -88,9 +86,6 @@ const SpotDetailsPage = (): JSX.Element => {
   };
   const [isEdit, setIsEdit] = useState(false);
   const [spotDetails, setSpotDetails] = useState<SpotInterface>(blankSpot);
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleClick = () => {
     setIsEdit(true);

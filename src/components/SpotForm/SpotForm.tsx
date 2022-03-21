@@ -26,7 +26,7 @@ const SpotForm = ({ spotDetails, isEdit }: SpotFormProps): JSX.Element => {
     createdBy: id,
   };
 
-  if (isEdit === false) {
+  if (!isEdit) {
     blankForm = {
       name: "",
       description: "",
@@ -45,7 +45,7 @@ const SpotForm = ({ spotDetails, isEdit }: SpotFormProps): JSX.Element => {
     };
   }
   const imageUrl: any = {
-    imageDefault: isEdit === false ? "" : spotDetails.image,
+    imageDefault: !isEdit ? "" : spotDetails.image,
   };
 
   const [formData, setFormData] = useState(blankForm);
@@ -156,7 +156,7 @@ const SpotForm = ({ spotDetails, isEdit }: SpotFormProps): JSX.Element => {
           </div>
           <div className="button-container">
             <button type="submit" disabled={isFormInvalid}>
-              Add Spot!
+              {isEdit ? "Update Spot!" : "Add Spot!"}
             </button>
           </div>
         </div>
