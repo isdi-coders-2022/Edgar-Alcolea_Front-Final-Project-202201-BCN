@@ -18,14 +18,6 @@ export const loadSpotsThunk: AppThunk = async (dispatch): Promise<void> => {
   dispatch(loadSpotsAction(spots));
 };
 
-export const loadUserSpotsThunk: AppThunk = async (dispatch): Promise<void> => {
-  const response: Response = await fetch(
-    `${process.env.REACT_APP_API_URL}spots/created`
-  );
-  const spots: SpotInterface[] = await response.json();
-  dispatch(loadSpotsAction(spots));
-};
-
 export const deleteSpotThunk =
   (id: string): AppThunk =>
   async (dispatch: AppDispatch): Promise<void> => {

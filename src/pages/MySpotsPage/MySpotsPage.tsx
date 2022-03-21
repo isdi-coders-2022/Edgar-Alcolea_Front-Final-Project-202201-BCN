@@ -4,17 +4,18 @@ import Button from "../../components/Button/Button";
 import Loading from "../../components/Loading/Loading";
 import SpotComponent from "../../components/SpotComponent/SpotComponent";
 import { useAppSelector } from "../../redux/hooks";
-import { loadUserSpotsThunk } from "../../redux/thunks/spotsThunks";
+import { getUserSpotsThunk } from "../../redux/thunks/usersThunk";
 
 const MySpotsPage = (): JSX.Element => {
   const dispatch = useDispatch();
   const spots = useAppSelector((state) => state.spots);
+  const user = useAppSelector((state) => state.user);
   const spotsPerPage = 2;
   const [visibleSpots, setVisibleSpots] = useState(spotsPerPage);
 
   useEffect(() => {
-    dispatch(loadUserSpotsThunk);
-  }, [dispatch]);
+    dispatch(getUserSpotsThunk(user.id));
+  }, [dispatch, user.id]);
 
   const loadMore = (): void => {
     setVisibleSpots((prevValue) => prevValue + spotsPerPage);

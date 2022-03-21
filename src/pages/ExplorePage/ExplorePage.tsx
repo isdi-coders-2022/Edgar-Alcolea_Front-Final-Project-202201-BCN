@@ -11,6 +11,7 @@ const ExplorePage = (): JSX.Element => {
   const spots = useAppSelector((state) => state.spots);
   const spotsPerPage = 2;
   const [visibleSpots, setVisibleSpots] = useState(spotsPerPage);
+
   useEffect(() => {
     dispatch(loadSpotsThunk);
   }, [dispatch]);

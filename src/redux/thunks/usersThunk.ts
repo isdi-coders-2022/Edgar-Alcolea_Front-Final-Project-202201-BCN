@@ -6,9 +6,10 @@ import {
   RegisterFormInterface,
   LoginFormInterface,
 } from "../../types/LoginFormInterface";
-import { LoggedUserInterface } from "../../types/UserInterface";
+import { SpotInterface } from "../../types/SpotInterface";
+import { LoggedUserInterface, UserInterface } from "../../types/UserInterface";
 import toastNotification from "../../utils/toastNotification";
-import { loginUserAction } from "../actions/actionCreators";
+import { loadSpotsAction, loginUserAction } from "../actions/actionCreators";
 
 import { AppThunk } from "../store";
 
@@ -77,4 +78,14 @@ export const userLoginThunk =
         autoClose: 2000,
       });
     }
+  };
+
+export const getUserSpotsThunk =
+  (id: string): AppThunk =>
+  async (dispatch): Promise<void> => {
+    const response: Response = await fetch(
+      `${process.env.REACT_APP_API_URL}users/${id}`
+    );
+    const user: UserInterface = await response.json();
+    dispatch(loadSpotsAction(user.createdSpots as SpotInterface[]));
   };
