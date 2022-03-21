@@ -11,8 +11,17 @@ import {
 import { AppDispatch, AppThunk } from "../store";
 
 export const loadSpotsThunk: AppThunk = async (dispatch): Promise<void> => {
-  const apiURL: string | undefined = process.env.REACT_APP_API_URL;
-  const response: Response = await fetch(`${apiURL}spots`);
+  const response: Response = await fetch(
+    `${process.env.REACT_APP_API_URL}spots`
+  );
+  const spots: SpotInterface[] = await response.json();
+  dispatch(loadSpotsAction(spots));
+};
+
+export const loadUserSpotsThunk: AppThunk = async (dispatch): Promise<void> => {
+  const response: Response = await fetch(
+    `${process.env.REACT_APP_API_URL}spots/created`
+  );
   const spots: SpotInterface[] = await response.json();
   dispatch(loadSpotsAction(spots));
 };
@@ -45,11 +54,15 @@ export const createSpotThunk =
     data.append("yCoordinate", coordinates[1]);
     data.append("image", spot.image as Blob);
     data.append("createdBy", spot.createdBy as string);
+    const token = localStorage.getItem("token");
     const response: Response = await fetch(
       `${process.env.REACT_APP_API_URL}spots/new`,
       {
         method: "POST",
         body: data,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
     );
     if (response.ok) {
