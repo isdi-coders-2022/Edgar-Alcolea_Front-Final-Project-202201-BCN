@@ -18,7 +18,8 @@ const SpotComponent = ({
 
   const { admin } = useAppSelector((state) => state.user);
 
-  const handleClick = () => {
+  const handleClick = (event: React.FormEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
     dispatch(deleteSpotThunk(id));
   };
 

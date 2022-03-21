@@ -29,10 +29,14 @@ export const loadUserSpotsThunk: AppThunk = async (dispatch): Promise<void> => {
 export const deleteSpotThunk =
   (id: string): AppThunk =>
   async (dispatch: AppDispatch): Promise<void> => {
+    const token = localStorage.getItem("token");
     const response: Response = await fetch(
       `${process.env.REACT_APP_API_URL}spots/delete/${id}`,
       {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
     );
     if (response.ok) {
