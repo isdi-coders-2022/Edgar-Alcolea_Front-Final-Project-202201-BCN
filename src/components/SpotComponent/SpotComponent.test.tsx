@@ -25,7 +25,7 @@ describe("Given a SpotComponent", () => {
         <ThemeProvider theme={pkTheme}>
           <BrowserRouter>
             <Provider store={store}>
-              <SpotComponent spot={spot} />
+              <SpotComponent spot={spot} mySpots={false} />
             </Provider>
           </BrowserRouter>
         </ThemeProvider>

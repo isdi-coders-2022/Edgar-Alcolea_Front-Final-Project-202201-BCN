@@ -4,14 +4,20 @@ import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import { createSpotThunk } from "../../redux/thunks/spotsThunks";
 import SpotFormInterface from "../../types/SpotFormInterface";
+import { SpotInterface } from "../../types/SpotInterface";
 import StyledForm from "./SpotForm.style";
 
-const SpotForm = (): JSX.Element => {
+interface SpotFormProps {
+  spotDetails: SpotInterface;
+  isEdit: boolean;
+}
+
+const SpotForm = ({ spotDetails, isEdit }: SpotFormProps): JSX.Element => {
   const { id } = useAppSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const blankForm: SpotFormInterface = {
+  let blankForm: SpotFormInterface = {
     name: "",
     description: "",
     coordinates: "",
@@ -20,8 +26,26 @@ const SpotForm = (): JSX.Element => {
     createdBy: id,
   };
 
+  if (!isEdit) {
+    blankForm = {
+      name: "",
+      description: "",
+      coordinates: "",
+      location: "",
+      image: null,
+      createdBy: id,
+    };
+  } else {
+    blankForm = {
+      name: spotDetails.name,
+      description: spotDetails.description,
+      coordinates: `${spotDetails.xCoordinate}, ${spotDetails.yCoordinate}`,
+      location: spotDetails.location,
+      image: null,
+    };
+  }
   const imageUrl: any = {
-    imageDefault: "",
+    imageDefault: !isEdit ? "" : spotDetails.image,
   };
 
   const [formData, setFormData] = useState(blankForm);
@@ -132,7 +156,7 @@ const SpotForm = (): JSX.Element => {
           </div>
           <div className="button-container">
             <button type="submit" disabled={isFormInvalid}>
-              Add Spot!
+              {isEdit ? "Update Spot!" : "Add Spot!"}
             </button>
           </div>
         </div>

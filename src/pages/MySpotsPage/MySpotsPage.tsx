@@ -27,7 +27,7 @@ const MySpotsPage = (): JSX.Element => {
       {spots.length === 0 && <Loading />}
       <ul className="spot-list">
         {spots.slice(0, visibleSpots).map((spot) => (
-          <SpotComponent key={spot.id} spot={spot} />
+          <SpotComponent key={spot.id} spot={spot} mySpots={true} />
         ))}
         {spots.length > visibleSpots && <Button actionOnClick={loadMore} />}
       </ul>
