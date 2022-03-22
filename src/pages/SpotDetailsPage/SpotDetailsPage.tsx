@@ -38,6 +38,8 @@ const SpotDetailsPage = (): JSX.Element => {
     fetchData();
   }, [id]);
 
+  debugger;
+
   return (
     <>
       <h1 className="page-title--mobile">Spot Discovered</h1>
@@ -98,10 +100,10 @@ const SpotDetailsPage = (): JSX.Element => {
                 frameBorder="0"
               ></iframe>
             </div>
+            <button type="button" onClick={handleClick}>
+              Edit
+            </button>
           </div>
-          <button type="button" onClick={handleClick}>
-            Edit
-          </button>
         </StyledDetailsContainer>
       ) : (
         <SpotForm isEdit={true} spotDetails={spotDetails} />

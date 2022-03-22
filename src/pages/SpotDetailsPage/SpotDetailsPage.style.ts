@@ -94,14 +94,20 @@ const StyledDetailsContainer = styled.div`
     background-color: ${(props) => props.theme.colors.secondary};
     border-radius: ${(props) => props.theme.borderRadius};
     color: ${(props) => props.theme.colors.white};
-    width: 95%;
+    width: 60%;
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    .image-container {
+      display: flex;
+      justify-content: center;
+      width: 93%;
+    }
     button {
+      margin-left: 25%;
+      margin-top: 20px;
       width: 50%;
-      margin-right: 20px;
       transition: all 0.5s;
       font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -120,13 +126,12 @@ const StyledDetailsContainer = styled.div`
       &:hover {
         background: ${(props) => props.theme.colors.highlight};
       }
-      .image-container {
-        display: flex;
-        justify-content: center;
-        width: 90%;
-      }
     }
     .profile-info {
+      width: 90%;
+      margin-top: 20px;
+      background-color: ${(props) => props.theme.colors.background};
+      border-radius: ${(props) => props.theme.borderRadius};
       padding: 0px 20px 20px 20px;
       .times-marked {
         width: 90%;
@@ -161,10 +166,14 @@ const StyledDetailsContainer = styled.div`
       color: ${(props) => props.theme.colors.primary};
       margin-right: 5px;
     }
-    .map-container iframe {
-      border-radius: ${(props) => props.theme.borderRadius};
-      height: 300px;
-      width: 600px;
+    .map-container {
+      display: flex;
+      justify-content: center;
+      iframe {
+        border-radius: ${(props) => props.theme.borderRadius};
+        height: 250px;
+        width: 90%;
+      }
     }
   }
 `;
