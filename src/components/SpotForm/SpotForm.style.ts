@@ -4,7 +4,6 @@ const StyledForm = styled.div`
   @media (max-width: 600px) {
     margin: 0 auto;
     position: relative;
-    top: -50px;
     background-color: #171d34;
     width: 95%;
     border-radius: 15px;
@@ -34,7 +33,12 @@ const StyledForm = styled.div`
           border: 0px solid red;
           margin: 10px 0px;
           color: #70757d;
-
+          font-size: 16px;
+          pointer-events: none;
+          font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI",
+            Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
           ::placeholder {
             color: #70757d;
             font-size: 18px;

@@ -86,13 +86,13 @@ const SpotForm = ({ spotDetails, isEdit }: SpotFormProps): JSX.Element => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     dispatch(createSpotThunk(formData));
-    setTimeout(() => navigate("/"), 2000);
+    setTimeout(() => navigate("/"), 3000);
   };
 
   const handleEditSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     dispatch(updateSpotThunk(formData));
-    setTimeout(() => navigate("/"), 2000);
+    setTimeout(() => navigate("/"), 3000);
   };
 
   return (
