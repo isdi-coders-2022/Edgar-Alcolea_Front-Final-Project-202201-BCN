@@ -6,6 +6,7 @@ const NavBarStyled = styled.div`
     height: 73px;
     display: flex;
     align-items: center;
+
     ul {
       margin: 0px;
       list-style: none;
@@ -16,7 +17,14 @@ const NavBarStyled = styled.div`
       padding: 0px;
       margin-left: auto;
     }
-
+    .disabler.active {
+      position: absolute;
+      top: 73px;
+      left: 0px;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+    }
     .navigation__link {
       display: none;
       cursor: pointer;

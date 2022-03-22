@@ -36,6 +36,10 @@ const NavBar = (): JSX.Element => {
             <Profile />
           </Link>
         </ul>
+        <div
+          className={`${isActive ? "disabler active" : "disabler"}`}
+          onClick={toggleBurger}
+        ></div>
       </NavBarStyled>
     </>
   );
