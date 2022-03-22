@@ -86,12 +86,16 @@ export const updateSpotThunk =
     data.append("xCoordinate", coordinates[0]);
     data.append("yCoordinate", coordinates[1]);
     data.append("image", spot.image as Blob);
+    const token = localStorage.getItem("token");
 
     const response: Response = await fetch(
       `${process.env.REACT_APP_API_URL}spots/${spot.id}`,
       {
         method: "PUT",
         body: data,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
     );
     if (response.ok) {

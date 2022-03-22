@@ -8,7 +8,6 @@ import {
 } from "../../types/LoginFormInterface";
 import { SpotInterface } from "../../types/SpotInterface";
 import { LoggedUserInterface, UserInterface } from "../../types/UserInterface";
-import toastNotification from "../../utils/toastNotification";
 import { loadSpotsAction, loginUserAction } from "../actions/actionCreators";
 
 import { AppThunk } from "../store";
@@ -34,10 +33,10 @@ export const registerUserThunk =
     );
     if (response.ok) {
       const newUser = await response.json();
-      toastNotification(`${newUser.username} registered!`, "success");
+      toast.success(`${newUser.username} registered!`);
     } else {
       const { message } = await response.json();
-      toastNotification(message, "error");
+      toast.error(message);
     }
   };
 
