@@ -9,11 +9,13 @@ import SpotStyled from "./SpotStyled.style";
 interface SpotProps {
   spot: SpotInterface;
   mySpots: boolean;
+  filterCity: (city: string) => void;
 }
 
 const SpotComponent = ({
   spot: { name, marked, location, image, id, description, createdBy },
   mySpots,
+  filterCity,
 }: SpotProps): JSX.Element => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,6 +34,13 @@ const SpotComponent = ({
   const goToCreator = (event: React.FormEvent<HTMLButtonElement>): void => {
     event.stopPropagation();
     navigate(`/profile/${createdBy.id}`);
+  };
+
+  const handleFilterClick = (
+    event: React.FormEvent<HTMLButtonElement>
+  ): void => {
+    event.stopPropagation();
+    filterCity(location);
   };
 
   return (
@@ -78,7 +87,9 @@ const SpotComponent = ({
         <p className="spot-description">{description}</p>
         <p>
           <span className="spot-location--desktop">Location: </span>
-          {location}
+          <button className="spot-created--link" onClick={handleFilterClick}>
+            {location}
+          </button>
         </p>
       </div>
       <div className="delete-button--desktop">
