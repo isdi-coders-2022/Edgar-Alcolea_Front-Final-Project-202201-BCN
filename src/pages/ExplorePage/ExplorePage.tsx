@@ -35,7 +35,6 @@ const ExplorePage = (): JSX.Element => {
   return (
     <StyledExplorePage>
       <h1 className="page-title">Explore</h1>
-
       {spots.length === 0 && <Loading />}
       <ul className="spot-list">
         {filtered && (

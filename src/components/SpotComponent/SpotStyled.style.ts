@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const SpotStyled = styled.li`
   .spot-container {
-    width: 335px;
+    width: 310px;
     margin-bottom: 20px;
     padding: 15px;
     background-color: #171d34;
