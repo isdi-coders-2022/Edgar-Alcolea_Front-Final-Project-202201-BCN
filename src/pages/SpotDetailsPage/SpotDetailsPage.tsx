@@ -40,7 +40,8 @@ const SpotDetailsPage = (): JSX.Element => {
 
   return (
     <>
-      <h1 className="page-title">Spot Discovered</h1>
+      <h1 className="page-title--mobile">Spot Discovered</h1>
+      <h1 className="page-title--details">{spotDetails.name}</h1>
       <p className="spot-title">{spotDetails.name}</p>
       {isEdit === false ? (
         <StyledDetailsContainer>
@@ -52,6 +53,9 @@ const SpotDetailsPage = (): JSX.Element => {
             />
           </div>
           <div className="profile-info">
+            <p className="profile-details--description">
+              {spotDetails.description}
+            </p>
             <div className="times-marked">
               <span>Marked: </span>
               <svg
@@ -73,14 +77,12 @@ const SpotDetailsPage = (): JSX.Element => {
               <span>Discovered by: </span>
               {spotDetails.createdBy.username}
             </p>
+
             <p className="profile-details">
               <span>Location: </span>
               {spotDetails.location}
             </p>
-            <p className="profile-details">
-              <span>Description: </span>
-              {spotDetails.description}
-            </p>
+
             <div className="map-container">
               <iframe
                 title="spot-map"

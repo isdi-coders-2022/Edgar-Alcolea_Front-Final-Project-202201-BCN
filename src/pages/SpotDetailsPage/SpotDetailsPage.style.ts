@@ -64,6 +64,11 @@ const StyledDetailsContainer = styled.div`
       margin-top: 0px;
       margin-left: 10px;
     }
+    .profile-details--description {
+      margin-top: 15px;
+      margin-bottom: 0px;
+      margin-left: 10px;
+    }
     .map-container {
       display: flex;
       align-items: center;
