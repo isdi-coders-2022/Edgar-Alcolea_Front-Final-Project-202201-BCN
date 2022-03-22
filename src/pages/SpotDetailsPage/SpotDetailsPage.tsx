@@ -1,72 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
 import SpotForm from "../../components/SpotForm/SpotForm";
 import { SpotInterface } from "../../types/SpotInterface";
-
-const StyledDetailsContainer = styled.div`
-  background-color: ${(props) => props.theme.colors.secondary};
-  border-radius: ${(props) => props.theme.borderRadius};
-  margin: 0 auto;
-  color: ${(props) => props.theme.colors.white};
-  width: 85%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  button {
-    margin-left: auto;
-    margin-right: 20px;
-    transition: all 0.5s;
-    font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #fff;
-    font-weight: 400;
-    font-size: 20px;
-    background: ${(props) => props.theme.colors.secondary};
-    border: 0px solid #2ef051;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-    padding: 15px;
-
-    &:hover {
-      background: ${(props) => props.theme.colors.highlight};
-    }
-    .image-container {
-      display: flex;
-      align-items: center;
-      p {
-        color: ${(props) => props.theme.colors.primary};
-        font-size: 24px;
-        margin-left: 20px;
-      }
-    }
-  }
-  .profile-info {
-    padding: 0px 20px 20px 20px;
-  }
-  img {
-    width: 60vw;
-    height: 300px;
-    border-radius: ${(props) => props.theme.borderRadius};
-    object-fit: cover;
-  }
-  span {
-    color: ${(props) => props.theme.colors.primary};
-    margin-right: 5px;
-  }
-  .map-container iframe {
-    border-radius: ${(props) => props.theme.borderRadius};
-    height: 300px;
-    width: 600px;
-  }
-`;
+import StyledDetailsContainer from "./SpotDetailsPage.style";
 
 const SpotDetailsPage = (): JSX.Element => {
   const { id } = useParams();
@@ -104,12 +40,10 @@ const SpotDetailsPage = (): JSX.Element => {
 
   return (
     <>
-      <h1 className="page-title">{spotDetails.name}</h1>
+      <h1 className="page-title">Spot Discovered</h1>
+      <p className="spot-title">{spotDetails.name}</p>
       {isEdit === false ? (
         <StyledDetailsContainer>
-          <button type="button" onClick={handleClick}>
-            Edit
-          </button>
           <div className="image-container">
             <img
               src={spotDetails.image}
@@ -118,13 +52,26 @@ const SpotDetailsPage = (): JSX.Element => {
             />
           </div>
           <div className="profile-info">
-            <p className="profile-details">
-              <span>Name: </span>
-              {spotDetails.name}
-            </p>
-            <p className="profile-details">
+            <div className="times-marked">
               <span>Marked: </span>
-              {`${spotDetails.marked} times`}
+              <svg
+                width="26"
+                height="20"
+                viewBox="0 0 32 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.2249 2.60012C15.0128 1.38058 16.7967 1.38058 17.5847 2.60011L23.6578 12L29.4174 20.9147C30.2772 22.2454 29.3219 24 27.7375 24H15.9048H4.07206C2.48767 24 1.53237 22.2454 2.39217 20.9147L8.15177 12L14.2249 2.60012Z"
+                  stroke="#BA1A97"
+                  strokeWidth="3"
+                />
+              </svg>
+              <p>{`x ${spotDetails.marked}`}</p>
+            </div>
+            <p className="profile-details">
+              <span>Discovered by: </span>
+              {spotDetails.createdBy.username}
             </p>
             <p className="profile-details">
               <span>Location: </span>
@@ -143,6 +90,9 @@ const SpotDetailsPage = (): JSX.Element => {
               ></iframe>
             </div>
           </div>
+          <button type="button" onClick={handleClick}>
+            Edit
+          </button>
         </StyledDetailsContainer>
       ) : (
         <SpotForm isEdit={true} spotDetails={spotDetails} />

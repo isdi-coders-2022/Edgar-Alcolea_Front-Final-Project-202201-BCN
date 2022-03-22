@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar/NavBar";
 import ExplorePage from "./pages/ExplorePage/ExplorePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import MySpotsPage from "./pages/MySpotsPage/MySpotsPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import SpotDetailsPage from "./pages/SpotDetailsPage/SpotDetailsPage";
@@ -48,6 +49,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/spots/:id" element={<SpotDetailsPage />} />
+          <Route path="/*" element={<NotFoundPage />} />
         </Routes>
       </div>
       <ToastContainer

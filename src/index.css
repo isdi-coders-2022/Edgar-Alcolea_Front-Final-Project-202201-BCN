@@ -9,7 +9,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #111927;
-  width: 100%;
   box-sizing: border-box;
 }
 
@@ -27,7 +26,13 @@ input[type="number"] {
   flex-direction: column;
   align-items: center;
 }
-
+.spot-title {
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
 .spot-list {
   display: flex;
   flex-direction: column;
@@ -35,14 +40,36 @@ input[type="number"] {
   list-style: none;
   padding: 0px;
 }
+.not-found-container {
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found-container h1 {
+  text-align: center;
+  color: #fff;
+  width: 548px;
+  height: 60px;
+  left: calc(50% - 548px / 2 - 1px);
+  top: calc(50% - 60px / 2 - 347px);
+  font-style: normal;
+  font-weight: normal;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 40px;
+  line-height: 60px;
+}
 @media (max-width: 600px) {
   .page-title {
     text-align: center;
     color: #2ef051;
     position: relative;
     width: fit-content;
-    margin: 20px auto;
-    top: -70px;
+    margin: 0px auto;
+    top: -50px;
     font-weight: 200;
     font-size: 20px;
     user-select: none;

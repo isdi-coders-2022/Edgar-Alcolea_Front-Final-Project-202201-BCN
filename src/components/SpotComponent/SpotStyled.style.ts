@@ -108,9 +108,9 @@ const SpotStyled = styled.li`
       text-decoration: none;
       border: none;
       background-color: #171d34;
-      color: ${(props0) => props0.theme.colors.white};
+      color: ${(props) => props.theme.colors.white};
       &:hover {
-        color: ${(props0) => props0.theme.colors.highlight};
+        color: ${(props) => props.theme.colors.highlight};
       }
     }
     .delete-button {
