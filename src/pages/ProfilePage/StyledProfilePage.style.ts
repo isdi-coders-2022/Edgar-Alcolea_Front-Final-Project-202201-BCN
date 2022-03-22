@@ -87,7 +87,7 @@ const StyledProfilePage = styled.div`
     }
     .page-title {
       text-align: center;
-      color: ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.primary};
       position: relative;
       width: fit-content;
       margin: 20px auto;
