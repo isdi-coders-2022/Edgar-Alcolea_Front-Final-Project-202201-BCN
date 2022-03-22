@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import StyledForm from "../../components/SpotForm/SpotForm.style";
 import { registerUserThunk } from "../../redux/thunks/usersThunk";
 import { RegisterFormInterface } from "../../types/LoginFormInterface";
+import StyledRegisterPage from "./StyledRegisterPage.style";
 
 const RegisterPage = (): JSX.Element => {
   const navigate = useNavigate();
@@ -67,7 +68,7 @@ const RegisterPage = (): JSX.Element => {
     navigate("/");
   };
   return (
-    <>
+    <StyledRegisterPage>
       <div className="title-container">
         <h1 className="login-title">Welcome to PK Spots !</h1>
         <img
@@ -76,7 +77,7 @@ const RegisterPage = (): JSX.Element => {
           className="register-image"
         />
       </div>
-      <StyledForm>
+      <StyledForm className="form-container">
         <form noValidate autoComplete="off" onSubmit={handleSubmit}>
           <div className="form">
             <div className="file-container file-container--profile">
@@ -91,8 +92,8 @@ const RegisterPage = (): JSX.Element => {
               />
               <img
                 className={imgData.imageDefault ? "hidden" : "upload-icon"}
-                src="upload.png"
-                alt="upload"
+                src="https://plataformacine.com/images/user-icon-placeholder-clear.png"
+                alt="upload-profile"
               />
             </div>
             <div className="input-group">
@@ -181,7 +182,7 @@ const RegisterPage = (): JSX.Element => {
           </div>
         </form>
       </StyledForm>
-    </>
+    </StyledRegisterPage>
   );
 };
 export default RegisterPage;

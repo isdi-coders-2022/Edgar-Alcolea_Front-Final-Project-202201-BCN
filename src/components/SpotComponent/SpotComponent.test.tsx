@@ -20,12 +20,16 @@ describe("Given a SpotComponent", () => {
         yCoordinate: 45.751,
         image: "testImg",
       };
-
+      const filterCity = jest.fn();
       render(
         <ThemeProvider theme={pkTheme}>
           <BrowserRouter>
             <Provider store={store}>
-              <SpotComponent spot={spot} mySpots={false} />
+              <SpotComponent
+                spot={spot}
+                mySpots={false}
+                filterCity={filterCity}
+              />
             </Provider>
           </BrowserRouter>
         </ThemeProvider>
