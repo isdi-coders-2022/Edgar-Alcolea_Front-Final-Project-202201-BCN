@@ -19,29 +19,6 @@ const StyledExplorePage = styled.div`
       font-size: 20px;
       user-select: none;
     }
-    .page-title--mobile {
-      text-align: center;
-      color: #2ef051;
-      position: relative;
-      width: fit-content;
-      margin: 0px auto;
-      top: -50px;
-      font-weight: 200;
-      font-size: 20px;
-      user-select: none;
-    }
-    .page-title--details {
-      display: none;
-    }
-
-    .spot-title {
-      color: #fff;
-      text-align: center;
-      font-size: 25px;
-      margin-top: 0px;
-      margin-bottom: 15px;
-    }
-
     .spot-list {
       width: 95%;
       display: flex;
@@ -68,20 +45,6 @@ const StyledExplorePage = styled.div`
       width: fit-content;
       margin: 20px auto;
       user-select: none;
-    }
-    .page-title--mobile {
-      display: none;
-    }
-    .page-title--details {
-      text-align: center;
-      color: #fff;
-      position: relative;
-      width: fit-content;
-      margin: 20px auto;
-      user-select: none;
-    }
-    .spot-title {
-      display: none;
     }
 
     .filter-button {
