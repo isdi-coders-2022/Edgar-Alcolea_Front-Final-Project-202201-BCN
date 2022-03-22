@@ -38,7 +38,6 @@ const StyledRegisterPage = styled.div`
         img {
           object-fit: cover;
           height: 120px;
-          opacity: 0.6;
         }
       }
     }
@@ -79,7 +78,6 @@ const StyledRegisterPage = styled.div`
         img {
           object-fit: cover;
           height: 120px;
-          opacity: 0.6;
         }
       }
     }

@@ -1,12 +1,6 @@
 import styled from "styled-components";
 
 const StyledExplorePage = styled.div`
-  .title-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .spot-list {
     display: flex;
     flex-direction: column;
@@ -14,28 +8,7 @@ const StyledExplorePage = styled.div`
     list-style: none;
     padding: 0px;
   }
-  .not-found-container {
-    margin: 0 auto;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 
-  .not-found-container h1 {
-    text-align: center;
-    color: #fff;
-    width: 548px;
-    height: 60px;
-    left: calc(50% - 548px / 2 - 1px);
-    top: calc(50% - 60px / 2 - 347px);
-    font-style: normal;
-    font-weight: normal;
-    padding: 10px;
-    margin-bottom: 20px;
-    font-size: 40px;
-    line-height: 60px;
-  }
   @media (max-width: 600px) {
     .page-title {
       text-align: center;
