@@ -5,6 +5,7 @@ import { Link, NavigateFunction, useNavigate } from "react-router-dom";
 import StyledForm from "../../components/SpotForm/SpotForm.style";
 import { userLoginThunk } from "../../redux/thunks/usersThunk";
 import { LoginFormInterface } from "../../types/LoginFormInterface";
+import StyledLoginPage from "./StyledLoginPage.style";
 
 const LoginPage = (): JSX.Element => {
   const navigate: NavigateFunction = useNavigate();
@@ -40,7 +41,7 @@ const LoginPage = (): JSX.Element => {
   };
 
   return (
-    <>
+    <StyledLoginPage>
       <div className="title-container">
         <h1 className="login-title">Welcome to PK Spots !</h1>
         <img
@@ -49,7 +50,7 @@ const LoginPage = (): JSX.Element => {
           className="login-image"
         />
       </div>
-      <StyledForm>
+      <StyledForm className="form-container">
         <form noValidate autoComplete="off" onSubmit={handleSubmit}>
           <div className="form">
             <p>You can sign in</p>
@@ -89,7 +90,7 @@ const LoginPage = (): JSX.Element => {
           </div>
         </form>
       </StyledForm>
-    </>
+    </StyledLoginPage>
   );
 };
 export default LoginPage;

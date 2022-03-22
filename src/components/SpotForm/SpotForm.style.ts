@@ -34,7 +34,7 @@ const StyledForm = styled.div`
           margin: 10px 0px;
           color: #70757d;
           font-size: 16px;
-          pointer-events: none;
+
           font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI",
             Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
           -webkit-font-smoothing: antialiased;

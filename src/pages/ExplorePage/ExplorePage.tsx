@@ -6,6 +6,7 @@ import SpotComponent from "../../components/SpotComponent/SpotComponent";
 import { loadSpotsAction } from "../../redux/actions/actionCreators";
 import { useAppSelector } from "../../redux/hooks";
 import { loadSpotsThunk } from "../../redux/thunks/spotsThunks";
+import StyledExplorePage from "./StyledExplorePage.style";
 
 const ExplorePage = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ const ExplorePage = (): JSX.Element => {
     setFiltered(false);
   };
   return (
-    <>
+    <StyledExplorePage>
       <h1 className="page-title">Explore</h1>
 
       {spots.length === 0 && <Loading />}
@@ -52,7 +53,7 @@ const ExplorePage = (): JSX.Element => {
         ))}
         {spots.length > visibleSpots && <Button actionOnClick={loadMore} />}
       </ul>
-    </>
+    </StyledExplorePage>
   );
 };
 

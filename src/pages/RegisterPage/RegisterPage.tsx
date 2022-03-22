@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import StyledForm from "../../components/SpotForm/SpotForm.style";
 import { registerUserThunk } from "../../redux/thunks/usersThunk";
 import { RegisterFormInterface } from "../../types/LoginFormInterface";
+import StyledRegisterPage from "./StyledRegisterPage.style";
 
 const RegisterPage = (): JSX.Element => {
   const navigate = useNavigate();
@@ -67,7 +68,7 @@ const RegisterPage = (): JSX.Element => {
     navigate("/");
   };
   return (
-    <>
+    <StyledRegisterPage>
       <div className="title-container">
         <h1 className="login-title">Welcome to PK Spots !</h1>
         <img
@@ -181,7 +182,7 @@ const RegisterPage = (): JSX.Element => {
           </div>
         </form>
       </StyledForm>
-    </>
+    </StyledRegisterPage>
   );
 };
 export default RegisterPage;
