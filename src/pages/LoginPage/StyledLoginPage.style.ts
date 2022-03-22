@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 const StyledLoginPage = styled.div`
   @media (max-width: 600px) {
+    p {
+      font-size: 18px;
+    }
     .title-container {
       display: flex;
       flex-direction: column;
@@ -33,6 +36,9 @@ const StyledLoginPage = styled.div`
     }
   }
   @media (min-width: 600px) {
+    p {
+      font-size: 18px;
+    }
     .title-container {
       display: flex;
       flex-direction: column;

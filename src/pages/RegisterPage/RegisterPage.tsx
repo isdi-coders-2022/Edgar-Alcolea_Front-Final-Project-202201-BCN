@@ -77,7 +77,7 @@ const RegisterPage = (): JSX.Element => {
           className="register-image"
         />
       </div>
-      <StyledForm>
+      <StyledForm className="form-container">
         <form noValidate autoComplete="off" onSubmit={handleSubmit}>
           <div className="form">
             <div className="file-container file-container--profile">
@@ -92,8 +92,8 @@ const RegisterPage = (): JSX.Element => {
               />
               <img
                 className={imgData.imageDefault ? "hidden" : "upload-icon"}
-                src="upload.png"
-                alt="upload"
+                src="https://plataformacine.com/images/user-icon-placeholder-clear.png"
+                alt="upload-profile"
               />
             </div>
             <div className="input-group">

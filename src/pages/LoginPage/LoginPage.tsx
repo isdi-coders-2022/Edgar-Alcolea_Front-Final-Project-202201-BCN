@@ -83,10 +83,12 @@ const LoginPage = (): JSX.Element => {
                 Login
               </button>
             </div>
-            <p>Or create an account</p>
-            <Link className={"link"} to={"/register"}>
-              here
-            </Link>
+            <p>
+              Or create an account{" "}
+              <Link className={"link"} to={"/register"}>
+                here
+              </Link>
+            </p>
           </div>
         </form>
       </StyledForm>
