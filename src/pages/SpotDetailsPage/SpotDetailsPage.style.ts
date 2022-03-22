@@ -46,16 +46,17 @@ const StyledDetailsContainer = styled.div`
     .image-container {
       display: flex;
       justify-content: center;
+      img {
+        width: 95%;
+        height: 300px;
+        border-radius: ${(props) => props.theme.borderRadius};
+        object-fit: cover;
+      }
     }
     .profile-info {
       padding: 0px;
     }
-    img {
-      width: 95%;
-      height: 300px;
-      border-radius: ${(props) => props.theme.borderRadius};
-      object-fit: cover;
-    }
+
     span {
       color: ${(props) => props.theme.colors.primary};
       margin-right: 5px;
@@ -63,6 +64,13 @@ const StyledDetailsContainer = styled.div`
     .profile-details {
       margin-top: 0px;
       margin-left: 10px;
+    }
+    .profile-details--mobile {
+      margin-top: 0px;
+      margin-left: 10px;
+    }
+    .profile-details--desktop {
+      display: none;
     }
     .profile-details--description {
       margin-top: 15px;
@@ -82,20 +90,17 @@ const StyledDetailsContainer = styled.div`
     }
   }
   @media (min-width: 600px) {
+    margin: 0 auto;
     background-color: ${(props) => props.theme.colors.secondary};
     border-radius: ${(props) => props.theme.borderRadius};
-    margin: 0 auto;
     color: ${(props) => props.theme.colors.white};
-    width: 85%;
+    width: 95%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
     flex-direction: column;
+    padding: 20px;
     button {
-      margin-left: auto;
+      width: 50%;
       margin-right: 20px;
       transition: all 0.5s;
       font-family: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -117,19 +122,37 @@ const StyledDetailsContainer = styled.div`
       }
       .image-container {
         display: flex;
-        align-items: center;
-        p {
-          color: ${(props) => props.theme.colors.primary};
-          font-size: 24px;
-          margin-left: 20px;
-        }
+        justify-content: center;
+        width: 90%;
       }
     }
     .profile-info {
       padding: 0px 20px 20px 20px;
+      .times-marked {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 50px;
+        color: #fff;
+        margin-left: 10px;
+        .profile-details--desktop {
+          margin-right: auto;
+        }
+        p {
+          font-size: 18px;
+          margin-left: 5px;
+        }
+      }
+      .profile-details--mobile {
+        display: none;
+      }
+      .profile-details--description {
+        display: none;
+      }
     }
     img {
-      width: 60vw;
+      width: 100%;
       height: 300px;
       border-radius: ${(props) => props.theme.borderRadius};
       object-fit: cover;

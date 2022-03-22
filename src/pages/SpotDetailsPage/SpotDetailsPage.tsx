@@ -57,6 +57,10 @@ const SpotDetailsPage = (): JSX.Element => {
               {spotDetails.description}
             </p>
             <div className="times-marked">
+              <p className="profile-details--desktop">
+                <span>Discovered by: </span>
+                {spotDetails.createdBy.username}
+              </p>
               <span>Marked: </span>
               <svg
                 width="26"
@@ -73,7 +77,10 @@ const SpotDetailsPage = (): JSX.Element => {
               </svg>
               <p>{`x ${spotDetails.marked}`}</p>
             </div>
-            <p className="profile-details">
+            <p className="profile-details--description--desktop">
+              {spotDetails.description}
+            </p>
+            <p className="profile-details--mobile">
               <span>Discovered by: </span>
               {spotDetails.createdBy.username}
             </p>
