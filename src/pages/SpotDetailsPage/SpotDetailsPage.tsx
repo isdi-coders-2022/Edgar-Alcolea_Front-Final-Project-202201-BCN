@@ -38,8 +38,6 @@ const SpotDetailsPage = (): JSX.Element => {
     fetchData();
   }, [id]);
 
-  debugger;
-
   return (
     <>
       <h1 className="page-title--mobile">Spot Discovered</h1>
