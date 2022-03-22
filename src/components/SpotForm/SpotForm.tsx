@@ -2,7 +2,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
-import { createSpotThunk } from "../../redux/thunks/spotsThunks";
+import {
+  createSpotThunk,
+  updateSpotThunk,
+} from "../../redux/thunks/spotsThunks";
 import SpotFormInterface from "../../types/SpotFormInterface";
 import { SpotInterface } from "../../types/SpotInterface";
 import StyledForm from "./SpotForm.style";
@@ -42,6 +45,7 @@ const SpotForm = ({ spotDetails, isEdit }: SpotFormProps): JSX.Element => {
       coordinates: `${spotDetails.xCoordinate}, ${spotDetails.yCoordinate}`,
       location: spotDetails.location,
       image: null,
+      id: spotDetails.id,
     };
   }
   const imageUrl: any = {
@@ -82,12 +86,22 @@ const SpotForm = ({ spotDetails, isEdit }: SpotFormProps): JSX.Element => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     dispatch(createSpotThunk(formData));
-    setTimeout(() => navigate("/explore"), 2000);
+    setTimeout(() => navigate("/"), 2000);
+  };
+
+  const handleEditSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    dispatch(updateSpotThunk(formData));
+    setTimeout(() => navigate("/"), 2000);
   };
 
   return (
     <StyledForm>
-      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+      <form
+        noValidate
+        autoComplete="off"
+        onSubmit={isEdit ? handleEditSubmit : handleSubmit}
+      >
         <div className="form">
           <div className="file-container">
             <label htmlFor="file" className="image-label">
