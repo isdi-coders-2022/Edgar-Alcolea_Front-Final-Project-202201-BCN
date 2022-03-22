@@ -6,6 +6,7 @@ import SpotComponent from "../../components/SpotComponent/SpotComponent";
 import { loadSpotsAction } from "../../redux/actions/actionCreators";
 import { useAppSelector } from "../../redux/hooks";
 import { getUserSpotsThunk } from "../../redux/thunks/usersThunk";
+import StyledMySpotsPage from "./StyledMySpotsPage.style";
 
 const MySpotsPage = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const MySpotsPage = (): JSX.Element => {
   };
 
   return (
-    <>
+    <StyledMySpotsPage>
       <h1 className="page-title">My Spots</h1>
       {spots.length === 0 && <Loading />}
       <ul className="spot-list">
@@ -53,7 +54,7 @@ const MySpotsPage = (): JSX.Element => {
         ))}
         {spots.length > visibleSpots && <Button actionOnClick={loadMore} />}
       </ul>
-    </>
+    </StyledMySpotsPage>
   );
 };
 export default MySpotsPage;

@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-const StyledExplorePage = styled.div`
+const StyledMySpotsPage = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 100%;
   margin: 0px;
-
   @media (max-width: 600px) {
     .page-title {
       text-align: center;
@@ -106,4 +105,4 @@ const StyledExplorePage = styled.div`
     }
   }
 `;
-export default StyledExplorePage;
+export default StyledMySpotsPage;
