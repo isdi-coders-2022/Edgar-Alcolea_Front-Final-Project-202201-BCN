@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-const handlers = [
+export const handlers = [
   rest.get(`${process.env.REACT_APP_API_URL}spots`, (req, res, ctx) =>
     res(
       ctx.status(200),
@@ -77,4 +77,21 @@ const handlers = [
   ),
 ];
 
-export default handlers;
+export const errorHandlers = [
+  rest.post(`${process.env.REACT_APP_API_URL}spots/new`, (req, res, ctx) =>
+    res(
+      ctx.status(403),
+      ctx.json({
+        error: "Couldn't create spot",
+      })
+    )
+  ),
+  rest.put(`${process.env.REACT_APP_API_URL}spots/123456`, (req, res, ctx) =>
+    res(
+      ctx.status(403),
+      ctx.json({
+        error: "Couldn't update spot",
+      })
+    )
+  ),
+];

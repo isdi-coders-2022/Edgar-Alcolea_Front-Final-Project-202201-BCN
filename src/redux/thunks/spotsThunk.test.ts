@@ -1,3 +1,5 @@
+import { errorHandlers } from "../../mocks/handlers";
+import server from "../../mocks/server";
 import {
   CreateSpotActionInterface,
   DeleteSpotActionInterface,
@@ -119,6 +121,28 @@ describe("Given a createSpotThunk function", () => {
       expect(dispatch).toHaveBeenCalledWith(expectedAction);
     });
   });
+
+  describe("When the response it's an error", () => {
+    test("Then it shouldn't call dispatch", async () => {
+      const dispatch = jest.fn();
+      const getState = jest.fn();
+      const file: any = new File(["hello"], "hello.png", { type: "image/png" });
+      server.use(...errorHandlers);
+      const createdSpot: SpotFormInterface = {
+        name: "Test Place",
+        description: "A place that exists just for the purpose of testing.",
+        location: "The mind",
+        coordinates: "24.215,45.751",
+        image: file,
+        createdBy: "62274dd6fb4746a872d98b8d",
+      };
+
+      const thunkFunction = createSpotThunk(createdSpot);
+      await thunkFunction(dispatch, getState, undefined);
+
+      expect(dispatch).not.toHaveBeenCalled();
+    });
+  });
 });
 
 describe("Given an updateSpotThunk function", () => {
@@ -155,6 +179,28 @@ describe("Given an updateSpotThunk function", () => {
       await thunkFunction(dispatch, getState, undefined);
 
       expect(dispatch).toHaveBeenCalledWith(expectedAction);
+    });
+  });
+
+  describe("When the response it's an error", () => {
+    test("Then it shouldn't call dispatch", async () => {
+      const dispatch = jest.fn();
+      const getState = jest.fn();
+      const file: any = new File(["hello"], "hello.png", { type: "image/png" });
+      server.use(...errorHandlers);
+      const updatedSpot: SpotFormInterface = {
+        id: "123456",
+        name: "Updated Spot",
+        description: "A place that exists just for the purpose of testing.",
+        location: "The mind",
+        coordinates: "24.215,45.751",
+        image: file,
+      };
+
+      const thunkFunction = updateSpotThunk(updatedSpot);
+      await thunkFunction(dispatch, getState, undefined);
+
+      expect(dispatch).not.toHaveBeenCalled();
     });
   });
 });

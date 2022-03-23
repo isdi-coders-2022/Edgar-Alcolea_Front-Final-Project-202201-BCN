@@ -87,7 +87,6 @@ export const updateSpotThunk =
     data.append("yCoordinate", coordinates[1]);
     data.append("image", spot.image as Blob);
     const token = localStorage.getItem("token");
-
     const response: Response = await fetch(
       `${process.env.REACT_APP_API_URL}spots/${spot.id}`,
       {
