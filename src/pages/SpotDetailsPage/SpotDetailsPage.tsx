@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SpotForm from "../../components/SpotForm/SpotForm";
 import { SpotInterface } from "../../types/SpotInterface";
-import StyledDetailsContainer from "./SpotDetailsPage.style";
+import StyledDetailsContainer from "./StyledDetailsContainer.style";
 
 const SpotDetailsPage = (): JSX.Element => {
   const { id } = useParams();

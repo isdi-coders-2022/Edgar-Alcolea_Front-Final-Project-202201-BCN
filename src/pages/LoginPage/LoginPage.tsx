@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { Link, NavigateFunction, useNavigate } from "react-router-dom";
-import StyledForm from "../../components/SpotForm/SpotForm.style";
+import StyledForm from "../../components/SpotForm/StyledForm.style";
 import { userLoginThunk } from "../../redux/thunks/usersThunk";
 import { LoginFormInterface } from "../../types/LoginFormInterface";
 import StyledLoginPage from "./StyledLoginPage.style";

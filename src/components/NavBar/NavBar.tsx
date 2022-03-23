@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import Burger from "../Burger/Burger";
-import Profile from "../Profile/ProfileComponent";
+import Profile from "../Profile/Profile";
 import SideMenu from "../SideMenu/SideMenu";
 import NavBarStyled from "./NavBarStyled.style";
 
