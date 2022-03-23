@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import StyledForm from "../../components/SpotForm/SpotForm.style";
+import StyledForm from "../../components/SpotForm/StyledForm.style";
 import { registerUserThunk } from "../../redux/thunks/usersThunk";
 import { RegisterFormInterface } from "../../types/LoginFormInterface";
 import StyledRegisterPage from "./StyledRegisterPage.style";
@@ -53,12 +53,12 @@ const RegisterPage = (): JSX.Element => {
     const reader = new FileReader();
     reader.onload = async () => {
       if (reader.readyState === 2) {
-        await setImgData({ ...imgData, imageDefault: reader.result });
+        setImgData({ ...imgData, imageDefault: reader.result });
       }
     };
 
     if (imageFileData[0]) {
-      await reader.readAsDataURL(imageFileData[0]);
+      reader.readAsDataURL(imageFileData[0]);
     }
   };
 

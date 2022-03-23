@@ -8,7 +8,7 @@ import {
 } from "../../redux/thunks/spotsThunks";
 import SpotFormInterface from "../../types/SpotFormInterface";
 import { SpotInterface } from "../../types/SpotInterface";
-import StyledForm from "./SpotForm.style";
+import StyledForm from "./StyledForm.style";
 
 interface SpotFormProps {
   spotDetails: SpotInterface;
@@ -20,14 +20,7 @@ const SpotForm = ({ spotDetails, isEdit }: SpotFormProps): JSX.Element => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  let blankForm: SpotFormInterface = {
-    name: "",
-    description: "",
-    coordinates: "",
-    location: "",
-    image: null,
-    createdBy: id,
-  };
+  let blankForm: SpotFormInterface;
 
   if (!isEdit) {
     blankForm = {
@@ -74,12 +67,12 @@ const SpotForm = ({ spotDetails, isEdit }: SpotFormProps): JSX.Element => {
     const reader = new FileReader();
     reader.onload = async () => {
       if (reader.readyState === 2) {
-        await setImgData({ ...imgData, imageDefault: reader.result });
+        setImgData({ ...imgData, imageDefault: reader.result });
       }
     };
 
     if (imageFileData[0]) {
-      await reader.readAsDataURL(imageFileData[0]);
+      reader.readAsDataURL(imageFileData[0]);
     }
   };
 
