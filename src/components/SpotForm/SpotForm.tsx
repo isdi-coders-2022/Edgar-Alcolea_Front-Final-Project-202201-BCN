@@ -96,7 +96,7 @@ const SpotForm = ({ spotDetails, isEdit }: SpotFormProps): JSX.Element => {
   };
 
   return (
-    <StyledForm>
+    <StyledForm className="details-form-container">
       <form
         noValidate
         autoComplete="off"
