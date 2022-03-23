@@ -75,6 +75,36 @@ export const handlers = [
       })
     )
   ),
+  rest.post(`${process.env.REACT_APP_API_URL}users/login`, (req, res, ctx) =>
+    res(
+      ctx.status(201),
+      ctx.json({
+        token:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlc3RNYW4iLCJpZCI6IjYyMzVmN2E2MDI5ZDA5NDEzY2M4OTU4MSIsImltYWdlIjoibnVsbCIsImFkbWluIjpmYWxzZSwiaWF0IjoxNjQ4MDQwMTU0fQ.DYudqUqtg2V-Lx8m5Jduwyn4547FwZ6PtQ4b477GKVc",
+      })
+    )
+  ),
+  rest.get(`${process.env.REACT_APP_API_URL}users/123`, (req, res, ctx) =>
+    res(
+      ctx.status(201),
+      ctx.json({
+        name: "TestEd",
+        username: "TestMan",
+        password:
+          "$2b$10$sBwzgvsUJiK/RU5zVVY8qOV257N/xtWepDi6R/MBxzUIp23QDrfy.",
+        age: 99,
+        bio: "I exist for the purpose of testing.",
+        city: "TestTown",
+        image: "null",
+        createdSpots: [],
+        admin: false,
+        id: "6235f7a6029d09413cc89581",
+      })
+    )
+  ),
+  rest.post(`${process.env.REACT_APP_API_URL}users/register`, (req, res, ctx) =>
+    res(ctx.status(201), ctx.json({}))
+  ),
 ];
 
 export const errorHandlers = [
@@ -91,6 +121,24 @@ export const errorHandlers = [
       ctx.status(403),
       ctx.json({
         error: "Couldn't update spot",
+      })
+    )
+  ),
+  rest.post(`${process.env.REACT_APP_API_URL}users/login`, (req, res, ctx) =>
+    res(
+      ctx.status(401),
+      ctx.json({
+        error: true,
+        message: "Invalid password",
+      })
+    )
+  ),
+  rest.post(`${process.env.REACT_APP_API_URL}users/register`, (req, res, ctx) =>
+    res(
+      ctx.status(400),
+      ctx.json({
+        error: true,
+        message: "This username already exists",
       })
     )
   ),
