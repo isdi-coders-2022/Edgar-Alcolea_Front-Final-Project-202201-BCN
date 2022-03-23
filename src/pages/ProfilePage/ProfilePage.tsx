@@ -41,7 +41,7 @@ const ProfilePage = (): JSX.Element => {
     }
     fetchData();
   }, [id]);
-
+  debugger;
   return (
     <StyledProfilePage>
       <h1 className="page-title">
