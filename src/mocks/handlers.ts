@@ -105,6 +105,9 @@ export const handlers = [
   rest.post(`${process.env.REACT_APP_API_URL}users/register`, (req, res, ctx) =>
     res(ctx.status(201), ctx.json({}))
   ),
+  rest.get(`${process.env.REACT_APP_API_URL}users`, (req, res, ctx) =>
+    res(ctx.status(200), ctx.json({}))
+  ),
 ];
 
 export const errorHandlers = [
