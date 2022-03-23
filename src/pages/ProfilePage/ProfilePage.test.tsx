@@ -10,16 +10,16 @@ import ProfilePage from "./ProfilePage";
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useParams: () => ({
-    id: "62347d6cb5e8fa041f7c1a46",
+    id: "12345",
   }),
   useRouteMatch: () => ({
-    url: "/profile/62347d6cb5e8fa041f7c1a46",
+    url: "/profile/12345",
   }),
 }));
 
 const user = {
   username: "Laulhus",
-  id: "62347d6cb5e8fa041f7c1a46",
+  id: "12345",
   image:
     "https://firebasestorage.googleapis.com/v0/b/pk-spots-68866.appspot.com/o/uploads%5Cfotoed.jpg?alt=media&token=878c1561-c1f7-4f5a-a354-4947553e0def",
   admin: true,

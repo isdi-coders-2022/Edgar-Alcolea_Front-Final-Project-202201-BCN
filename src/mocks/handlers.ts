@@ -102,10 +102,32 @@ export const handlers = [
       })
     )
   ),
+  rest.get(`${process.env.REACT_APP_API_URL}users/12345`, (req, res, ctx) =>
+    res(
+      ctx.status(201),
+      ctx.json({
+        name: "Laulhus",
+        username: "Laulhus",
+        password:
+          "$2b$10$sBwzgvsUJiK/RU5zVVY8qOV257N/xtWepDi6R/MBxzUIp23QDrfy.",
+        age: 99,
+        bio: "I exist for the purpose of testing.",
+        city: "TestTown",
+        image:
+          "https://firebasestorage.googleapis.com/v0/b/pk-spots-68866.appspot.com/o/uploads%5Cfotoed.jpg?alt=media&token=878c1561-c1f7-4f5a-a354-4947553e0def",
+        createdSpots: [],
+        admin: false,
+        id: "6235f7a6029d09413cc89581",
+      })
+    )
+  ),
   rest.post(`${process.env.REACT_APP_API_URL}users/register`, (req, res, ctx) =>
     res(ctx.status(201), ctx.json({}))
   ),
   rest.get(`${process.env.REACT_APP_API_URL}users`, (req, res, ctx) =>
+    res(ctx.status(200), ctx.json({}))
+  ),
+  rest.get(`${process.env.REACT_APP_API_URL}spots/123`, (req, res, ctx) =>
     res(ctx.status(200), ctx.json({}))
   ),
 ];

@@ -10,10 +10,10 @@ import SpotDetailsPage from "./SpotDetailsPage";
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useParams: () => ({
-    id: "6235cdb32aa433fde158be71",
+    id: "123",
   }),
   useRouteMatch: () => ({
-    url: "/spots/6235cdb32aa433fde158be71",
+    url: "/spots/123",
   }),
 }));
 
