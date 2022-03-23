@@ -67,6 +67,7 @@ const RegisterPage = (): JSX.Element => {
     dispatch(registerUserThunk(formData));
     navigate("/");
   };
+
   return (
     <StyledRegisterPage>
       <div className="title-container">

@@ -24,6 +24,7 @@ const ProfilePage = (): JSX.Element => {
   const [userDetails, setUserDetails] = useState<UserInterface>(blankUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleClick = () => {
     localStorage.removeItem("token");
     dispatch(logoutUserAction());

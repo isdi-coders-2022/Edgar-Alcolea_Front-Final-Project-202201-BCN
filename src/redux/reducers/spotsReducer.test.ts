@@ -190,6 +190,18 @@ describe("Given a spotsReducer function", () => {
           yCoordinate: 45.751,
           image: "testImg",
         },
+        {
+          id: "test2",
+          name: "Tempest Freerunning Academy",
+          marked: 100,
+          description:
+            "Indoor facility with crazy props and themed spots, training programs and gym.",
+          createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
+          location: "Next to L.A.X airport",
+          xCoordinate: 24.215,
+          yCoordinate: 45.751,
+          image: "testImg",
+        },
       ];
       const spot = {
         id: "test1",
@@ -210,6 +222,18 @@ describe("Given a spotsReducer function", () => {
           description: "A place that exists just for the purpose of testing.",
           createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
           location: "The mind",
+          xCoordinate: 24.215,
+          yCoordinate: 45.751,
+          image: "testImg",
+        },
+        {
+          id: "test2",
+          name: "Tempest Freerunning Academy",
+          marked: 100,
+          description:
+            "Indoor facility with crazy props and themed spots, training programs and gym.",
+          createdBy: { id: "62274dd6fb4746a872d98b8d", username: "testMan" },
+          location: "Next to L.A.X airport",
           xCoordinate: 24.215,
           yCoordinate: 45.751,
           image: "testImg",

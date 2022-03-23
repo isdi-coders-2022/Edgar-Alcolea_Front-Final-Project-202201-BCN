@@ -4,6 +4,9 @@ const StyledDetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  .details-form-container {
+    margin-top: 20px;
+  }
   @media (max-width: 600px) {
     .page-title--mobile {
       text-align: center;

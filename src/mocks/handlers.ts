@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-const handlers = [
+export const handlers = [
   rest.get(`${process.env.REACT_APP_API_URL}spots`, (req, res, ctx) =>
     res(
       ctx.status(200),
@@ -75,6 +75,96 @@ const handlers = [
       })
     )
   ),
+  rest.post(`${process.env.REACT_APP_API_URL}users/login`, (req, res, ctx) =>
+    res(
+      ctx.status(201),
+      ctx.json({
+        token:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlc3RNYW4iLCJpZCI6IjYyMzVmN2E2MDI5ZDA5NDEzY2M4OTU4MSIsImltYWdlIjoibnVsbCIsImFkbWluIjpmYWxzZSwiaWF0IjoxNjQ4MDQwMTU0fQ.DYudqUqtg2V-Lx8m5Jduwyn4547FwZ6PtQ4b477GKVc",
+      })
+    )
+  ),
+  rest.get(`${process.env.REACT_APP_API_URL}users/123`, (req, res, ctx) =>
+    res(
+      ctx.status(201),
+      ctx.json({
+        name: "TestEd",
+        username: "TestMan",
+        password:
+          "$2b$10$sBwzgvsUJiK/RU5zVVY8qOV257N/xtWepDi6R/MBxzUIp23QDrfy.",
+        age: 99,
+        bio: "I exist for the purpose of testing.",
+        city: "TestTown",
+        image: "null",
+        createdSpots: [],
+        admin: false,
+        id: "6235f7a6029d09413cc89581",
+      })
+    )
+  ),
+  rest.get(`${process.env.REACT_APP_API_URL}users/12345`, (req, res, ctx) =>
+    res(
+      ctx.status(201),
+      ctx.json({
+        name: "Laulhus",
+        username: "Laulhus",
+        password:
+          "$2b$10$sBwzgvsUJiK/RU5zVVY8qOV257N/xtWepDi6R/MBxzUIp23QDrfy.",
+        age: 99,
+        bio: "I exist for the purpose of testing.",
+        city: "TestTown",
+        image:
+          "https://firebasestorage.googleapis.com/v0/b/pk-spots-68866.appspot.com/o/uploads%5Cfotoed.jpg?alt=media&token=878c1561-c1f7-4f5a-a354-4947553e0def",
+        createdSpots: [],
+        admin: false,
+        id: "6235f7a6029d09413cc89581",
+      })
+    )
+  ),
+  rest.post(`${process.env.REACT_APP_API_URL}users/register`, (req, res, ctx) =>
+    res(ctx.status(201), ctx.json({}))
+  ),
+  rest.get(`${process.env.REACT_APP_API_URL}users`, (req, res, ctx) =>
+    res(ctx.status(200), ctx.json({}))
+  ),
+  rest.get(`${process.env.REACT_APP_API_URL}spots/123`, (req, res, ctx) =>
+    res(ctx.status(200), ctx.json({}))
+  ),
 ];
 
-export default handlers;
+export const errorHandlers = [
+  rest.post(`${process.env.REACT_APP_API_URL}spots/new`, (req, res, ctx) =>
+    res(
+      ctx.status(403),
+      ctx.json({
+        error: "Couldn't create spot",
+      })
+    )
+  ),
+  rest.put(`${process.env.REACT_APP_API_URL}spots/123456`, (req, res, ctx) =>
+    res(
+      ctx.status(403),
+      ctx.json({
+        error: "Couldn't update spot",
+      })
+    )
+  ),
+  rest.post(`${process.env.REACT_APP_API_URL}users/login`, (req, res, ctx) =>
+    res(
+      ctx.status(401),
+      ctx.json({
+        error: true,
+        message: "Invalid password",
+      })
+    )
+  ),
+  rest.post(`${process.env.REACT_APP_API_URL}users/register`, (req, res, ctx) =>
+    res(
+      ctx.status(400),
+      ctx.json({
+        error: true,
+        message: "This username already exists",
+      })
+    )
+  ),
+];
