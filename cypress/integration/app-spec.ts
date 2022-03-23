@@ -2,20 +2,24 @@
 /// <reference types="cypress" />
 
 describe("App", function () {
-  beforeEach(function () {
-    cy.visit("/login");
+  this.beforeAll(function () {
+    cy.visit("/");
   });
 
-  it("renders the app should find h2 with login", function () {
-    cy.get("h2").should("contain", "Log in");
+  it("Renders the app and finds h1 with Welcome to PK Spots !", function () {
+    cy.get("h1").should("contain", "Welcome to PK Spots !");
   });
 
-  it("should find the 1st input and type kevin", function () {
-    cy.get("input").first().type("kevin").should("have.value", "kevin");
+  it("Should find the username input and type TestMan", function () {
+    cy.get("input").first().type("TestMan").should("have.value", "TestMan");
   });
 
-  it("should find the 2md input and type kevin", function () {
-    cy.get("input").last().type("kevin").should("have.value", "kevin");
+  it("Should find the password input and type testpass", function () {
+    cy.get("input").last().type("testpass").should("have.value", "testpass");
+  });
+
+  it("Should find the Login button and click it", function () {
+    cy.get("button").click();
   });
 });
 
