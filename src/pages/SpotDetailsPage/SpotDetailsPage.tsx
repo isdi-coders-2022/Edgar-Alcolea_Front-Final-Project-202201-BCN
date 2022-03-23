@@ -44,7 +44,9 @@ const SpotDetailsPage = (): JSX.Element => {
         <StyledDetailsContainer>
           <h1 className="page-title--mobile">Spot Discovered</h1>
           <h1 className="page-title--details">{spotDetails.name}</h1>
-          <p className="spot-title">{spotDetails.name}</p>
+          <p title="spot-title" className="spot-title">
+            {spotDetails.name}
+          </p>
           <div className="details-container">
             <div className="image-container">
               <img
