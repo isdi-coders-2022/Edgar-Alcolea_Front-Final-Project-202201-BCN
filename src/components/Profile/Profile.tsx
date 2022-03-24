@@ -10,6 +10,7 @@ const StyledProfile = styled.div`
     transition: all 0.2s;
     img {
       width: 40px;
+      height: 40px;
       border-radius: 50%;
     }
     .navigation__profile__signed,

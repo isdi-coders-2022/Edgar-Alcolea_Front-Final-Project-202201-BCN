@@ -52,7 +52,7 @@ const SpotStyled = styled.li`
   }
 
   .spot-image {
-    width: inherit;
+    width: 300px;
     height: 178px;
     object-fit: cover;
     border-radius: 15px;
