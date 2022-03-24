@@ -37,9 +37,15 @@ npm run coverage
 ## Endpoints
 
 / ----------------- Explore ---------- Spot list
+
 /my-spots --------- My Spots --------- Spots created by the user
+
 /spot-discovered -- Spot Discovered -- Create spot
+
 /profile/:id ------ User Profile ----- Shows the given id's user profile
+
 /spots/:id -------- Spot Details ----- Shows the given id's spot details
+
 /login ------------ Login ------------ Login existing user
+
 /register --------- Register --------- New user
