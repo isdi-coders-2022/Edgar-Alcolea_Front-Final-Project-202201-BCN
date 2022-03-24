@@ -77,7 +77,7 @@ export const createSpotThunk =
 export const updateSpotThunk =
   (spot: SpotFormInterface): AppThunk =>
   async (dispatch: AppDispatch): Promise<void> => {
-    const createToast = toast.loading("Updating...🔨");
+    const updateToast = toast.loading("Updating...🔨");
     const coordinates = spot.coordinates.split(", ");
     const data = new FormData();
     data.append("name", spot.name);
@@ -98,14 +98,14 @@ export const updateSpotThunk =
       }
     );
     if (response.ok) {
-      const updatedSpot = await response.json();
-      dispatch(updateSpotAction(updatedSpot));
-      toast.update(createToast, {
+      toast.update(updateToast, {
         render: "Spot updated!",
         isLoading: false,
         type: "success",
         theme: "dark",
         autoClose: 1500,
       });
+      const updatedSpot = await response.json();
+      dispatch(updateSpotAction(updatedSpot));
     }
   };

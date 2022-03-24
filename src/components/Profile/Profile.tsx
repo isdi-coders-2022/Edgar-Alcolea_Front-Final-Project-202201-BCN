@@ -9,8 +9,9 @@ const StyledProfile = styled.div`
     padding: 0px 30px 0px 20px;
     transition: all 0.2s;
     img {
-      width: 40px;
-      height: 40px;
+      object-fit: cover;
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
     }
     .navigation__profile__signed,
@@ -25,7 +26,9 @@ const StyledProfile = styled.div`
     padding: 0px 30px 0px 20px;
     transition: all 0.2s;
     img {
-      width: 40px;
+      object-fit: cover;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
     }
 

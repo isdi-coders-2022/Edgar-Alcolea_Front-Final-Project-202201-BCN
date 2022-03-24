@@ -63,6 +63,7 @@ const StyledProfilePage = styled.div`
       padding: 20px;
     }
     img {
+      object-fit: cover;
       width: 150px;
       height: 150px;
       border-radius: 50%;
@@ -133,6 +134,7 @@ const StyledProfilePage = styled.div`
       padding: 20px;
     }
     img {
+      object-fit: cover;
       width: 150px;
       height: 150px;
       border-radius: 50%;
